@@ -22,5 +22,16 @@ namespace Desktop
 
 
         }
+
+        private void FormActividades_Load(object sender, EventArgs e)
+        {
+            String mensaje = "";
+            bindingSourceAceptadas.DataSource =
+                ORM.ORMActividadesConcedidas.SelectActvConcedidas(ref mensaje);
+
+            //dataGridView1.Rows[0].Cells["DeclaredBy"].Value = "changed test value";
+
+            dataGridViewAceptadas.Rows[0].Cells[2].Value = 22;
+        }
     }
 }
