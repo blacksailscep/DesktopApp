@@ -20,6 +20,7 @@ namespace Desktop
         private void tabControlActividades_TabIndexChanged(object sender, EventArgs e)
         {
 
+
         }
     }
 }
