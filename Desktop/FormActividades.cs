@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Desktop
 {
-    public partial class Form1 : Form
+    public partial class FormActividades : Form
     {
-        public Form1()
+        public FormActividades()
         {
             InitializeComponent();
+        }
+
+        private void tabControlActividades_TabIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
