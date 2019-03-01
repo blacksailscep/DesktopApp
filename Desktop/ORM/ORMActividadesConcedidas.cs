@@ -10,18 +10,28 @@ namespace Desktop.ORM
 {
     class ORMActividadesConcedidas
     {
-        public static List<Act_concedida> SelectActvConcedidas(ref String mensaje)
+        public static List<Object> SelectActvConcedidas(ref String mensaje)
         {
-            List<Act_concedida> lstActividades = null;
 
+            List<Object> actividades = null;
             try
             {
-                lstActividades =
-                (
-                    from p in ORM.bd.Act_concedida
-                    orderby p.nombre
-                    select p
-                ).ToList();
+
+                var result =(from a in ORM.bd.Act_concedida
+                                 join b in ORM.bd.Tipo_Act on a.id_tipo equals b.id
+                                 join e in ORM.bd.Espacio on a.id_espacio equals e.id
+                                 join eq in ORM.bd.Equipo on a.id_equipo equals eq.id
+                                 select new
+                                 {
+                                     nombre = a.nombre,
+                                     tipo = b.nombre,
+                                     espacio = e.nombre,
+                                     equipo = eq.nombre
+                                 });
+
+                IEnumerable<Object> i = result;
+                actividades = i.ToList();
+                
             }
             catch (DbUpdateException ex)
             {
@@ -30,7 +40,7 @@ namespace Desktop.ORM
             }
 
 
-            return lstActividades;
+            return actividades;
         }
     }
 }

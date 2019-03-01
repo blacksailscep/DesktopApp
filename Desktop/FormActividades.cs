@@ -15,23 +15,39 @@ namespace Desktop
         public FormActividades()
         {
             InitializeComponent();
+            tabControlActividades.SelectedIndexChanged += 
+                new EventHandler(tabControlActividades_TabIndexChanged);
         }
 
         private void tabControlActividades_TabIndexChanged(object sender, EventArgs e)
         {
+            int index = tabControlActividades.SelectedIndex;
+            String mensaje = "";
+            if (index==0)
+            {                
+                bindingSourceAceptadas.DataSource =
+                    ORM.ORMActividadesConcedidas.SelectActvConcedidas(ref mensaje);
+            }
+            else if(index == 1)
+            {
+                bindingSourcePendientes.DataSource =
+                    ORM.ORMAcividadesPendientes.SelectActvPendientes(ref mensaje);
+            }
+
+
+            if (!mensaje.Equals(""))
+                MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
 
         }
-
         private void FormActividades_Load(object sender, EventArgs e)
         {
             String mensaje = "";
             bindingSourceAceptadas.DataSource =
                 ORM.ORMActividadesConcedidas.SelectActvConcedidas(ref mensaje);
 
-            //dataGridView1.Rows[0].Cells["DeclaredBy"].Value = "changed test value";
-
-            dataGridViewAceptadas.Rows[0].Cells[2].Value = 22;
         }
+        
     }
 }

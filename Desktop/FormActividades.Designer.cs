@@ -30,35 +30,37 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabControlActividades = new System.Windows.Forms.TabControl();
-            this.tabPageActividades = new System.Windows.Forms.TabPage();
+            this.tabPageAceptadas = new System.Windows.Forms.TabPage();
             this.dataGridViewAceptadas = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceAceptadas = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPagePendientes = new System.Windows.Forms.TabPage();
+            this.dataGridViewPendientes = new System.Windows.Forms.DataGridView();
+            this.NombreActividadPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipoActividadPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EspacioActPen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoActPen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourcePendientes = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageDenegadas = new System.Windows.Forms.TabPage();
             this.buttonGenerarInforme = new System.Windows.Forms.Button();
             this.buttonGestionar = new System.Windows.Forms.Button();
-            this.bindingSourceAceptadas = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idtipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idequipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idactdemandadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idespacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actdemandadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoActDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horarioActConDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlActividades.SuspendLayout();
-            this.tabPageActividades.SuspendLayout();
+            this.tabPageAceptadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAceptadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAceptadas)).BeginInit();
+            this.tabPagePendientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlActividades
             // 
-            this.tabControlActividades.Controls.Add(this.tabPageActividades);
-            this.tabControlActividades.Controls.Add(this.tabPage2);
-            this.tabControlActividades.Controls.Add(this.tabPage3);
+            this.tabControlActividades.Controls.Add(this.tabPageAceptadas);
+            this.tabControlActividades.Controls.Add(this.tabPagePendientes);
+            this.tabControlActividades.Controls.Add(this.tabPageDenegadas);
             this.tabControlActividades.Location = new System.Drawing.Point(47, 110);
             this.tabControlActividades.Name = "tabControlActividades";
             this.tabControlActividades.SelectedIndex = 0;
@@ -66,62 +68,134 @@
             this.tabControlActividades.TabIndex = 0;
             this.tabControlActividades.TabIndexChanged += new System.EventHandler(this.tabControlActividades_TabIndexChanged);
             // 
-            // tabPageActividades
+            // tabPageAceptadas
             // 
-            this.tabPageActividades.Controls.Add(this.dataGridViewAceptadas);
-            this.tabPageActividades.Location = new System.Drawing.Point(4, 22);
-            this.tabPageActividades.Name = "tabPageActividades";
-            this.tabPageActividades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageActividades.Size = new System.Drawing.Size(554, 234);
-            this.tabPageActividades.TabIndex = 0;
-            this.tabPageActividades.Text = "Aceptadas";
-            this.tabPageActividades.UseVisualStyleBackColor = true;
+            this.tabPageAceptadas.Controls.Add(this.dataGridViewAceptadas);
+            this.tabPageAceptadas.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAceptadas.Name = "tabPageAceptadas";
+            this.tabPageAceptadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAceptadas.Size = new System.Drawing.Size(554, 234);
+            this.tabPageAceptadas.TabIndex = 0;
+            this.tabPageAceptadas.Text = "Aceptadas";
+            this.tabPageAceptadas.UseVisualStyleBackColor = true;
             // 
             // dataGridViewAceptadas
             // 
             this.dataGridViewAceptadas.AllowUserToAddRows = false;
             this.dataGridViewAceptadas.AllowUserToDeleteRows = false;
             this.dataGridViewAceptadas.AutoGenerateColumns = false;
+            this.dataGridViewAceptadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAceptadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAceptadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.idtipoDataGridViewTextBoxColumn,
-            this.idequipoDataGridViewTextBoxColumn,
-            this.idactdemandadasDataGridViewTextBoxColumn,
-            this.idespacioDataGridViewTextBoxColumn,
-            this.actdemandadasDataGridViewTextBoxColumn,
-            this.equipoDataGridViewTextBoxColumn,
-            this.espacioDataGridViewTextBoxColumn,
-            this.tipoActDataGridViewTextBoxColumn,
-            this.horarioActConDataGridViewTextBoxColumn});
+            this.nombre,
+            this.Equipo,
+            this.espacio,
+            this.tipo});
             this.dataGridViewAceptadas.DataSource = this.bindingSourceAceptadas;
             this.dataGridViewAceptadas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewAceptadas.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewAceptadas.Name = "dataGridViewAceptadas";
             this.dataGridViewAceptadas.ReadOnly = true;
+            this.dataGridViewAceptadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAceptadas.Size = new System.Drawing.Size(548, 228);
             this.dataGridViewAceptadas.TabIndex = 0;
             // 
-            // tabPage2
+            // nombre
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(554, 234);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pendientes";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
-            // tabPage3
+            // Equipo
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(554, 234);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Denegadas";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.Equipo.DataPropertyName = "equipo";
+            this.Equipo.HeaderText = "Equipo";
+            this.Equipo.Name = "Equipo";
+            this.Equipo.ReadOnly = true;
+            // 
+            // espacio
+            // 
+            this.espacio.DataPropertyName = "espacio";
+            this.espacio.HeaderText = "Espacio";
+            this.espacio.Name = "espacio";
+            this.espacio.ReadOnly = true;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "tipo";
+            this.tipo.HeaderText = "Tipo Actividad";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            // 
+            // tabPagePendientes
+            // 
+            this.tabPagePendientes.Controls.Add(this.dataGridViewPendientes);
+            this.tabPagePendientes.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePendientes.Name = "tabPagePendientes";
+            this.tabPagePendientes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePendientes.Size = new System.Drawing.Size(554, 234);
+            this.tabPagePendientes.TabIndex = 1;
+            this.tabPagePendientes.Text = "Pendientes";
+            this.tabPagePendientes.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewPendientes
+            // 
+            this.dataGridViewPendientes.AllowUserToAddRows = false;
+            this.dataGridViewPendientes.AllowUserToDeleteRows = false;
+            this.dataGridViewPendientes.AutoGenerateColumns = false;
+            this.dataGridViewPendientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPendientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NombreActividadPendiente,
+            this.EquipoActividadPendiente,
+            this.EspacioActPen,
+            this.TipoActPen});
+            this.dataGridViewPendientes.DataSource = this.bindingSourcePendientes;
+            this.dataGridViewPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPendientes.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewPendientes.Name = "dataGridViewPendientes";
+            this.dataGridViewPendientes.ReadOnly = true;
+            this.dataGridViewPendientes.Size = new System.Drawing.Size(548, 228);
+            this.dataGridViewPendientes.TabIndex = 0;
+            // 
+            // NombreActividadPendiente
+            // 
+            this.NombreActividadPendiente.DataPropertyName = "nombre";
+            this.NombreActividadPendiente.HeaderText = "Nombre";
+            this.NombreActividadPendiente.Name = "NombreActividadPendiente";
+            this.NombreActividadPendiente.ReadOnly = true;
+            // 
+            // EquipoActividadPendiente
+            // 
+            this.EquipoActividadPendiente.DataPropertyName = "equipo";
+            this.EquipoActividadPendiente.HeaderText = "Equipo";
+            this.EquipoActividadPendiente.Name = "EquipoActividadPendiente";
+            this.EquipoActividadPendiente.ReadOnly = true;
+            // 
+            // EspacioActPen
+            // 
+            this.EspacioActPen.DataPropertyName = "espacio";
+            this.EspacioActPen.HeaderText = "Espacio";
+            this.EspacioActPen.Name = "EspacioActPen";
+            this.EspacioActPen.ReadOnly = true;
+            // 
+            // TipoActPen
+            // 
+            this.TipoActPen.DataPropertyName = "tipo";
+            this.TipoActPen.HeaderText = "Tipo Actividad";
+            this.TipoActPen.Name = "TipoActPen";
+            this.TipoActPen.ReadOnly = true;
+            // 
+            // tabPageDenegadas
+            // 
+            this.tabPageDenegadas.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDenegadas.Name = "tabPageDenegadas";
+            this.tabPageDenegadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDenegadas.Size = new System.Drawing.Size(554, 234);
+            this.tabPageDenegadas.TabIndex = 2;
+            this.tabPageDenegadas.Text = "Denegadas";
+            this.tabPageDenegadas.UseVisualStyleBackColor = true;
             // 
             // buttonGenerarInforme
             // 
@@ -141,96 +215,6 @@
             this.buttonGestionar.Text = "Gestionar / Ver";
             this.buttonGestionar.UseVisualStyleBackColor = true;
             // 
-            // bindingSourceAceptadas
-            // 
-            this.bindingSourceAceptadas.DataSource = typeof(Desktop.Act_concedida);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idtipoDataGridViewTextBoxColumn
-            // 
-            this.idtipoDataGridViewTextBoxColumn.DataPropertyName = "id_tipo";
-            this.idtipoDataGridViewTextBoxColumn.HeaderText = "id_tipo";
-            this.idtipoDataGridViewTextBoxColumn.Name = "idtipoDataGridViewTextBoxColumn";
-            this.idtipoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idequipoDataGridViewTextBoxColumn
-            // 
-            this.idequipoDataGridViewTextBoxColumn.DataPropertyName = "id_equipo";
-            this.idequipoDataGridViewTextBoxColumn.HeaderText = "id_equipo";
-            this.idequipoDataGridViewTextBoxColumn.Name = "idequipoDataGridViewTextBoxColumn";
-            this.idequipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idequipoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idactdemandadasDataGridViewTextBoxColumn
-            // 
-            this.idactdemandadasDataGridViewTextBoxColumn.DataPropertyName = "id_act_demandadas";
-            this.idactdemandadasDataGridViewTextBoxColumn.HeaderText = "id_act_demandadas";
-            this.idactdemandadasDataGridViewTextBoxColumn.Name = "idactdemandadasDataGridViewTextBoxColumn";
-            this.idactdemandadasDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idactdemandadasDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idespacioDataGridViewTextBoxColumn
-            // 
-            this.idespacioDataGridViewTextBoxColumn.DataPropertyName = "id_espacio";
-            this.idespacioDataGridViewTextBoxColumn.HeaderText = "id_espacio";
-            this.idespacioDataGridViewTextBoxColumn.Name = "idespacioDataGridViewTextBoxColumn";
-            this.idespacioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idespacioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // actdemandadasDataGridViewTextBoxColumn
-            // 
-            this.actdemandadasDataGridViewTextBoxColumn.DataPropertyName = "Act_demandadas";
-            this.actdemandadasDataGridViewTextBoxColumn.HeaderText = "Act_demandadas";
-            this.actdemandadasDataGridViewTextBoxColumn.Name = "actdemandadasDataGridViewTextBoxColumn";
-            this.actdemandadasDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actdemandadasDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // equipoDataGridViewTextBoxColumn
-            // 
-            this.equipoDataGridViewTextBoxColumn.DataPropertyName = "Equipo";
-            this.equipoDataGridViewTextBoxColumn.HeaderText = "Equipo";
-            this.equipoDataGridViewTextBoxColumn.Name = "equipoDataGridViewTextBoxColumn";
-            this.equipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.equipoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // espacioDataGridViewTextBoxColumn
-            // 
-            this.espacioDataGridViewTextBoxColumn.DataPropertyName = "Espacio";
-            this.espacioDataGridViewTextBoxColumn.HeaderText = "Espacio";
-            this.espacioDataGridViewTextBoxColumn.Name = "espacioDataGridViewTextBoxColumn";
-            this.espacioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.espacioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tipoActDataGridViewTextBoxColumn
-            // 
-            this.tipoActDataGridViewTextBoxColumn.DataPropertyName = "Tipo_Act";
-            this.tipoActDataGridViewTextBoxColumn.HeaderText = "Tipo_Act";
-            this.tipoActDataGridViewTextBoxColumn.Name = "tipoActDataGridViewTextBoxColumn";
-            this.tipoActDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoActDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // horarioActConDataGridViewTextBoxColumn
-            // 
-            this.horarioActConDataGridViewTextBoxColumn.DataPropertyName = "Horario_Act_Con";
-            this.horarioActConDataGridViewTextBoxColumn.HeaderText = "Horario_Act_Con";
-            this.horarioActConDataGridViewTextBoxColumn.Name = "horarioActConDataGridViewTextBoxColumn";
-            this.horarioActConDataGridViewTextBoxColumn.ReadOnly = true;
-            this.horarioActConDataGridViewTextBoxColumn.Visible = false;
-            // 
             // FormActividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,9 +227,12 @@
             this.Text = "Actividades";
             this.Load += new System.EventHandler(this.FormActividades_Load);
             this.tabControlActividades.ResumeLayout(false);
-            this.tabPageActividades.ResumeLayout(false);
+            this.tabPageAceptadas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAceptadas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAceptadas)).EndInit();
+            this.tabPagePendientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,24 +240,23 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControlActividades;
-        private System.Windows.Forms.TabPage tabPageActividades;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageAceptadas;
+        private System.Windows.Forms.TabPage tabPagePendientes;
+        private System.Windows.Forms.TabPage tabPageDenegadas;
         private System.Windows.Forms.Button buttonGenerarInforme;
         private System.Windows.Forms.Button buttonGestionar;
         private System.Windows.Forms.DataGridView dataGridViewAceptadas;
         private System.Windows.Forms.BindingSource bindingSourceAceptadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idtipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idequipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idactdemandadasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idespacioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actdemandadasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn espacioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoActDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horarioActConDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn espacio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridView dataGridViewPendientes;
+        private System.Windows.Forms.BindingSource bindingSourcePendientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreActividadPendiente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoActividadPendiente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EspacioActPen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoActPen;
     }
 }
 
