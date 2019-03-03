@@ -48,6 +48,12 @@ namespace Desktop
                 ORM.ORMActividadesConcedidas.SelectActvConcedidas(ref mensaje);
 
         }
-        
+
+        private void dataGridViewAceptadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Object vistaActividad = dataGridViewAceptadas.SelectedRows[0].DataBoundItem;
+            new ActividadesAceptadas(vistaActividad).Show();
+
+        }
     }
 }

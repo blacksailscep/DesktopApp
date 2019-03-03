@@ -99,6 +99,7 @@
             this.dataGridViewAceptadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAceptadas.Size = new System.Drawing.Size(548, 228);
             this.dataGridViewAceptadas.TabIndex = 0;
+            this.dataGridViewAceptadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAceptadas_CellDoubleClick);
             // 
             // nombre
             // 
