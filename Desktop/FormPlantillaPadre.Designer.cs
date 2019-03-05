@@ -142,6 +142,7 @@
             this.labelminimizar.Name = "labelminimizar";
             this.labelminimizar.Size = new System.Drawing.Size(46, 62);
             this.labelminimizar.TabIndex = 5;
+            this.labelminimizar.Click += new System.EventHandler(this.labelminimizar_Click);
             // 
             // labelCerrar
             // 

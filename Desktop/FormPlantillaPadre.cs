@@ -35,5 +35,10 @@ namespace Desktop
         {
 
         }
+
+        private void labelminimizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

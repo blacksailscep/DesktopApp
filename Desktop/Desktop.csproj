@@ -99,23 +99,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormActividades.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlantilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlantilla.Designer.cs">
+      <DependentUpon>FormPlantilla.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPlantillaPadre.cs">
       <SubType>Form</SubType>
@@ -176,14 +170,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlantilla.resx">
+      <DependentUpon>FormPlantilla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlantillaPadre.resx">
       <DependentUpon>FormPlantillaPadre.cs</DependentUpon>
