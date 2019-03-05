@@ -19,11 +19,21 @@ namespace Desktop
 
         private void FormPlantillaPadre_Load(object sender, EventArgs e)
         {
-            labelInicio.Text        = "\n        Inicio";
-            labelEntidades.Text     = "\n       Entidades";
-            labelInstalaciones.Text = "\n     Instalaciones";
-            labelActividades.Text   = "\n      Actividades";
-            labelUsuarios.Text      = "\n       Usuarios";
+            labelInicio.Text        = "                   Inicio";
+            labelEntidades.Text     = "          Entidades";
+            labelInstalaciones.Text = "        Instalaciones";
+            labelActividades.Text   = "         Actividades";
+            labelUsuarios.Text      = "          Usuarios";
+        }
+
+        private void labelCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
