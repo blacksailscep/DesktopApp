@@ -99,9 +99,11 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlantillaPadre.cs" />
-    <Compile Include="FormPlantillaPadre.Designer.cs">
-      <DependentUpon>FormPlantillaPadre.cs</DependentUpon>
+    <Compile Include="FormPlantilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlantilla.Designer.cs">
+      <DependentUpon>FormPlantilla.cs</DependentUpon>
     </Compile>
     <Compile Include="Horario_Act_Con.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -156,8 +158,8 @@
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPlantillaPadre.resx">
-      <DependentUpon>FormPlantillaPadre.cs</DependentUpon>
+    <EmbeddedResource Include="FormPlantilla.resx">
+      <DependentUpon>FormPlantilla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
