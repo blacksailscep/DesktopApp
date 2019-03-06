@@ -99,9 +99,7 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlantillaPadre.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormPlantillaPadre.cs" />
     <Compile Include="FormPlantillaPadre.Designer.cs">
       <DependentUpon>FormPlantillaPadre.cs</DependentUpon>
     </Compile>
