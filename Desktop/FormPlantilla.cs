@@ -16,5 +16,14 @@ namespace Desktop
         {
             InitializeComponent();
         }
+
+        private void FormPlantilla_Load(object sender, EventArgs e)
+        {
+            labelInicio.Text        = "             Inicio";
+            labelEntidades.Text     = "          Entidades";
+            labelInstalaciones.Text = "         Instalaciones";
+            labelActividades.Text   = "          Actividades";
+            labelUsuarios.Text      = "            Usuarios";
+        }
     }
 }

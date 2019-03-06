@@ -1,6 +1,6 @@
 ﻿namespace Desktop
 {
-    partial class Form1
+    partial class Form2
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,37 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(211, 306);
+            this.groupBox1.Location = new System.Drawing.Point(142, 176);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(261, 124);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(243, 171);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // Form1
+            // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1279, 695);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(997, 531);
             this.Controls.Add(this.groupBox1);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "Form1";
+            this.Name = "Form2";
             this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.groupBox2, 0);
             this.ResumeLayout(false);
 
         }
@@ -67,6 +55,5 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
