@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Desktop</RootNamespace>
     <AssemblyName>Desktop</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -98,11 +99,11 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlantillaPadre.cs">
+    <Compile Include="FormPlantilla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPlantillaPadre.Designer.cs">
-      <DependentUpon>FormPlantillaPadre.cs</DependentUpon>
+    <Compile Include="FormPlantilla.Designer.cs">
+      <DependentUpon>FormPlantilla.cs</DependentUpon>
     </Compile>
     <Compile Include="Horario_Act_Con.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -157,8 +158,8 @@
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPlantillaPadre.resx">
-      <DependentUpon>FormPlantillaPadre.cs</DependentUpon>
+    <EmbeddedResource Include="FormPlantilla.resx">
+      <DependentUpon>FormPlantilla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -168,6 +169,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
