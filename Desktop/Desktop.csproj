@@ -99,6 +99,12 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInstalaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInstalaciones.Designer.cs">
+      <DependentUpon>FormInstalaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlantilla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInstalaciones.resx">
+      <DependentUpon>FormInstalaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlantilla.resx">
       <DependentUpon>FormPlantilla.cs</DependentUpon>
@@ -226,6 +235,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\lupa.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
