@@ -1,16 +1,16 @@
 ﻿namespace Desktop
 {
-    partial class ActividadesAceptadas
+    partial class FormPlantillaAct_Aceptadas
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,22 +20,14 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.textBoxTipo = new System.Windows.Forms.TextBox();
-            this.textBoxInstalacion = new System.Windows.Forms.TextBox();
-            this.textBoxEspacio = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.dataGridViewHorarioActividadesAceptadas = new System.Windows.Forms.DataGridView();
             this.Horas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,76 +37,16 @@
             this.Viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sabado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Domingo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxEquipo = new System.Windows.Forms.TextBox();
+            this.textBoxEspacio = new System.Windows.Forms.TextBox();
+            this.textBoxTipo = new System.Windows.Forms.TextBox();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesAceptadas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Enabled = false;
-            this.textBoxNombre.Location = new System.Drawing.Point(156, 54);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(411, 20);
-            this.textBoxNombre.TabIndex = 0;
-            // 
-            // textBoxTipo
-            // 
-            this.textBoxTipo.Enabled = false;
-            this.textBoxTipo.Location = new System.Drawing.Point(156, 80);
-            this.textBoxTipo.Name = "textBoxTipo";
-            this.textBoxTipo.Size = new System.Drawing.Size(411, 20);
-            this.textBoxTipo.TabIndex = 1;
-            // 
-            // textBoxInstalacion
-            // 
-            this.textBoxInstalacion.Enabled = false;
-            this.textBoxInstalacion.Location = new System.Drawing.Point(156, 107);
-            this.textBoxInstalacion.Name = "textBoxInstalacion";
-            this.textBoxInstalacion.Size = new System.Drawing.Size(411, 20);
-            this.textBoxInstalacion.TabIndex = 2;
-            // 
-            // textBoxEspacio
-            // 
-            this.textBoxEspacio.Enabled = false;
-            this.textBoxEspacio.Location = new System.Drawing.Point(156, 133);
-            this.textBoxEspacio.Name = "textBoxEspacio";
-            this.textBoxEspacio.Size = new System.Drawing.Size(411, 20);
-            this.textBoxEspacio.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nombre Actividad";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Tipo Actividad";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Espacio";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Equipo";
             // 
             // dataGridViewHorarioActividadesAceptadas
             // 
@@ -130,12 +62,12 @@
             this.Viernes,
             this.Sabado,
             this.Domingo});
-            this.dataGridViewHorarioActividadesAceptadas.Location = new System.Drawing.Point(36, 181);
+            this.dataGridViewHorarioActividadesAceptadas.Location = new System.Drawing.Point(47, 222);
             this.dataGridViewHorarioActividadesAceptadas.Name = "dataGridViewHorarioActividadesAceptadas";
             this.dataGridViewHorarioActividadesAceptadas.ReadOnly = true;
             this.dataGridViewHorarioActividadesAceptadas.RowHeadersWidth = 10;
-            this.dataGridViewHorarioActividadesAceptadas.Size = new System.Drawing.Size(720, 300);
-            this.dataGridViewHorarioActividadesAceptadas.TabIndex = 8;
+            this.dataGridViewHorarioActividadesAceptadas.Size = new System.Drawing.Size(1134, 388);
+            this.dataGridViewHorarioActividadesAceptadas.TabIndex = 17;
             // 
             // Horas
             // 
@@ -193,22 +125,98 @@
             this.Domingo.Name = "Domingo";
             this.Domingo.ReadOnly = true;
             // 
-            // ActividadesAceptadas
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 181);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Equipo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 154);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Espacio";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Tipo Actividad";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(41, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Nombre Actividad";
+            // 
+            // textBoxEquipo
+            // 
+            this.textBoxEquipo.Enabled = false;
+            this.textBoxEquipo.Location = new System.Drawing.Point(167, 174);
+            this.textBoxEquipo.Name = "textBoxEquipo";
+            this.textBoxEquipo.Size = new System.Drawing.Size(411, 20);
+            this.textBoxEquipo.TabIndex = 12;
+            // 
+            // textBoxEspacio
+            // 
+            this.textBoxEspacio.Enabled = false;
+            this.textBoxEspacio.Location = new System.Drawing.Point(167, 148);
+            this.textBoxEspacio.Name = "textBoxEspacio";
+            this.textBoxEspacio.Size = new System.Drawing.Size(411, 20);
+            this.textBoxEspacio.TabIndex = 11;
+            // 
+            // textBoxTipo
+            // 
+            this.textBoxTipo.Enabled = false;
+            this.textBoxTipo.Location = new System.Drawing.Point(167, 121);
+            this.textBoxTipo.Name = "textBoxTipo";
+            this.textBoxTipo.Size = new System.Drawing.Size(411, 20);
+            this.textBoxTipo.TabIndex = 10;
+            // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Enabled = false;
+            this.textBoxNombre.Location = new System.Drawing.Point(167, 95);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(411, 20);
+            this.textBoxNombre.TabIndex = 9;
+            // 
+            // FormPlantillaAct_Aceptadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 493);
+            this.ClientSize = new System.Drawing.Size(1250, 659);
             this.Controls.Add(this.dataGridViewHorarioActividadesAceptadas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxEquipo);
             this.Controls.Add(this.textBoxEspacio);
-            this.Controls.Add(this.textBoxInstalacion);
             this.Controls.Add(this.textBoxTipo);
             this.Controls.Add(this.textBoxNombre);
-            this.Name = "ActividadesAceptadas";
-            this.Text = "ActividadesAceptadas";
+            this.Name = "FormPlantillaAct_Aceptadas";
+            this.Text = "Actividades Aceptadas";
+            this.Controls.SetChildIndex(this.textBoxNombre, 0);
+            this.Controls.SetChildIndex(this.textBoxTipo, 0);
+            this.Controls.SetChildIndex(this.textBoxEspacio, 0);
+            this.Controls.SetChildIndex(this.textBoxEquipo, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.dataGridViewHorarioActividadesAceptadas, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesAceptadas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,14 +225,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.TextBox textBoxTipo;
-        private System.Windows.Forms.TextBox textBoxInstalacion;
-        private System.Windows.Forms.TextBox textBoxEspacio;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridViewHorarioActividadesAceptadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lunes;
@@ -234,5 +234,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Viernes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sabado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Domingo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxEquipo;
+        private System.Windows.Forms.TextBox textBoxEspacio;
+        private System.Windows.Forms.TextBox textBoxTipo;
+        private System.Windows.Forms.TextBox textBoxNombre;
     }
 }

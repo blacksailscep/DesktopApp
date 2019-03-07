@@ -69,10 +69,10 @@
             this.labelInicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelInicio.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(83)))), ((int)(((byte)(134)))));
-            this.labelInicio.Location = new System.Drawing.Point(61, 0);
+            this.labelInicio.Location = new System.Drawing.Point(140, 0);
             this.labelInicio.Name = "labelInicio";
             this.labelInicio.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.labelInicio.Size = new System.Drawing.Size(181, 57);
+            this.labelInicio.Size = new System.Drawing.Size(216, 44);
             this.labelInicio.TabIndex = 0;
             // 
             // labelEntidades
@@ -81,10 +81,10 @@
             this.labelEntidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelEntidades.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEntidades.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(83)))), ((int)(((byte)(134)))));
-            this.labelEntidades.Location = new System.Drawing.Point(248, 0);
+            this.labelEntidades.Location = new System.Drawing.Point(362, 0);
             this.labelEntidades.Name = "labelEntidades";
             this.labelEntidades.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.labelEntidades.Size = new System.Drawing.Size(181, 57);
+            this.labelEntidades.Size = new System.Drawing.Size(216, 44);
             this.labelEntidades.TabIndex = 1;
             // 
             // labelInstalaciones
@@ -93,10 +93,10 @@
             this.labelInstalaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelInstalaciones.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInstalaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(83)))), ((int)(((byte)(134)))));
-            this.labelInstalaciones.Location = new System.Drawing.Point(435, 0);
+            this.labelInstalaciones.Location = new System.Drawing.Point(584, 0);
             this.labelInstalaciones.Name = "labelInstalaciones";
             this.labelInstalaciones.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.labelInstalaciones.Size = new System.Drawing.Size(181, 57);
+            this.labelInstalaciones.Size = new System.Drawing.Size(216, 44);
             this.labelInstalaciones.TabIndex = 3;
             // 
             // labelActividades
@@ -105,10 +105,10 @@
             this.labelActividades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelActividades.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelActividades.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(83)))), ((int)(((byte)(134)))));
-            this.labelActividades.Location = new System.Drawing.Point(622, 0);
+            this.labelActividades.Location = new System.Drawing.Point(806, 0);
             this.labelActividades.Name = "labelActividades";
             this.labelActividades.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.labelActividades.Size = new System.Drawing.Size(181, 57);
+            this.labelActividades.Size = new System.Drawing.Size(216, 44);
             this.labelActividades.TabIndex = 4;
             // 
             // labelUsuarios
@@ -117,10 +117,10 @@
             this.labelUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelUsuarios.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(83)))), ((int)(((byte)(134)))));
-            this.labelUsuarios.Location = new System.Drawing.Point(809, 0);
+            this.labelUsuarios.Location = new System.Drawing.Point(1028, 0);
             this.labelUsuarios.Name = "labelUsuarios";
             this.labelUsuarios.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.labelUsuarios.Size = new System.Drawing.Size(185, 57);
+            this.labelUsuarios.Size = new System.Drawing.Size(219, 44);
             this.labelUsuarios.TabIndex = 5;
             // 
             // label2
@@ -130,7 +130,7 @@
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 57);
+            this.label2.Size = new System.Drawing.Size(131, 44);
             this.label2.TabIndex = 7;
             // 
             // FormPlantilla
