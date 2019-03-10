@@ -42,13 +42,13 @@
             this.bindingSourceAceptadas = new System.Windows.Forms.BindingSource(this.components);
             this.tabPagePendientes = new System.Windows.Forms.TabPage();
             this.dataGridViewPendientes = new System.Windows.Forms.DataGridView();
-            this.bindingSourcePendientes = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPageDenegadas = new System.Windows.Forms.TabPage();
             this.NombreActividadPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexo_pendientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoActividadPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EspacioActPen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoActPen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourcePendientes = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageDenegadas = new System.Windows.Forms.TabPage();
             this.tabControlActividades.SuspendLayout();
             this.tabPageAceptadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAceptadas)).BeginInit();
@@ -190,16 +190,6 @@
             this.dataGridViewPendientes.TabIndex = 0;
             this.dataGridViewPendientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPendientes_CellDoubleClick);
             // 
-            // tabPageDenegadas
-            // 
-            this.tabPageDenegadas.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDenegadas.Name = "tabPageDenegadas";
-            this.tabPageDenegadas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDenegadas.Size = new System.Drawing.Size(1135, 372);
-            this.tabPageDenegadas.TabIndex = 2;
-            this.tabPageDenegadas.Text = "Denegadas";
-            this.tabPageDenegadas.UseVisualStyleBackColor = true;
-            // 
             // NombreActividadPendiente
             // 
             this.NombreActividadPendiente.DataPropertyName = "nombre";
@@ -235,6 +225,16 @@
             this.TipoActPen.Name = "TipoActPen";
             this.TipoActPen.ReadOnly = true;
             // 
+            // tabPageDenegadas
+            // 
+            this.tabPageDenegadas.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDenegadas.Name = "tabPageDenegadas";
+            this.tabPageDenegadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDenegadas.Size = new System.Drawing.Size(1135, 372);
+            this.tabPageDenegadas.TabIndex = 2;
+            this.tabPageDenegadas.Text = "Denegadas";
+            this.tabPageDenegadas.UseVisualStyleBackColor = true;
+            // 
             // FormPlantillaActividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +244,7 @@
             this.Controls.Add(this.tabControlActividades);
             this.Name = "FormPlantillaActividades";
             this.Text = "Actividades";
+            this.Activated += new System.EventHandler(this.FormPlantillaActividades_Activated);
             this.Load += new System.EventHandler(this.FormPlantillaActividades_Load);
             this.Controls.SetChildIndex(this.tabControlActividades, 0);
             this.Controls.SetChildIndex(this.buttonGenerarInforme, 0);

@@ -145,6 +145,7 @@
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="ORM\ORMAcividadesPendientes.cs" />
     <Compile Include="ORM\ORMActividadesConcedidas.cs" />
+    <Compile Include="ORM\ORMHorarioActConcedida.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs">

@@ -32,8 +32,7 @@ namespace Desktop.ORM
        
                               });
 
-                IEnumerable<Object> i = result;
-                actividades = i.ToList();
+                actividades = result.ToList<Object>();
 
             }
             catch (DbUpdateException ex)
@@ -41,7 +40,6 @@ namespace Desktop.ORM
                 SqlException exception = (SqlException)ex.InnerException.InnerException;
                 mensaje = ORM.MensajeError(exception);
             }
-
 
 
             return actividades;
@@ -114,6 +112,15 @@ namespace Desktop.ORM
 
 
             return actividades;
+        }
+        public static String SaveActividadConcedida(Act_concedida actividad)
+        {
+            ORM.bd.Act_concedida.Add(actividad);
+            String mensaje = "";
+
+            mensaje = ORM.SaveChanges();
+
+            return mensaje;
         }
     }
 }

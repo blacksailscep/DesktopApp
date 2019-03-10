@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxEspacio = new System.Windows.Forms.TextBox();
             this.buttonConceder = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesPedidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActAsignadas)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,7 @@
             this.dataGridViewHorarioActividadesPedidas.Name = "dataGridViewHorarioActividadesPedidas";
             this.dataGridViewHorarioActividadesPedidas.ReadOnly = true;
             this.dataGridViewHorarioActividadesPedidas.RowHeadersWidth = 10;
+            this.dataGridViewHorarioActividadesPedidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewHorarioActividadesPedidas.Size = new System.Drawing.Size(1214, 250);
             this.dataGridViewHorarioActividadesPedidas.TabIndex = 19;
             // 
@@ -154,6 +156,7 @@
             this.dataGridViewHorarioActAsignadas.Name = "dataGridViewHorarioActAsignadas";
             this.dataGridViewHorarioActAsignadas.ReadOnly = true;
             this.dataGridViewHorarioActAsignadas.RowHeadersWidth = 10;
+            this.dataGridViewHorarioActAsignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewHorarioActAsignadas.Size = new System.Drawing.Size(1214, 250);
             this.dataGridViewHorarioActAsignadas.TabIndex = 20;
             // 
@@ -216,7 +219,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 88);
+            this.label1.Location = new System.Drawing.Point(62, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 21;
@@ -225,7 +228,7 @@
             // textBoxNombreActividad
             // 
             this.textBoxNombreActividad.Enabled = false;
-            this.textBoxNombreActividad.Location = new System.Drawing.Point(119, 88);
+            this.textBoxNombreActividad.Location = new System.Drawing.Point(24, 92);
             this.textBoxNombreActividad.Name = "textBoxNombreActividad";
             this.textBoxNombreActividad.Size = new System.Drawing.Size(179, 20);
             this.textBoxNombreActividad.TabIndex = 22;
@@ -233,7 +236,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(304, 91);
+            this.label3.Location = new System.Drawing.Point(286, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 23;
@@ -242,7 +245,7 @@
             // textBoxTipo
             // 
             this.textBoxTipo.Enabled = false;
-            this.textBoxTipo.Location = new System.Drawing.Point(338, 88);
+            this.textBoxTipo.Location = new System.Drawing.Point(222, 92);
             this.textBoxTipo.Name = "textBoxTipo";
             this.textBoxTipo.Size = new System.Drawing.Size(188, 20);
             this.textBoxTipo.TabIndex = 24;
@@ -250,7 +253,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(532, 91);
+            this.label4.Location = new System.Drawing.Point(484, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 25;
@@ -259,7 +262,7 @@
             // textBoxInstalacion
             // 
             this.textBoxInstalacion.Enabled = false;
-            this.textBoxInstalacion.Location = new System.Drawing.Point(596, 88);
+            this.textBoxInstalacion.Location = new System.Drawing.Point(428, 92);
             this.textBoxInstalacion.Name = "textBoxInstalacion";
             this.textBoxInstalacion.Size = new System.Drawing.Size(198, 20);
             this.textBoxInstalacion.TabIndex = 26;
@@ -267,7 +270,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(800, 92);
+            this.label5.Location = new System.Drawing.Point(722, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 27;
@@ -276,14 +279,14 @@
             // textBoxEspacio
             // 
             this.textBoxEspacio.Enabled = false;
-            this.textBoxEspacio.Location = new System.Drawing.Point(851, 89);
+            this.textBoxEspacio.Location = new System.Drawing.Point(649, 92);
             this.textBoxEspacio.Name = "textBoxEspacio";
             this.textBoxEspacio.Size = new System.Drawing.Size(192, 20);
             this.textBoxEspacio.TabIndex = 28;
             // 
             // buttonConceder
             // 
-            this.buttonConceder.Location = new System.Drawing.Point(1081, 64);
+            this.buttonConceder.Location = new System.Drawing.Point(896, 64);
             this.buttonConceder.Name = "buttonConceder";
             this.buttonConceder.Size = new System.Drawing.Size(147, 60);
             this.buttonConceder.TabIndex = 29;
@@ -291,10 +294,21 @@
             this.buttonConceder.UseVisualStyleBackColor = true;
             this.buttonConceder.Click += new System.EventHandler(this.buttonConceder_Click);
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(1061, 64);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(145, 60);
+            this.buttonCancelar.TabIndex = 30;
+            this.buttonCancelar.Text = "Denegar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // FormPlantillaPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1250, 659);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonConceder);
             this.Controls.Add(this.textBoxEspacio);
             this.Controls.Add(this.label5);
@@ -319,6 +333,7 @@
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.textBoxEspacio, 0);
             this.Controls.SetChildIndex(this.buttonConceder, 0);
+            this.Controls.SetChildIndex(this.buttonCancelar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesPedidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActAsignadas)).EndInit();
             this.ResumeLayout(false);
@@ -355,5 +370,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxEspacio;
         private System.Windows.Forms.Button buttonConceder;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

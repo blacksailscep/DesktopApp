@@ -16,6 +16,8 @@ namespace Desktop
         private int idAct,m_idEspacio;
         private int m_diaSemana, idHorario;
         private Object m_actividad;
+        private bool m_flagCoincide,m_flagConcedida;
+        private List<Object> m_lstHorario,m_lstHorario2;
 
         public FormPlantillaPendientes(Object actividad)
         {
@@ -30,19 +32,19 @@ namespace Desktop
             new GenerarHorario(dataGridViewHorarioActAsignadas);
 
             string mensajeError = "";
-            List<Object> lstHorario =
+            m_lstHorario =
                 ORM.ORMAcividadesPendientes.SelectHorarioActividadPendientes(ref mensajeError, idAct);
             if (!mensajeError.Equals(""))
                 MessageBox.Show(mensajeError, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            GetScheduleActivity(lstHorario, idAct, dataGridViewHorarioActividadesPedidas, "Horas",Color.YellowGreen);
+            GetScheduleActivity(m_lstHorario, idAct, dataGridViewHorarioActividadesPedidas, "Horas",Color.YellowGreen);
 
-            List<Object> lstHorario2 =
+            m_lstHorario2 =
                 ORM.ORMActividadesConcedidas.SelectActividadPorEspacio(ref mensajeError, m_idEspacio);
             if (!mensajeError.Equals(""))
                 MessageBox.Show(mensajeError, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            GetScheduleActivity(lstHorario2, idAct,dataGridViewHorarioActAsignadas,"Hora",Color.Red);
+            GetScheduleActivity(m_lstHorario2, idAct,dataGridViewHorarioActAsignadas,"Hora",Color.Red);
             
 
             foreach (Label label in GetLabels())
@@ -50,6 +52,54 @@ namespace Desktop
                 label.Visible = false;
             }
 
+        }
+        private void buttonConceder_Click(object sender, EventArgs e)
+        {
+            GetScheduleActivity(m_lstHorario, idAct, dataGridViewHorarioActAsignadas, "Hora", Color.Red);
+            if(m_flagCoincide)
+            {
+                if(!m_flagConcedida)
+                    MessageBox.Show("La actividad que estas intentando aceptar en ese horario ya tiene otra actividad asignada", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("La actividad ya ha sido concedida", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string mensaje = "";
+                Act_demandadas act_demandada = ORM.ORMAcividadesPendientes.SelectActvPendiente(ref mensaje,idAct);
+
+                act_demandada.asignada = true;
+
+                Act_concedida act_concedida = new Act_concedida();
+                act_concedida.nombre = act_demandada.nombre;
+                act_concedida.id_equipo = act_demandada.id_equipo;
+                act_concedida.id_tipo = act_demandada.id_tipo;
+                act_concedida.id_espacio = act_demandada.id_espacio;
+                act_concedida.id_act_demandadas = act_demandada.id;
+
+                ORM.ORMActividadesConcedidas.SaveActividadConcedida(act_concedida);
+
+                mensaje = ORM.ORMAcividadesPendientes.ModificarActividadPendiente(act_demandada);
+
+                Horario_Act_Dem horario_Act_demandada = ORM.ORMAcividadesPendientes.GetHorario(ref mensaje, idAct);
+                Horario_Act_Con horario_Act_concedida = new Horario_Act_Con();
+                horario_Act_concedida.id_act_concedida = act_concedida.id;
+                horario_Act_concedida.id_dia_semana = horario_Act_demandada.id_dia_semana;
+                horario_Act_concedida.hora_inicio = horario_Act_demandada.hora_inicio;
+                horario_Act_concedida.hora_fin = horario_Act_demandada.hora_final;
+                ORM.ORMHorarioActConcedida.SaveHorarioActConcedida(horario_Act_concedida);
+
+                if (!mensaje.Equals(""))
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+       
+                GetScheduleActivity(m_lstHorario2, act_concedida.id, dataGridViewHorarioActAsignadas, "Hora", Color.Red);
+                GetScheduleActivity(m_lstHorario, act_demandada.id, dataGridViewHorarioActividadesPedidas, "Horas", Color.White);
+
+                buttonCancelar.Enabled = false;
+                m_flagConcedida = true;
+
+            }
         }
         public void GetScheduleActivity(List<Object> lstHorario, int idAct,DataGridView datagrid,string columnName,
             Color color)
@@ -84,8 +134,7 @@ namespace Desktop
                     else if(prop.Name.Equals("id_dia_semana"))
                     {
                         m_diaSemana = (int)prop.GetValue(horario, null);
-                    }
-                        
+                    }                        
 
                 }
 
@@ -96,7 +145,7 @@ namespace Desktop
         private void GetVariables()
         {
             foreach (PropertyInfo prop in props)
-            {
+            {                
                 if (prop.Name.Equals("nombre"))
                     textBoxNombreActividad.Text = (string)prop.GetValue(m_actividad, null);
                 else if (prop.Name.Equals("tipo"))
@@ -114,21 +163,19 @@ namespace Desktop
 
             }
         }
-
-        private void buttonConceder_Click(object sender, EventArgs e)
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
-
         private void ShowMessageBox(string mensaje)
         {
             if (!mensaje.Equals(""))
                 MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        private void PaintTime(DataGridView dataGrid,string horaInicio, string horaFin,string columnName,Color color)
+        private void PaintTime(DataGridView dataGrid, string horaInicio, string horaFin, string columnName, Color color)
         {
             int inicio = 0;
-            int fin = 0;            
+            int fin = 0;
 
             foreach (DataGridViewRow row in dataGrid.Rows)
             {
@@ -141,10 +188,26 @@ namespace Desktop
 
             for (int i = inicio; i < fin + 1; i++)
             {
-                dataGrid.Rows[i].Cells[m_diaSemana].Style.BackColor = color;
-                dataGrid.Rows[i].Cells[m_diaSemana].Value = textBoxTipo.Text;
+
+                if (dataGrid.Rows[i].Cells[m_diaSemana].Value != null)
+                    m_flagCoincide = true;
             }
 
+            for (int i = inicio; i < fin + 1; i++)
+            {
+                dataGrid.Rows[i].Cells[m_diaSemana].Style.BackColor = color;
+                if (color.Name != Color.White.Name)
+                {
+                    dataGrid.Rows[i].Cells[m_diaSemana].Value = textBoxTipo.Text;
+                }
+                else
+                {
+                    dataGrid.Rows[i].Cells[m_diaSemana].Value = null;                    
+                }                
+                                           
+            }
+        
+            
         }
 
 

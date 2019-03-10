@@ -18,25 +18,7 @@ namespace Desktop
         }
         private void tabControlActividades_TabIndexChanged(object sender, EventArgs e)
         {
-            int index = tabControlActividades.SelectedIndex;
-            String mensaje = "";
-            if (index == 0)
-            {
-                bindingSourceAceptadas.DataSource =
-                    ORM.ORMActividadesConcedidas.SelectActvConcedidas(ref mensaje);
-            }
-            else if (index == 1)
-            {
-                bindingSourcePendientes.DataSource =
-                    ORM.ORMAcividadesPendientes.SelectActvPendientes(ref mensaje);
-            }
-
-
-            if (!mensaje.Equals(""))
-                MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-
+            RellenarTab();
         }
         private void dataGridViewAceptadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -59,6 +41,30 @@ namespace Desktop
         {
             Object vistaActividad = dataGridViewPendientes.SelectedRows[0].DataBoundItem;
             new FormPlantillaPendientes(vistaActividad).Show();
+        }
+
+        private void FormPlantillaActividades_Activated(object sender, EventArgs e)
+        {
+            RellenarTab();
+        }
+        private void RellenarTab()
+        {
+            int index = tabControlActividades.SelectedIndex;
+            String mensaje = "";
+            if (index == 0)
+            {
+                bindingSourceAceptadas.DataSource =
+                    ORM.ORMActividadesConcedidas.SelectActvConcedidas(ref mensaje);
+            }
+            else if (index == 1)
+            {
+                bindingSourcePendientes.DataSource =
+                    ORM.ORMAcividadesPendientes.SelectVistaActvPendientes(ref mensaje);
+            }
+
+
+            if (!mensaje.Equals(""))
+                MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Desktop.ORM
                                   b.id,
                                   a.hora_inicio,
                                   a.hora_final,
-                                  a.id_dia_semana
+                                  a.id_dia_semana,
                               });
 
                 IEnumerable<Object> i = result;
@@ -43,7 +43,7 @@ namespace Desktop.ORM
             return horarios;
 
         }
-        public static List<Object> SelectActvPendientes(ref String mensaje)
+        public static List<Object> SelectVistaActvPendientes(ref String mensaje)
         {
 
             List<Object> actividades = null;
@@ -79,6 +79,35 @@ namespace Desktop.ORM
 
 
             return actividades;
+        }
+        public static Act_demandadas SelectActvPendiente(ref string mensaje,int idActPendiente)
+        {
+            Act_demandadas act = null;
+
+            var result = (from a in ORM.bd.Act_demandadas
+                          where a.id == idActPendiente
+                          select a);
+            act = result.FirstOrDefault<Act_demandadas>();
+
+            return act;
+        }
+        public static Horario_Act_Dem GetHorario(ref string mensaje, int idActPendiente)
+        {
+            Horario_Act_Dem act = null;
+
+            var result = (from a in ORM.bd.Horario_Act_Dem
+                          where a.id_Act_Demandada == idActPendiente
+                          select a);
+
+            act = result.FirstOrDefault<Horario_Act_Dem>();
+
+            return act;
+        }
+        public static string ModificarActividadPendiente(Act_demandadas actividad)
+        {
+            string mensaje= "";
+            ORM.bd.SaveChanges();
+            return mensaje;
         }
     }
 }

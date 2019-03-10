@@ -70,6 +70,7 @@ namespace Desktop
 
                 myType = horario.GetType();
                 props = new List<PropertyInfo>(myType.GetProperties());
+
                 foreach (PropertyInfo prop in props)
                 {
                     if (prop.Name.Equals("hora_inicio"))
