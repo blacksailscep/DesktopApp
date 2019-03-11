@@ -18,19 +18,14 @@ namespace Desktop
         public void llenar()
         {
             String mensaje = "";
-            List<Object> _i;
 
-            _i = ORM.ORMInstalaciones.SelectAllInstalaciones(ref mensaje);
+            bindingSourceInstalaciones.DataSource = ORM.ORMInstalaciones.SelectAllInstalaciones(ref mensaje);
+            bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
 
             if (!string.IsNullOrEmpty(mensaje))
             {
                 MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //e.Cancel()
-            }
-            else
-            {
-                bindingSourceInstalaciones.DataSource = _i;
-                dataGridViewInstalaciones.SelectedCells[3].Value = _i;
             }
             
         }

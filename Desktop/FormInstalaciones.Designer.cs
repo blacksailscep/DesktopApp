@@ -35,6 +35,7 @@
             this.pictureBoxBusca = new System.Windows.Forms.PictureBox();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewInstalaciones = new System.Windows.Forms.DataGridView();
+            this.bindingSourceTipoGestion = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceInstalaciones = new System.Windows.Forms.BindingSource(this.components);
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonVer = new System.Windows.Forms.Button();
@@ -45,10 +46,11 @@
             this.idtipogestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instalacionHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipogestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipogestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBoxBuscaInsta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBusca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstalaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInstalaciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +129,10 @@
             this.dataGridViewInstalaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewInstalaciones.Size = new System.Drawing.Size(1250, 496);
             this.dataGridViewInstalaciones.TabIndex = 2;
+            // 
+            // bindingSourceTipoGestion
+            // 
+            this.bindingSourceTipoGestion.DataSource = typeof(Desktop.Tipo_gestion);
             // 
             // bindingSourceInstalaciones
             // 
@@ -214,10 +220,16 @@
             // tipogestionDataGridViewTextBoxColumn
             // 
             this.tipogestionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipogestionDataGridViewTextBoxColumn.DataPropertyName = "Tipo_gestion";
+            this.tipogestionDataGridViewTextBoxColumn.DataPropertyName = "id_tipo_gestion";
+            this.tipogestionDataGridViewTextBoxColumn.DataSource = this.bindingSourceTipoGestion;
+            this.tipogestionDataGridViewTextBoxColumn.DisplayMember = "nombre";
+            this.tipogestionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.tipogestionDataGridViewTextBoxColumn.HeaderText = "Tipo Gestion";
             this.tipogestionDataGridViewTextBoxColumn.Name = "tipogestionDataGridViewTextBoxColumn";
             this.tipogestionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipogestionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tipogestionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.tipogestionDataGridViewTextBoxColumn.ValueMember = "id";
             // 
             // FormInstalaciones
             // 
@@ -241,6 +253,7 @@
             this.groupBoxBuscaInsta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBusca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstalaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInstalaciones)).EndInit();
             this.ResumeLayout(false);
 
@@ -258,12 +271,13 @@
         private System.Windows.Forms.Button buttonVer;
         private System.Windows.Forms.Button buttonAñadir;
         private System.Windows.Forms.BindingSource bindingSourceInstalaciones;
+        private System.Windows.Forms.BindingSource bindingSourceTipoGestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idtipogestionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn espacioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn instalacionHorarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipogestionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn tipogestionDataGridViewTextBoxColumn;
     }
 }

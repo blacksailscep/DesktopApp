@@ -11,23 +11,14 @@ namespace Desktop.ORM
     public static class ORMInstalaciones
     {
         /*Método para seleccionar todas las instalaciones para la grid Instalaciones*/
-        public static List<Object> SelectAllInstalaciones(ref String mensaje)
+        public static List<Instalacion> SelectAllInstalaciones(ref String mensaje)
         {
-            List<Object> instalaciones = null;
+            List<Instalacion> instalaciones = null;
             try
             {
-                var select = (from insta in ORM.bd.Instalacion
-                              join tipoGes in ORM.bd.Tipo_gestion on insta.id_tipo_gestion equals tipoGes.id
-                              select new
-                              {
-                                  id = insta.id,
-                                  nombre = insta.nombre,
-                                  direccion = insta.direccion,
-                                  tipoGestion = tipoGes.nombre
-                              });
-
-                IEnumerable<Object> resultado = select;
-                instalaciones = resultado.ToList();
+                instalaciones = (from insta in ORM.bd.Instalacion
+                                 orderby insta.nombre
+                                 select insta).ToList();
 
             }
             catch (DbUpdateException ex)
@@ -40,26 +31,17 @@ namespace Desktop.ORM
         }
 
         /*Método creado para el buscador: buscarinstalaciones*/
-        public static List<Object> SelectInstalacionBynombre(String nombre, ref String mensaje)
+        public static List<Instalacion> SelectInstalacionBynombre(String nombre, ref String mensaje)
         {
 
-            List<Object> _Instalaciones = null;
+            List<Instalacion> _Instalaciones = null;
             try
             {
-                var select = (from insta in ORM.bd.Instalacion
-                              orderby insta.nombre
-                              join tipoGes in ORM.bd.Tipo_gestion on insta.id_tipo_gestion equals tipoGes.id
-                              where insta.nombre.Contains(nombre)
-                              select new
-                              {
-                                  id = insta.id,
-                                  nombre = insta.nombre,
-                                  direccion = insta.direccion,
-                                  tipoGestion = tipoGes.nombre
-                              });
-
-                IEnumerable<Object> resultado = select;
-                _Instalaciones = resultado.ToList();
+                _Instalaciones = (from insta in ORM.bd.Instalacion
+                                  orderby insta.nombre
+                                  where insta.nombre.Contains(nombre)
+                                  select insta).ToList();
+                               
             }
             catch (DbUpdateException ex)
             {

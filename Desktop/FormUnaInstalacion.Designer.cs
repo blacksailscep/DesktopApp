@@ -32,13 +32,13 @@
             this.pictureBoxInstalacion = new System.Windows.Forms.PictureBox();
             this.groupBoxDatosInstalacion = new System.Windows.Forms.GroupBox();
             this.comboBoxTipoGestion = new System.Windows.Forms.ComboBox();
+            this.bindingSourceTipoGestion = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelTipoGestion = new System.Windows.Forms.Label();
             this.labelDireccion = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelDatosInstalacion = new System.Windows.Forms.Label();
-            this.bindingSourceTipoGestion = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInstalacion)).BeginInit();
             this.groupBoxDatosInstalacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).BeginInit();
@@ -76,6 +76,10 @@
             this.comboBoxTipoGestion.Size = new System.Drawing.Size(263, 21);
             this.comboBoxTipoGestion.TabIndex = 5;
             this.comboBoxTipoGestion.ValueMember = "id";
+            // 
+            // bindingSourceTipoGestion
+            // 
+            this.bindingSourceTipoGestion.DataSource = typeof(Desktop.Tipo_gestion);
             // 
             // textBoxDireccion
             // 
@@ -128,10 +132,6 @@
             this.labelDatosInstalacion.TabIndex = 2;
             this.labelDatosInstalacion.Text = "Datos Instalacion";
             // 
-            // bindingSourceTipoGestion
-            // 
-            this.bindingSourceTipoGestion.DataSource = typeof(Desktop.Tipo_gestion);
-            // 
             // FormUnaInstalacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +142,7 @@
             this.Controls.Add(this.labelDatosInstalacion);
             this.Controls.Add(this.groupBoxDatosInstalacion);
             this.Name = "FormUnaInstalacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Instalacion";
             this.Load += new System.EventHandler(this.FormUnaInstalacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInstalacion)).EndInit();
