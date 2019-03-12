@@ -99,6 +99,12 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHorarioInsta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHorarioInsta.Designer.cs">
+      <DependentUpon>FormHorarioInsta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInstalaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHorarioInsta.resx">
+      <DependentUpon>FormHorarioInsta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInstalaciones.resx">
       <DependentUpon>FormInstalaciones.cs</DependentUpon>

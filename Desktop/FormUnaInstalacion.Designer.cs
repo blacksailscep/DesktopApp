@@ -39,9 +39,34 @@
             this.labelDireccion = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelDatosInstalacion = new System.Windows.Forms.Label();
+            this.groupBoxEspacios = new System.Windows.Forms.GroupBox();
+            this.buttonVer = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonAnyadir = new System.Windows.Forms.Button();
+            this.listBoxEspacios = new System.Windows.Forms.ListBox();
+            this.bindingSourceDiasSemana = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceHorarioInsta = new System.Windows.Forms.BindingSource(this.components);
+            this.labelHorario = new System.Windows.Forms.Label();
+            this.instalacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diasSemanaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horafinalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horainicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iddiasemanaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idinstalacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewHorariosInsta = new System.Windows.Forms.DataGridView();
+            this.groupBoxHorario = new System.Windows.Forms.GroupBox();
+            this.buttonEliminarHoraInsta = new System.Windows.Forms.Button();
+            this.buttonAnyadirHoraInsta = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInstalacion)).BeginInit();
             this.groupBoxDatosInstalacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).BeginInit();
+            this.groupBoxEspacios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiasSemana)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHorarioInsta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorariosInsta)).BeginInit();
+            this.groupBoxHorario.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxInstalacion
@@ -132,12 +157,195 @@
             this.labelDatosInstalacion.TabIndex = 2;
             this.labelDatosInstalacion.Text = "Datos Instalacion";
             // 
+            // groupBoxEspacios
+            // 
+            this.groupBoxEspacios.Controls.Add(this.buttonVer);
+            this.groupBoxEspacios.Controls.Add(this.buttonEliminar);
+            this.groupBoxEspacios.Controls.Add(this.buttonAnyadir);
+            this.groupBoxEspacios.Controls.Add(this.listBoxEspacios);
+            this.groupBoxEspacios.Location = new System.Drawing.Point(13, 135);
+            this.groupBoxEspacios.Name = "groupBoxEspacios";
+            this.groupBoxEspacios.Size = new System.Drawing.Size(523, 130);
+            this.groupBoxEspacios.TabIndex = 3;
+            this.groupBoxEspacios.TabStop = false;
+            // 
+            // buttonVer
+            // 
+            this.buttonVer.Location = new System.Drawing.Point(407, 89);
+            this.buttonVer.Name = "buttonVer";
+            this.buttonVer.Size = new System.Drawing.Size(114, 26);
+            this.buttonVer.TabIndex = 3;
+            this.buttonVer.Text = "Ver";
+            this.buttonVer.UseVisualStyleBackColor = true;
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(407, 56);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(114, 27);
+            this.buttonEliminar.TabIndex = 2;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            // 
+            // buttonAnyadir
+            // 
+            this.buttonAnyadir.Location = new System.Drawing.Point(407, 21);
+            this.buttonAnyadir.Name = "buttonAnyadir";
+            this.buttonAnyadir.Size = new System.Drawing.Size(114, 29);
+            this.buttonAnyadir.TabIndex = 1;
+            this.buttonAnyadir.Text = "Añadir";
+            this.buttonAnyadir.UseVisualStyleBackColor = true;
+            // 
+            // listBoxEspacios
+            // 
+            this.listBoxEspacios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxEspacios.FormattingEnabled = true;
+            this.listBoxEspacios.Location = new System.Drawing.Point(3, 16);
+            this.listBoxEspacios.Name = "listBoxEspacios";
+            this.listBoxEspacios.Size = new System.Drawing.Size(399, 111);
+            this.listBoxEspacios.TabIndex = 0;
+            // 
+            // bindingSourceDiasSemana
+            // 
+            this.bindingSourceDiasSemana.DataSource = typeof(Desktop.Dias_Semana);
+            // 
+            // bindingSourceHorarioInsta
+            // 
+            this.bindingSourceHorarioInsta.DataSource = typeof(Desktop.Instalacion_Horario);
+            // 
+            // labelHorario
+            // 
+            this.labelHorario.AutoSize = true;
+            this.labelHorario.Location = new System.Drawing.Point(13, 297);
+            this.labelHorario.Name = "labelHorario";
+            this.labelHorario.Size = new System.Drawing.Size(57, 13);
+            this.labelHorario.TabIndex = 5;
+            this.labelHorario.Text = "HORARIO";
+            // 
+            // instalacionDataGridViewTextBoxColumn
+            // 
+            this.instalacionDataGridViewTextBoxColumn.DataPropertyName = "Instalacion";
+            this.instalacionDataGridViewTextBoxColumn.HeaderText = "Instalacion";
+            this.instalacionDataGridViewTextBoxColumn.Name = "instalacionDataGridViewTextBoxColumn";
+            this.instalacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // diasSemanaDataGridViewTextBoxColumn
+            // 
+            this.diasSemanaDataGridViewTextBoxColumn.DataPropertyName = "Dias_Semana";
+            this.diasSemanaDataGridViewTextBoxColumn.HeaderText = "Dias_Semana";
+            this.diasSemanaDataGridViewTextBoxColumn.Name = "diasSemanaDataGridViewTextBoxColumn";
+            this.diasSemanaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // horafinalDataGridViewTextBoxColumn
+            // 
+            this.horafinalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.horafinalDataGridViewTextBoxColumn.DataPropertyName = "hora_final";
+            this.horafinalDataGridViewTextBoxColumn.HeaderText = "hora_final";
+            this.horafinalDataGridViewTextBoxColumn.Name = "horafinalDataGridViewTextBoxColumn";
+            // 
+            // horainicioDataGridViewTextBoxColumn
+            // 
+            this.horainicioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.horainicioDataGridViewTextBoxColumn.DataPropertyName = "hora_inicio";
+            this.horainicioDataGridViewTextBoxColumn.HeaderText = "hora_inicio";
+            this.horainicioDataGridViewTextBoxColumn.Name = "horainicioDataGridViewTextBoxColumn";
+            // 
+            // iddiasemanaDataGridViewTextBoxColumn
+            // 
+            this.iddiasemanaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.iddiasemanaDataGridViewTextBoxColumn.DataPropertyName = "id_dia_semana";
+            this.iddiasemanaDataGridViewTextBoxColumn.DataSource = this.bindingSourceDiasSemana;
+            this.iddiasemanaDataGridViewTextBoxColumn.DisplayMember = "nombre";
+            this.iddiasemanaDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.iddiasemanaDataGridViewTextBoxColumn.HeaderText = "id_dia_semana";
+            this.iddiasemanaDataGridViewTextBoxColumn.Name = "iddiasemanaDataGridViewTextBoxColumn";
+            this.iddiasemanaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iddiasemanaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.iddiasemanaDataGridViewTextBoxColumn.ValueMember = "id";
+            // 
+            // idinstalacionDataGridViewTextBoxColumn
+            // 
+            this.idinstalacionDataGridViewTextBoxColumn.DataPropertyName = "id_instalacion";
+            this.idinstalacionDataGridViewTextBoxColumn.HeaderText = "id_instalacion";
+            this.idinstalacionDataGridViewTextBoxColumn.Name = "idinstalacionDataGridViewTextBoxColumn";
+            this.idinstalacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewHorariosInsta
+            // 
+            this.dataGridViewHorariosInsta.AllowUserToAddRows = false;
+            this.dataGridViewHorariosInsta.AutoGenerateColumns = false;
+            this.dataGridViewHorariosInsta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHorariosInsta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.idinstalacionDataGridViewTextBoxColumn,
+            this.iddiasemanaDataGridViewTextBoxColumn,
+            this.horainicioDataGridViewTextBoxColumn,
+            this.horafinalDataGridViewTextBoxColumn,
+            this.diasSemanaDataGridViewTextBoxColumn,
+            this.instalacionDataGridViewTextBoxColumn});
+            this.dataGridViewHorariosInsta.DataSource = this.bindingSourceHorarioInsta;
+            this.dataGridViewHorariosInsta.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewHorariosInsta.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewHorariosInsta.Name = "dataGridViewHorariosInsta";
+            this.dataGridViewHorariosInsta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewHorariosInsta.Size = new System.Drawing.Size(399, 204);
+            this.dataGridViewHorariosInsta.TabIndex = 4;
+            // 
+            // groupBoxHorario
+            // 
+            this.groupBoxHorario.Controls.Add(this.buttonEliminarHoraInsta);
+            this.groupBoxHorario.Controls.Add(this.buttonAnyadirHoraInsta);
+            this.groupBoxHorario.Controls.Add(this.dataGridViewHorariosInsta);
+            this.groupBoxHorario.Location = new System.Drawing.Point(13, 313);
+            this.groupBoxHorario.Name = "groupBoxHorario";
+            this.groupBoxHorario.Size = new System.Drawing.Size(523, 223);
+            this.groupBoxHorario.TabIndex = 6;
+            this.groupBoxHorario.TabStop = false;
+            // 
+            // buttonEliminarHoraInsta
+            // 
+            this.buttonEliminarHoraInsta.Location = new System.Drawing.Point(408, 109);
+            this.buttonEliminarHoraInsta.Name = "buttonEliminarHoraInsta";
+            this.buttonEliminarHoraInsta.Size = new System.Drawing.Size(115, 27);
+            this.buttonEliminarHoraInsta.TabIndex = 6;
+            this.buttonEliminarHoraInsta.Text = "Eliminar";
+            this.buttonEliminarHoraInsta.UseVisualStyleBackColor = true;
+            // 
+            // buttonAnyadirHoraInsta
+            // 
+            this.buttonAnyadirHoraInsta.Location = new System.Drawing.Point(408, 74);
+            this.buttonAnyadirHoraInsta.Name = "buttonAnyadirHoraInsta";
+            this.buttonAnyadirHoraInsta.Size = new System.Drawing.Size(115, 29);
+            this.buttonAnyadirHoraInsta.TabIndex = 5;
+            this.buttonAnyadirHoraInsta.Text = "Añadir";
+            this.buttonAnyadirHoraInsta.UseVisualStyleBackColor = true;
+            // 
+            // buttonModificar
+            // 
+            this.buttonModificar.Location = new System.Drawing.Point(182, 560);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(163, 42);
+            this.buttonModificar.TabIndex = 7;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            // 
             // FormUnaInstalacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(548, 393);
+            this.ClientSize = new System.Drawing.Size(548, 632);
+            this.Controls.Add(this.buttonModificar);
+            this.Controls.Add(this.groupBoxHorario);
+            this.Controls.Add(this.labelHorario);
+            this.Controls.Add(this.groupBoxEspacios);
             this.Controls.Add(this.pictureBoxInstalacion);
             this.Controls.Add(this.labelDatosInstalacion);
             this.Controls.Add(this.groupBoxDatosInstalacion);
@@ -149,6 +357,11 @@
             this.groupBoxDatosInstalacion.ResumeLayout(false);
             this.groupBoxDatosInstalacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).EndInit();
+            this.groupBoxEspacios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiasSemana)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHorarioInsta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorariosInsta)).EndInit();
+            this.groupBoxHorario.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +379,25 @@
         private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.BindingSource bindingSourceTipoGestion;
+        private System.Windows.Forms.GroupBox groupBoxEspacios;
+        private System.Windows.Forms.Button buttonVer;
+        private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonAnyadir;
+        private System.Windows.Forms.ListBox listBoxEspacios;
+        private System.Windows.Forms.Label labelHorario;
+        private System.Windows.Forms.BindingSource bindingSourceDiasSemana;
+        private System.Windows.Forms.BindingSource bindingSourceHorarioInsta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instalacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diasSemanaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horafinalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horainicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn iddiasemanaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idinstalacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridViewHorariosInsta;
+        private System.Windows.Forms.GroupBox groupBoxHorario;
+        private System.Windows.Forms.Button buttonEliminarHoraInsta;
+        private System.Windows.Forms.Button buttonAnyadirHoraInsta;
+        private System.Windows.Forms.Button buttonModificar;
     }
 }

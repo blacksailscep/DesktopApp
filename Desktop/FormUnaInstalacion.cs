@@ -24,10 +24,17 @@ namespace Desktop
             this.instalacion = instalacion;
         }
 
-        public void omplir()
+        public void omplir(Instalacion instalacion)
         {
             String mensaje = "";
             bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
+            bindingSourceDiasSemana.DataSource = ORM.ORMInstalaciones.SelectAllDiasSemana(ref mensaje);
+
+            if (instalacion != null)
+            {
+                bindingSourceHorarioInsta.DataSource = ORM.ORMInstalaciones.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+            }
+           
 
             if (!string.IsNullOrEmpty(mensaje))
             {
@@ -39,7 +46,7 @@ namespace Desktop
 
         private void FormUnaInstalacion_Load(object sender, EventArgs e)
         {
-            omplir();
+            omplir(instalacion);
 
             if (instalacion != null)
             {
