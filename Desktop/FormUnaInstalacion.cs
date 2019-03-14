@@ -13,6 +13,8 @@ namespace Desktop
     public partial class FormUnaInstalacion : Form
     {
         Instalacion instalacion;
+        
+
         public FormUnaInstalacion()
         {
             InitializeComponent();
@@ -33,6 +35,11 @@ namespace Desktop
             if (instalacion != null)
             {
                 bindingSourceHorarioInsta.DataSource = ORM.ORMInstalaciones.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+                buttonModificar.Text = "Modificar";
+            }
+            else
+            {
+                buttonModificar.Text = "Añadir";
             }
            
 
@@ -56,6 +63,44 @@ namespace Desktop
             }
         }
 
+        /* ------------------------------------------------ ESPAIS ------------------------------------------------ */
+        /*Mètode per AFEGIR ESPAIS a la instal·lació*/
+        private void buttonAnyadir_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        /*Mètode per ELIMINAR ESPAIS a la instal·lació*/
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /*Mètode per VEURE/MODIFICAR ESPAIS a la instal·lació*/
+        private void buttonVer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /* ------------------------------------------------ HORARI INSTAL·LACIÓ ------------------------------------------------ */
+        /*Mètode per AFEFIR HORARI a la instal·lació*/
+        private void buttonAnyadirHoraInsta_Click(object sender, EventArgs e)
+        {
+            FormHorarioInsta formHorariInsta = new FormHorarioInsta();
+            formHorariInsta.ShowDialog();
+        }
+
+        /*Mètode per ELIMINAR HORARI a la instal·lació*/
+        private void buttonEliminarHoraInsta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /* ------------------------------------------ MODIFICAR TOTES LES DADES ------------------------------------------ */
+        /*Mètode per MODIFICAR la INSTAL·LACIÓ*/
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

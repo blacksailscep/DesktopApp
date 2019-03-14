@@ -28,48 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelHorario = new System.Windows.Forms.Label();
-            this.comboBoxTipoGestion = new System.Windows.Forms.ComboBox();
-            this.textBoxDireccion = new System.Windows.Forms.TextBox();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.comboBoxDiasSemana = new System.Windows.Forms.ComboBox();
+            this.bindingSourceDiesSetmana = new System.Windows.Forms.BindingSource(this.components);
             this.labelDiaSemana = new System.Windows.Forms.Label();
             this.labelHFin = new System.Windows.Forms.Label();
             this.labelHInicio = new System.Windows.Forms.Label();
             this.buttonAceptar = new System.Windows.Forms.Button();
+            this.dateTimePickerHInicio = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerHFinal = new System.Windows.Forms.DateTimePicker();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiesSetmana)).BeginInit();
             this.SuspendLayout();
             // 
             // labelHorario
             // 
             this.labelHorario.AutoSize = true;
+            this.labelHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHorario.Location = new System.Drawing.Point(12, 19);
             this.labelHorario.Name = "labelHorario";
-            this.labelHorario.Size = new System.Drawing.Size(57, 13);
+            this.labelHorario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelHorario.Size = new System.Drawing.Size(84, 18);
             this.labelHorario.TabIndex = 6;
             this.labelHorario.Text = "HORARIO";
+            this.labelHorario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxTipoGestion
+            // comboBoxDiasSemana
             // 
-            this.comboBoxTipoGestion.DisplayMember = "nombre";
-            this.comboBoxTipoGestion.FormattingEnabled = true;
-            this.comboBoxTipoGestion.Location = new System.Drawing.Point(88, 45);
-            this.comboBoxTipoGestion.Name = "comboBoxTipoGestion";
-            this.comboBoxTipoGestion.Size = new System.Drawing.Size(184, 21);
-            this.comboBoxTipoGestion.TabIndex = 13;
-            this.comboBoxTipoGestion.ValueMember = "id";
+            this.comboBoxDiasSemana.DataSource = this.bindingSourceDiesSetmana;
+            this.comboBoxDiasSemana.DisplayMember = "nombre";
+            this.comboBoxDiasSemana.FormattingEnabled = true;
+            this.comboBoxDiasSemana.Location = new System.Drawing.Point(88, 45);
+            this.comboBoxDiasSemana.Name = "comboBoxDiasSemana";
+            this.comboBoxDiasSemana.Size = new System.Drawing.Size(184, 21);
+            this.comboBoxDiasSemana.TabIndex = 13;
+            this.comboBoxDiasSemana.ValueMember = "id";
             // 
-            // textBoxDireccion
+            // bindingSourceDiesSetmana
             // 
-            this.textBoxDireccion.Location = new System.Drawing.Point(88, 105);
-            this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(184, 20);
-            this.textBoxDireccion.TabIndex = 11;
-            // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Location = new System.Drawing.Point(88, 76);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(184, 20);
-            this.textBoxNombre.TabIndex = 10;
+            this.bindingSourceDiesSetmana.DataSource = typeof(Desktop.Dias_Semana);
             // 
             // labelDiaSemana
             // 
@@ -100,12 +98,43 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(88, 152);
+            this.buttonAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAceptar.Location = new System.Drawing.Point(30, 174);
             this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.Size = new System.Drawing.Size(96, 37);
             this.buttonAceptar.TabIndex = 14;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
+            // 
+            // dateTimePickerHInicio
+            // 
+            this.dateTimePickerHInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerHInicio.Location = new System.Drawing.Point(88, 73);
+            this.dateTimePickerHInicio.Name = "dateTimePickerHInicio";
+            this.dateTimePickerHInicio.Size = new System.Drawing.Size(184, 20);
+            this.dateTimePickerHInicio.TabIndex = 15;
+            this.dateTimePickerHInicio.Value = new System.DateTime(2019, 3, 14, 0, 0, 0, 0);
+            // 
+            // dateTimePickerHFinal
+            // 
+            this.dateTimePickerHFinal.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerHFinal.Location = new System.Drawing.Point(88, 102);
+            this.dateTimePickerHFinal.Name = "dateTimePickerHFinal";
+            this.dateTimePickerHFinal.Size = new System.Drawing.Size(184, 20);
+            this.dateTimePickerHFinal.TabIndex = 16;
+            this.dateTimePickerHFinal.Value = new System.DateTime(2019, 3, 14, 0, 0, 0, 0);
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(132, 174);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(96, 37);
+            this.buttonCancelar.TabIndex = 17;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // FormHorarioInsta
             // 
@@ -113,16 +142,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(284, 223);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.dateTimePickerHFinal);
+            this.Controls.Add(this.dateTimePickerHInicio);
             this.Controls.Add(this.buttonAceptar);
-            this.Controls.Add(this.comboBoxTipoGestion);
-            this.Controls.Add(this.textBoxDireccion);
-            this.Controls.Add(this.textBoxNombre);
+            this.Controls.Add(this.comboBoxDiasSemana);
             this.Controls.Add(this.labelDiaSemana);
             this.Controls.Add(this.labelHFin);
             this.Controls.Add(this.labelHInicio);
             this.Controls.Add(this.labelHorario);
             this.Name = "FormHorarioInsta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHorarioInsta";
+            this.Load += new System.EventHandler(this.FormHorarioInsta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiesSetmana)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,12 +164,14 @@
         #endregion
 
         private System.Windows.Forms.Label labelHorario;
-        private System.Windows.Forms.ComboBox comboBoxTipoGestion;
-        private System.Windows.Forms.TextBox textBoxDireccion;
-        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.ComboBox comboBoxDiasSemana;
         private System.Windows.Forms.Label labelDiaSemana;
         private System.Windows.Forms.Label labelHFin;
         private System.Windows.Forms.Label labelHInicio;
         private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHInicio;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHFinal;
+        private System.Windows.Forms.BindingSource bindingSourceDiesSetmana;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

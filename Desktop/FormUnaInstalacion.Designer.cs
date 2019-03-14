@@ -71,7 +71,7 @@
             // 
             // pictureBoxInstalacion
             // 
-            this.pictureBoxInstalacion.Location = new System.Drawing.Point(15, 40);
+            this.pictureBoxInstalacion.Location = new System.Drawing.Point(15, 45);
             this.pictureBoxInstalacion.Name = "pictureBoxInstalacion";
             this.pictureBoxInstalacion.Size = new System.Drawing.Size(161, 75);
             this.pictureBoxInstalacion.TabIndex = 0;
@@ -85,7 +85,7 @@
             this.groupBoxDatosInstalacion.Controls.Add(this.labelTipoGestion);
             this.groupBoxDatosInstalacion.Controls.Add(this.labelDireccion);
             this.groupBoxDatosInstalacion.Controls.Add(this.labelNombre);
-            this.groupBoxDatosInstalacion.Location = new System.Drawing.Point(182, 29);
+            this.groupBoxDatosInstalacion.Location = new System.Drawing.Point(182, 34);
             this.groupBoxDatosInstalacion.Name = "groupBoxDatosInstalacion";
             this.groupBoxDatosInstalacion.Size = new System.Drawing.Size(354, 100);
             this.groupBoxDatosInstalacion.TabIndex = 1;
@@ -151,11 +151,12 @@
             // 
             this.labelDatosInstalacion.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
             this.labelDatosInstalacion.AutoSize = true;
+            this.labelDatosInstalacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDatosInstalacion.Location = new System.Drawing.Point(12, 13);
             this.labelDatosInstalacion.Name = "labelDatosInstalacion";
-            this.labelDatosInstalacion.Size = new System.Drawing.Size(89, 13);
+            this.labelDatosInstalacion.Size = new System.Drawing.Size(176, 18);
             this.labelDatosInstalacion.TabIndex = 2;
-            this.labelDatosInstalacion.Text = "Datos Instalacion";
+            this.labelDatosInstalacion.Text = "DATOS INSTALACIÓN";
             // 
             // groupBoxEspacios
             // 
@@ -163,7 +164,7 @@
             this.groupBoxEspacios.Controls.Add(this.buttonEliminar);
             this.groupBoxEspacios.Controls.Add(this.buttonAnyadir);
             this.groupBoxEspacios.Controls.Add(this.listBoxEspacios);
-            this.groupBoxEspacios.Location = new System.Drawing.Point(13, 135);
+            this.groupBoxEspacios.Location = new System.Drawing.Point(12, 153);
             this.groupBoxEspacios.Name = "groupBoxEspacios";
             this.groupBoxEspacios.Size = new System.Drawing.Size(523, 130);
             this.groupBoxEspacios.TabIndex = 3;
@@ -171,30 +172,36 @@
             // 
             // buttonVer
             // 
+            this.buttonVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonVer.Location = new System.Drawing.Point(407, 89);
             this.buttonVer.Name = "buttonVer";
             this.buttonVer.Size = new System.Drawing.Size(114, 26);
             this.buttonVer.TabIndex = 3;
             this.buttonVer.Text = "Ver";
             this.buttonVer.UseVisualStyleBackColor = true;
+            this.buttonVer.Click += new System.EventHandler(this.buttonVer_Click);
             // 
             // buttonEliminar
             // 
+            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminar.Location = new System.Drawing.Point(407, 56);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(114, 27);
             this.buttonEliminar.TabIndex = 2;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonAnyadir
             // 
+            this.buttonAnyadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAnyadir.Location = new System.Drawing.Point(407, 21);
             this.buttonAnyadir.Name = "buttonAnyadir";
             this.buttonAnyadir.Size = new System.Drawing.Size(114, 29);
             this.buttonAnyadir.TabIndex = 1;
             this.buttonAnyadir.Text = "Añadir";
             this.buttonAnyadir.UseVisualStyleBackColor = true;
+            this.buttonAnyadir.Click += new System.EventHandler(this.buttonAnyadir_Click);
             // 
             // listBoxEspacios
             // 
@@ -216,9 +223,10 @@
             // labelHorario
             // 
             this.labelHorario.AutoSize = true;
+            this.labelHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHorario.Location = new System.Drawing.Point(13, 297);
             this.labelHorario.Name = "labelHorario";
-            this.labelHorario.Size = new System.Drawing.Size(57, 13);
+            this.labelHorario.Size = new System.Drawing.Size(84, 18);
             this.labelHorario.TabIndex = 5;
             this.labelHorario.Text = "HORARIO";
             // 
@@ -311,30 +319,36 @@
             // 
             // buttonEliminarHoraInsta
             // 
+            this.buttonEliminarHoraInsta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminarHoraInsta.Location = new System.Drawing.Point(408, 109);
             this.buttonEliminarHoraInsta.Name = "buttonEliminarHoraInsta";
             this.buttonEliminarHoraInsta.Size = new System.Drawing.Size(115, 27);
             this.buttonEliminarHoraInsta.TabIndex = 6;
             this.buttonEliminarHoraInsta.Text = "Eliminar";
             this.buttonEliminarHoraInsta.UseVisualStyleBackColor = true;
+            this.buttonEliminarHoraInsta.Click += new System.EventHandler(this.buttonEliminarHoraInsta_Click);
             // 
             // buttonAnyadirHoraInsta
             // 
+            this.buttonAnyadirHoraInsta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAnyadirHoraInsta.Location = new System.Drawing.Point(408, 74);
             this.buttonAnyadirHoraInsta.Name = "buttonAnyadirHoraInsta";
             this.buttonAnyadirHoraInsta.Size = new System.Drawing.Size(115, 29);
             this.buttonAnyadirHoraInsta.TabIndex = 5;
             this.buttonAnyadirHoraInsta.Text = "Añadir";
             this.buttonAnyadirHoraInsta.UseVisualStyleBackColor = true;
+            this.buttonAnyadirHoraInsta.Click += new System.EventHandler(this.buttonAnyadirHoraInsta_Click);
             // 
             // buttonModificar
             // 
+            this.buttonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModificar.Location = new System.Drawing.Point(182, 560);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(163, 42);
             this.buttonModificar.TabIndex = 7;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // FormUnaInstalacion
             // 

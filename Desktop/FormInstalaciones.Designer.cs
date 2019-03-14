@@ -30,16 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxBuscaInsta = new System.Windows.Forms.GroupBox();
+            this.labelBuscar = new System.Windows.Forms.Label();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.buttonGenerarInforme = new System.Windows.Forms.Button();
             this.pictureBoxBusca = new System.Windows.Forms.PictureBox();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewInstalaciones = new System.Windows.Forms.DataGridView();
-            this.bindingSourceTipoGestion = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceInstalaciones = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonEliminar = new System.Windows.Forms.Button();
-            this.buttonVer = new System.Windows.Forms.Button();
-            this.buttonAñadir = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +43,11 @@
             this.espacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instalacionHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipogestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.bindingSourceTipoGestion = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceInstalaciones = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonVer = new System.Windows.Forms.Button();
+            this.buttonAñadir = new System.Windows.Forms.Button();
             this.groupBoxBuscaInsta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBusca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstalaciones)).BeginInit();
@@ -56,6 +57,7 @@
             // 
             // groupBoxBuscaInsta
             // 
+            this.groupBoxBuscaInsta.Controls.Add(this.labelBuscar);
             this.groupBoxBuscaInsta.Controls.Add(this.buttonBuscar);
             this.groupBoxBuscaInsta.Controls.Add(this.buttonGenerarInforme);
             this.groupBoxBuscaInsta.Controls.Add(this.pictureBoxBusca);
@@ -63,13 +65,24 @@
             this.groupBoxBuscaInsta.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxBuscaInsta.Location = new System.Drawing.Point(0, 44);
             this.groupBoxBuscaInsta.Name = "groupBoxBuscaInsta";
-            this.groupBoxBuscaInsta.Size = new System.Drawing.Size(1250, 49);
+            this.groupBoxBuscaInsta.Size = new System.Drawing.Size(1250, 51);
             this.groupBoxBuscaInsta.TabIndex = 1;
             this.groupBoxBuscaInsta.TabStop = false;
             // 
+            // labelBuscar
+            // 
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.Location = new System.Drawing.Point(35, 20);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(116, 13);
+            this.labelBuscar.TabIndex = 4;
+            this.labelBuscar.Text = "Buscar Instalación:";
+            // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(363, 17);
+            this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.Location = new System.Drawing.Point(486, 17);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(69, 23);
             this.buttonBuscar.TabIndex = 3;
@@ -79,10 +92,9 @@
             // 
             // buttonGenerarInforme
             // 
-            this.buttonGenerarInforme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonGenerarInforme.Location = new System.Drawing.Point(1033, 16);
+            this.buttonGenerarInforme.Location = new System.Drawing.Point(1050, 15);
             this.buttonGenerarInforme.Name = "buttonGenerarInforme";
-            this.buttonGenerarInforme.Size = new System.Drawing.Size(214, 30);
+            this.buttonGenerarInforme.Size = new System.Drawing.Size(194, 30);
             this.buttonGenerarInforme.TabIndex = 2;
             this.buttonGenerarInforme.Text = "Generar Informe";
             this.buttonGenerarInforme.UseVisualStyleBackColor = true;
@@ -90,19 +102,18 @@
             // pictureBoxBusca
             // 
             this.pictureBoxBusca.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBoxBusca.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxBusca.ErrorImage = global::Desktop.Properties.Resources.lupa;
             this.pictureBoxBusca.Image = global::Desktop.Properties.Resources.lupa;
-            this.pictureBoxBusca.Location = new System.Drawing.Point(3, 16);
+            this.pictureBoxBusca.Location = new System.Drawing.Point(3, 11);
             this.pictureBoxBusca.Name = "pictureBoxBusca";
-            this.pictureBoxBusca.Size = new System.Drawing.Size(25, 30);
+            this.pictureBoxBusca.Size = new System.Drawing.Size(25, 32);
             this.pictureBoxBusca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxBusca.TabIndex = 1;
             this.pictureBoxBusca.TabStop = false;
             // 
             // textBoxBuscar
             // 
-            this.textBoxBuscar.Location = new System.Drawing.Point(34, 19);
+            this.textBoxBuscar.Location = new System.Drawing.Point(157, 19);
             this.textBoxBuscar.Name = "textBoxBuscar";
             this.textBoxBuscar.Size = new System.Drawing.Size(322, 20);
             this.textBoxBuscar.TabIndex = 0;
@@ -123,51 +134,12 @@
             this.tipogestionDataGridViewTextBoxColumn});
             this.dataGridViewInstalaciones.DataSource = this.bindingSourceInstalaciones;
             this.dataGridViewInstalaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewInstalaciones.Location = new System.Drawing.Point(0, 93);
+            this.dataGridViewInstalaciones.Location = new System.Drawing.Point(0, 95);
             this.dataGridViewInstalaciones.Name = "dataGridViewInstalaciones";
             this.dataGridViewInstalaciones.ReadOnly = true;
             this.dataGridViewInstalaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewInstalaciones.Size = new System.Drawing.Size(1250, 496);
             this.dataGridViewInstalaciones.TabIndex = 2;
-            // 
-            // bindingSourceTipoGestion
-            // 
-            this.bindingSourceTipoGestion.DataSource = typeof(Desktop.Tipo_gestion);
-            // 
-            // bindingSourceInstalaciones
-            // 
-            this.bindingSourceInstalaciones.DataSource = typeof(Desktop.Instalacion);
-            // 
-            // buttonEliminar
-            // 
-            this.buttonEliminar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonEliminar.Location = new System.Drawing.Point(1050, 589);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(200, 70);
-            this.buttonEliminar.TabIndex = 3;
-            this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            // 
-            // buttonVer
-            // 
-            this.buttonVer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonVer.Location = new System.Drawing.Point(850, 589);
-            this.buttonVer.Name = "buttonVer";
-            this.buttonVer.Size = new System.Drawing.Size(200, 70);
-            this.buttonVer.TabIndex = 4;
-            this.buttonVer.Text = "Ver";
-            this.buttonVer.UseVisualStyleBackColor = true;
-            this.buttonVer.Click += new System.EventHandler(this.buttonVer_Click);
-            // 
-            // buttonAñadir
-            // 
-            this.buttonAñadir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonAñadir.Location = new System.Drawing.Point(650, 589);
-            this.buttonAñadir.Name = "buttonAñadir";
-            this.buttonAñadir.Size = new System.Drawing.Size(200, 70);
-            this.buttonAñadir.TabIndex = 5;
-            this.buttonAñadir.Text = "Añadir";
-            this.buttonAñadir.UseVisualStyleBackColor = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -231,6 +203,44 @@
             this.tipogestionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.tipogestionDataGridViewTextBoxColumn.ValueMember = "id";
             // 
+            // bindingSourceTipoGestion
+            // 
+            this.bindingSourceTipoGestion.DataSource = typeof(Desktop.Tipo_gestion);
+            // 
+            // bindingSourceInstalaciones
+            // 
+            this.bindingSourceInstalaciones.DataSource = typeof(Desktop.Instalacion);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(1083, 607);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(158, 40);
+            this.buttonEliminar.TabIndex = 3;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // buttonVer
+            // 
+            this.buttonVer.Location = new System.Drawing.Point(919, 607);
+            this.buttonVer.Name = "buttonVer";
+            this.buttonVer.Size = new System.Drawing.Size(158, 40);
+            this.buttonVer.TabIndex = 4;
+            this.buttonVer.Text = "Ver";
+            this.buttonVer.UseVisualStyleBackColor = true;
+            this.buttonVer.Click += new System.EventHandler(this.buttonVer_Click);
+            // 
+            // buttonAñadir
+            // 
+            this.buttonAñadir.Location = new System.Drawing.Point(755, 607);
+            this.buttonAñadir.Name = "buttonAñadir";
+            this.buttonAñadir.Size = new System.Drawing.Size(158, 40);
+            this.buttonAñadir.TabIndex = 5;
+            this.buttonAñadir.Text = "Añadir";
+            this.buttonAñadir.UseVisualStyleBackColor = true;
+            this.buttonAñadir.Click += new System.EventHandler(this.buttonAñadir_Click);
+            // 
             // FormInstalaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +289,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn espacioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn instalacionHorarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn tipogestionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label labelBuscar;
     }
 }
