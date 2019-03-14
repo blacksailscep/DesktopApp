@@ -26,9 +26,9 @@ namespace Desktop
         public int id_tipo { get; set; }
         public int id_espacio { get; set; }
         public int id_equipo { get; set; }
-        public double durada { get; set; }
+        public System.TimeSpan durada { get; set; }
         public int dias { get; set; }
-        public bool asignada { get; set; }
+        public Nullable<bool> asignada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Act_concedida> Act_concedida { get; set; }

@@ -56,6 +56,8 @@
             this.textBoxEspacio = new System.Windows.Forms.TextBox();
             this.buttonConceder = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxDuracion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesPedidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActAsignadas)).BeginInit();
             this.SuspendLayout();
@@ -74,12 +76,12 @@
             this.Viernes,
             this.Sabado,
             this.Domingo});
-            this.dataGridViewHorarioActividadesPedidas.Location = new System.Drawing.Point(24, 135);
+            this.dataGridViewHorarioActividadesPedidas.Location = new System.Drawing.Point(24, 156);
             this.dataGridViewHorarioActividadesPedidas.Name = "dataGridViewHorarioActividadesPedidas";
             this.dataGridViewHorarioActividadesPedidas.ReadOnly = true;
             this.dataGridViewHorarioActividadesPedidas.RowHeadersWidth = 10;
-            this.dataGridViewHorarioActividadesPedidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewHorarioActividadesPedidas.Size = new System.Drawing.Size(1214, 250);
+            this.dataGridViewHorarioActividadesPedidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewHorarioActividadesPedidas.Size = new System.Drawing.Size(1214, 229);
             this.dataGridViewHorarioActividadesPedidas.TabIndex = 19;
             // 
             // Horas
@@ -156,9 +158,10 @@
             this.dataGridViewHorarioActAsignadas.Name = "dataGridViewHorarioActAsignadas";
             this.dataGridViewHorarioActAsignadas.ReadOnly = true;
             this.dataGridViewHorarioActAsignadas.RowHeadersWidth = 10;
-            this.dataGridViewHorarioActAsignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewHorarioActAsignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewHorarioActAsignadas.Size = new System.Drawing.Size(1214, 250);
             this.dataGridViewHorarioActAsignadas.TabIndex = 20;
+            this.dataGridViewHorarioActAsignadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHorarioActAsignadas_CellDoubleClick);
             // 
             // Hora
             // 
@@ -219,7 +222,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 64);
+            this.label1.Location = new System.Drawing.Point(30, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 21;
@@ -230,13 +233,13 @@
             this.textBoxNombreActividad.Enabled = false;
             this.textBoxNombreActividad.Location = new System.Drawing.Point(24, 92);
             this.textBoxNombreActividad.Name = "textBoxNombreActividad";
-            this.textBoxNombreActividad.Size = new System.Drawing.Size(179, 20);
+            this.textBoxNombreActividad.Size = new System.Drawing.Size(140, 20);
             this.textBoxNombreActividad.TabIndex = 22;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(286, 64);
+            this.label3.Location = new System.Drawing.Point(243, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 23;
@@ -245,15 +248,15 @@
             // textBoxTipo
             // 
             this.textBoxTipo.Enabled = false;
-            this.textBoxTipo.Location = new System.Drawing.Point(222, 92);
+            this.textBoxTipo.Location = new System.Drawing.Point(180, 92);
             this.textBoxTipo.Name = "textBoxTipo";
-            this.textBoxTipo.Size = new System.Drawing.Size(188, 20);
+            this.textBoxTipo.Size = new System.Drawing.Size(155, 20);
             this.textBoxTipo.TabIndex = 24;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(484, 64);
+            this.label4.Location = new System.Drawing.Point(396, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 25;
@@ -262,15 +265,15 @@
             // textBoxInstalacion
             // 
             this.textBoxInstalacion.Enabled = false;
-            this.textBoxInstalacion.Location = new System.Drawing.Point(428, 92);
+            this.textBoxInstalacion.Location = new System.Drawing.Point(341, 92);
             this.textBoxInstalacion.Name = "textBoxInstalacion";
-            this.textBoxInstalacion.Size = new System.Drawing.Size(198, 20);
+            this.textBoxInstalacion.Size = new System.Drawing.Size(186, 20);
             this.textBoxInstalacion.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(722, 64);
+            this.label5.Location = new System.Drawing.Point(612, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 27;
@@ -279,9 +282,9 @@
             // textBoxEspacio
             // 
             this.textBoxEspacio.Enabled = false;
-            this.textBoxEspacio.Location = new System.Drawing.Point(649, 92);
+            this.textBoxEspacio.Location = new System.Drawing.Point(544, 92);
             this.textBoxEspacio.Name = "textBoxEspacio";
-            this.textBoxEspacio.Size = new System.Drawing.Size(192, 20);
+            this.textBoxEspacio.Size = new System.Drawing.Size(186, 20);
             this.textBoxEspacio.TabIndex = 28;
             // 
             // buttonConceder
@@ -304,10 +307,28 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(758, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Numero de horas";
+            // 
+            // textBoxDuracion
+            // 
+            this.textBoxDuracion.Location = new System.Drawing.Point(761, 92);
+            this.textBoxDuracion.Name = "textBoxDuracion";
+            this.textBoxDuracion.Size = new System.Drawing.Size(72, 20);
+            this.textBoxDuracion.TabIndex = 32;
+            // 
             // FormPlantillaPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1250, 659);
+            this.Controls.Add(this.textBoxDuracion);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonConceder);
             this.Controls.Add(this.textBoxEspacio);
@@ -334,6 +355,8 @@
             this.Controls.SetChildIndex(this.textBoxEspacio, 0);
             this.Controls.SetChildIndex(this.buttonConceder, 0);
             this.Controls.SetChildIndex(this.buttonCancelar, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.textBoxDuracion, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesPedidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActAsignadas)).EndInit();
             this.ResumeLayout(false);
@@ -371,5 +394,7 @@
         private System.Windows.Forms.TextBox textBoxEspacio;
         private System.Windows.Forms.Button buttonConceder;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxDuracion;
     }
 }

@@ -190,27 +190,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Act_concedida.datasource" />
-    <None Include="Properties\DataSources\Act_demandadas.datasource" />
-    <None Include="Properties\DataSources\Admin.datasource" />
-    <None Include="Properties\DataSources\Categoria_edad.datasource" />
-    <None Include="Properties\DataSources\Competicion.datasource" />
-    <None Include="Properties\DataSources\Deportes.datasource" />
-    <None Include="Properties\DataSources\Dias_Semana.datasource" />
-    <None Include="Properties\DataSources\Entidad.datasource" />
-    <None Include="Properties\DataSources\EntiEspaiEntities.datasource" />
-    <None Include="Properties\DataSources\Equipo.datasource" />
-    <None Include="Properties\DataSources\Espacio.datasource" />
-    <None Include="Properties\DataSources\Horario_Act_Con.datasource" />
-    <None Include="Properties\DataSources\Horario_Act_Dem.datasource" />
-    <None Include="Properties\DataSources\Instalacion.datasource" />
-    <None Include="Properties\DataSources\Instalacion_Horario.datasource" />
-    <None Include="Properties\DataSources\Nivel.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
-    <None Include="Properties\DataSources\Sexo.datasource" />
-    <None Include="Properties\DataSources\Telefonos.datasource" />
-    <None Include="Properties\DataSources\Tipo_Act.datasource" />
-    <None Include="Properties\DataSources\Tipo_gestion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -227,19 +206,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

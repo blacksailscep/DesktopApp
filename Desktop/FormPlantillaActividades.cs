@@ -15,6 +15,8 @@ namespace Desktop
             InitializeComponent();
             tabControlActividades.SelectedIndexChanged +=
                 new EventHandler(tabControlActividades_TabIndexChanged);
+
+            
         }
         private void tabControlActividades_TabIndexChanged(object sender, EventArgs e)
         {
@@ -35,6 +37,8 @@ namespace Desktop
 
             if (!mensaje.Equals(""))
                 MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            
         }
 
         private void dataGridViewPendientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

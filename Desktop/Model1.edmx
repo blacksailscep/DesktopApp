@@ -25,9 +25,9 @@
           <Property Name="id_tipo" Type="int" Nullable="false" />
           <Property Name="id_espacio" Type="int" Nullable="false" />
           <Property Name="id_equipo" Type="int" Nullable="false" />
-          <Property Name="durada" Type="float" Nullable="false" />
+          <Property Name="durada" Type="time" Precision="7" Nullable="false" />
           <Property Name="dias" Type="int" Nullable="false" />
-          <Property Name="asignada" Type="bit" Nullable="false" />
+          <Property Name="asignada" Type="bit" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -75,7 +75,7 @@
           <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="contrasenya" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="temporada" Type="int" Nullable="false" />
-          <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="nif" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Equipo">
@@ -126,8 +126,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="id_tipo_gestion" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Instalacion_Horario">
@@ -580,9 +580,9 @@
           <Property Name="id_tipo" Type="Int32" Nullable="false" />
           <Property Name="id_espacio" Type="Int32" Nullable="false" />
           <Property Name="id_equipo" Type="Int32" Nullable="false" />
-          <Property Name="durada" Type="Double" Nullable="false" />
+          <Property Name="durada" Type="Time" Nullable="false" Precision="7" />
           <Property Name="dias" Type="Int32" Nullable="false" />
-          <Property Name="asignada" Type="Boolean" Nullable="false" />
+          <Property Name="asignada" Type="Boolean" />
           <NavigationProperty Name="Act_concedida" Relationship="Self.FK_Act_concedida_Act_demandadas" FromRole="Act_demandadas" ToRole="Act_concedida" />
           <NavigationProperty Name="Equipo" Relationship="Self.FK_Act_demandadas_Equipo" FromRole="Act_demandadas" ToRole="Equipo" />
           <NavigationProperty Name="Espacio" Relationship="Self.FK_Act_demandadas_Espacio" FromRole="Act_demandadas" ToRole="Espacio" />
@@ -641,7 +641,7 @@
           <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contrasenya" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="temporada" Type="Int32" Nullable="false" />
-          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nif" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Equipo" Relationship="Self.FK_Equipo_Entidad" FromRole="Entidad" ToRole="Equipo" />
           <NavigationProperty Name="Telefonos" Relationship="Self.FK_Telefonos_Entidad" FromRole="Entidad" ToRole="Telefonos" />
@@ -709,8 +709,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_tipo_gestion" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Espacio" Relationship="Self.FK_Espacio_Instalacion" FromRole="Instalacion" ToRole="Espacio" />
           <NavigationProperty Name="Instalacion_Horario" Relationship="Self.FK_Instalacion_Horario_Instalacion" FromRole="Instalacion" ToRole="Instalacion_Horario" />

@@ -49,6 +49,7 @@
             this.TipoActPen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourcePendientes = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageDenegadas = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControlActividades.SuspendLayout();
             this.tabPageAceptadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAceptadas)).BeginInit();
@@ -56,6 +57,8 @@
             this.tabPagePendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).BeginInit();
+            this.tabPageDenegadas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGestionar
@@ -227,6 +230,7 @@
             // 
             // tabPageDenegadas
             // 
+            this.tabPageDenegadas.Controls.Add(this.dataGridView1);
             this.tabPageDenegadas.Location = new System.Drawing.Point(4, 22);
             this.tabPageDenegadas.Name = "tabPageDenegadas";
             this.tabPageDenegadas.Padding = new System.Windows.Forms.Padding(3);
@@ -234,6 +238,18 @@
             this.tabPageDenegadas.TabIndex = 2;
             this.tabPageDenegadas.Text = "Denegadas";
             this.tabPageDenegadas.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(1129, 366);
+            this.dataGridView1.TabIndex = 0;
             // 
             // FormPlantillaActividades
             // 
@@ -256,6 +272,8 @@
             this.tabPagePendientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).EndInit();
+            this.tabPageDenegadas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,5 +300,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoActividadPendiente;
         private System.Windows.Forms.DataGridViewTextBoxColumn EspacioActPen;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoActPen;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

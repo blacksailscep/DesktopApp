@@ -10,6 +10,13 @@ namespace Desktop.ORM
 {
     class ORMAcividadesPendientes
     {
+        /*enum Estados
+        {
+            Asignada, Pendiente, Denegada
+        }
+
+        Estados e = Estados.Asignada;*/
+        
         public static List<Object> SelectHorarioActividadPendientes(ref String mensaje, int idActCon)
         {
             List<Object> horarios = null;
@@ -55,9 +62,10 @@ namespace Desktop.ORM
                               join e in ORM.bd.Espacio on a.id_espacio equals e.id
                               join eq in ORM.bd.Equipo on a.id_equipo equals eq.id
                               join c in ORM.bd.Sexo on eq.id_sexo equals c.id
-                              where a.asignada==false
+                              where a.asignada==false 
                               select new
                               {
+                                  duracion = a.durada,
                                   nombre = a.nombre,
                                   tipo = b.nombre,
                                   espacio = e.nombre,
