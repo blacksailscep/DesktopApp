@@ -34,12 +34,28 @@ namespace Desktop
 
             if (instalacion != null)
             {
-                bindingSourceHorarioInsta.DataSource = ORM.ORMInstalaciones.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+                List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+                List<Espacio> espacios = ORM.ORMEspacio.SelectAllEspacios(ref mensaje);
+                //ORM.ORMInstalaciones.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+
+                if (horari.Count ==0)
+                {
+                    MessageBox.Show("No hi ha cap horari introduït en aquesta instal·lació", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    bindingSourceHorarioInsta.DataSource = horari;
+                    MessageBox.Show("S'ha introduït horaris", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 buttonModificar.Text = "Modificar";
+                buttonAnyadirEspai.Text = "Modificar";
+                buttonAnyadirHoraInsta.Enabled = true;
             }
             else
             {
                 buttonModificar.Text = "Añadir";
+                buttonAnyadirEspai.Text = "Añadir";
+                buttonAnyadirHoraInsta.Enabled = false;
             }
            
 
@@ -67,7 +83,23 @@ namespace Desktop
         /*Mètode per AFEGIR ESPAIS a la instal·lació*/
         private void buttonAnyadir_Click(object sender, EventArgs e)
         {
+            //FormHorarioInsta formHorariInsta;
 
+            //listBoxEspacios.Text;
+
+            //Espacio espacio = (Espacio)listBoxEspacios
+            //    .SelectedRows[0].DataBoundItem;
+
+            //if (instaHorario != null)
+            //{
+            //    formHorariInsta = new FormHorarioInsta(instaHorario);
+            //}
+            //else
+            //{
+            //    formHorariInsta = new FormHorarioInsta(instalacion);
+            //}
+
+            //formHorariInsta.ShowDialog();
         }
 
         /*Mètode per ELIMINAR ESPAIS a la instal·lació*/
@@ -76,31 +108,88 @@ namespace Desktop
 
         }
 
-        /*Mètode per VEURE/MODIFICAR ESPAIS a la instal·lació*/
-        private void buttonVer_Click(object sender, EventArgs e)
-        {
-
-        }
-
         /* ------------------------------------------------ HORARI INSTAL·LACIÓ ------------------------------------------------ */
         /*Mètode per AFEFIR HORARI a la instal·lació*/
         private void buttonAnyadirHoraInsta_Click(object sender, EventArgs e)
         {
-            FormHorarioInsta formHorariInsta = new FormHorarioInsta();
+            FormHorarioInsta formHorariInsta;
+
+            Instalacion_Horario instaHorario= (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
+            
+            if (instaHorario != null)
+            {
+                formHorariInsta = new FormHorarioInsta(instaHorario);
+            }
+            else
+            {
+                formHorariInsta = new FormHorarioInsta(instalacion);
+            }
+
             formHorariInsta.ShowDialog();
         }
 
         /*Mètode per ELIMINAR HORARI a la instal·lació*/
         private void buttonEliminarHoraInsta_Click(object sender, EventArgs e)
         {
+            String mensaje = "";
+
+            Instalacion_Horario instaHorario = (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
+
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este horario?", "BORRAR HORARIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                ORM.ORMHorari_Instalacion.DelelteHorariInsta(instaHorario, ref mensaje);
+               
+                if (!string.IsNullOrWhiteSpace(mensaje))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                    //e.Cancel = true;    //Para cancelar el evento
+                }
+            }
+            else
+            {
+                //Al poner NO igualmente lo borra de la grid pero no de la base de datos y llama al UserDeleteRow.
+                //Tenemos que hacer esto para evitarlo
+
+                //e.Cancel = true;
+
+                /*Exception registros relacionados: DbUpdateException
+                Dentro habrá un SQL Exception*/
+            }
 
         }
 
+        private void dataGridViewHorariosInsta_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            String mensaje = "";
+
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este horario?", "BORRAR HORARIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Instalacion_Horario instaHorario = (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
+
+            if (resultado == DialogResult.Yes)
+            {
+                ORM.ORMHorari_Instalacion.DelelteHorariInsta(instaHorario, ref mensaje);
+
+                if (!mensaje.Equals(""))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Cancel = true;    //Para cancelar el evento
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+
+            }
+        }
+
         /* ------------------------------------------ MODIFICAR TOTES LES DADES ------------------------------------------ */
-        /*Mètode per MODIFICAR la INSTAL·LACIÓ*/
         private void buttonModificar_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

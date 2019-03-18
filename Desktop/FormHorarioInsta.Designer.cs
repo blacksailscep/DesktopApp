@@ -99,7 +99,7 @@
             // buttonAceptar
             // 
             this.buttonAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAceptar.Location = new System.Drawing.Point(30, 174);
+            this.buttonAceptar.Location = new System.Drawing.Point(43, 174);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(96, 37);
             this.buttonAceptar.TabIndex = 14;
@@ -128,7 +128,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(132, 174);
+            this.buttonCancelar.Location = new System.Drawing.Point(145, 174);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(96, 37);
             this.buttonCancelar.TabIndex = 17;

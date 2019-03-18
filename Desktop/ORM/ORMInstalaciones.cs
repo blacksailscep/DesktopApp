@@ -94,26 +94,8 @@ namespace Desktop.ORM
         }
 
 
-        /*Método para seleccionar todas los tipos de gestión, ComboBox*/
-        public static List<Instalacion_Horario> SelectAllHorarioInstalacion(int id_instalacion, ref String mensaje)
-        {
-            List<Instalacion_Horario> diasSemana = null;
-            try
-            {
-                diasSemana = (from Instalacion_Horario in ORM.bd.Instalacion_Horario
-                              orderby Instalacion_Horario.id_dia_semana
-                              where Instalacion_Horario.id_instalacion == id_instalacion
-                              select Instalacion_Horario).ToList();
+       
 
-            }
-            catch (DbUpdateException ex)
-            {
-                SqlException exception = (SqlException)ex.InnerException.InnerException;
-                mensaje = ORM.MensajeError(exception);
-            }
-
-            return diasSemana;
-        }
 
     }
 }

@@ -40,9 +40,8 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelDatosInstalacion = new System.Windows.Forms.Label();
             this.groupBoxEspacios = new System.Windows.Forms.GroupBox();
-            this.buttonVer = new System.Windows.Forms.Button();
-            this.buttonEliminar = new System.Windows.Forms.Button();
-            this.buttonAnyadir = new System.Windows.Forms.Button();
+            this.buttonEliminarEspai = new System.Windows.Forms.Button();
+            this.buttonAnyadirEspai = new System.Windows.Forms.Button();
             this.listBoxEspacios = new System.Windows.Forms.ListBox();
             this.bindingSourceDiasSemana = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceHorarioInsta = new System.Windows.Forms.BindingSource(this.components);
@@ -53,7 +52,6 @@
             this.horainicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iddiasemanaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.idinstalacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewHorariosInsta = new System.Windows.Forms.DataGridView();
             this.groupBoxHorario = new System.Windows.Forms.GroupBox();
             this.buttonEliminarHoraInsta = new System.Windows.Forms.Button();
@@ -160,9 +158,8 @@
             // 
             // groupBoxEspacios
             // 
-            this.groupBoxEspacios.Controls.Add(this.buttonVer);
-            this.groupBoxEspacios.Controls.Add(this.buttonEliminar);
-            this.groupBoxEspacios.Controls.Add(this.buttonAnyadir);
+            this.groupBoxEspacios.Controls.Add(this.buttonEliminarEspai);
+            this.groupBoxEspacios.Controls.Add(this.buttonAnyadirEspai);
             this.groupBoxEspacios.Controls.Add(this.listBoxEspacios);
             this.groupBoxEspacios.Location = new System.Drawing.Point(12, 153);
             this.groupBoxEspacios.Name = "groupBoxEspacios";
@@ -170,38 +167,27 @@
             this.groupBoxEspacios.TabIndex = 3;
             this.groupBoxEspacios.TabStop = false;
             // 
-            // buttonVer
+            // buttonEliminarEspai
             // 
-            this.buttonVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVer.Location = new System.Drawing.Point(407, 89);
-            this.buttonVer.Name = "buttonVer";
-            this.buttonVer.Size = new System.Drawing.Size(114, 26);
-            this.buttonVer.TabIndex = 3;
-            this.buttonVer.Text = "Ver";
-            this.buttonVer.UseVisualStyleBackColor = true;
-            this.buttonVer.Click += new System.EventHandler(this.buttonVer_Click);
+            this.buttonEliminarEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminarEspai.Location = new System.Drawing.Point(407, 69);
+            this.buttonEliminarEspai.Name = "buttonEliminarEspai";
+            this.buttonEliminarEspai.Size = new System.Drawing.Size(114, 27);
+            this.buttonEliminarEspai.TabIndex = 2;
+            this.buttonEliminarEspai.Text = "Eliminar";
+            this.buttonEliminarEspai.UseVisualStyleBackColor = true;
+            this.buttonEliminarEspai.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
-            // buttonEliminar
+            // buttonAnyadirEspai
             // 
-            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminar.Location = new System.Drawing.Point(407, 56);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(114, 27);
-            this.buttonEliminar.TabIndex = 2;
-            this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
-            // 
-            // buttonAnyadir
-            // 
-            this.buttonAnyadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAnyadir.Location = new System.Drawing.Point(407, 21);
-            this.buttonAnyadir.Name = "buttonAnyadir";
-            this.buttonAnyadir.Size = new System.Drawing.Size(114, 29);
-            this.buttonAnyadir.TabIndex = 1;
-            this.buttonAnyadir.Text = "Añadir";
-            this.buttonAnyadir.UseVisualStyleBackColor = true;
-            this.buttonAnyadir.Click += new System.EventHandler(this.buttonAnyadir_Click);
+            this.buttonAnyadirEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnyadirEspai.Location = new System.Drawing.Point(407, 34);
+            this.buttonAnyadirEspai.Name = "buttonAnyadirEspai";
+            this.buttonAnyadirEspai.Size = new System.Drawing.Size(114, 29);
+            this.buttonAnyadirEspai.TabIndex = 1;
+            this.buttonAnyadirEspai.Text = "Añadir";
+            this.buttonAnyadirEspai.UseVisualStyleBackColor = true;
+            this.buttonAnyadirEspai.Click += new System.EventHandler(this.buttonAnyadir_Click);
             // 
             // listBoxEspacios
             // 
@@ -278,20 +264,12 @@
             this.idinstalacionDataGridViewTextBoxColumn.Name = "idinstalacionDataGridViewTextBoxColumn";
             this.idinstalacionDataGridViewTextBoxColumn.Visible = false;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
             // dataGridViewHorariosInsta
             // 
             this.dataGridViewHorariosInsta.AllowUserToAddRows = false;
             this.dataGridViewHorariosInsta.AutoGenerateColumns = false;
             this.dataGridViewHorariosInsta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHorariosInsta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.idinstalacionDataGridViewTextBoxColumn,
             this.iddiasemanaDataGridViewTextBoxColumn,
             this.horainicioDataGridViewTextBoxColumn,
@@ -305,6 +283,7 @@
             this.dataGridViewHorariosInsta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewHorariosInsta.Size = new System.Drawing.Size(399, 204);
             this.dataGridViewHorariosInsta.TabIndex = 4;
+            this.dataGridViewHorariosInsta.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewHorariosInsta_UserDeletingRow);
             // 
             // groupBoxHorario
             // 
@@ -394,9 +373,8 @@
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.BindingSource bindingSourceTipoGestion;
         private System.Windows.Forms.GroupBox groupBoxEspacios;
-        private System.Windows.Forms.Button buttonVer;
-        private System.Windows.Forms.Button buttonEliminar;
-        private System.Windows.Forms.Button buttonAnyadir;
+        private System.Windows.Forms.Button buttonEliminarEspai;
+        private System.Windows.Forms.Button buttonAnyadirEspai;
         private System.Windows.Forms.ListBox listBoxEspacios;
         private System.Windows.Forms.Label labelHorario;
         private System.Windows.Forms.BindingSource bindingSourceDiasSemana;

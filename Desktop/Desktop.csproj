@@ -156,6 +156,8 @@
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="ORM\ORMAcividadesPendientes.cs" />
     <Compile Include="ORM\ORMActividadesConcedidas.cs" />
+    <Compile Include="ORM\ORMEspacio.cs" />
+    <Compile Include="ORM\ORMHorari_Instalacion.cs" />
     <Compile Include="ORM\ORMInstalaciones.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
