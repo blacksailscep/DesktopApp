@@ -31,13 +31,11 @@ namespace Desktop
             String mensaje = "";
             bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
             bindingSourceDiasSemana.DataSource = ORM.ORMInstalaciones.SelectAllDiasSemana(ref mensaje);
-
+            bindingSourceEspacios.DataSource = ORM.ORMEspacio.SelectAllEspacios(ref mensaje);
             if (instalacion != null)
             {
                 List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
-                List<Espacio> espacios = ORM.ORMEspacio.SelectAllEspacios(ref mensaje);
-                //ORM.ORMInstalaciones.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
-
+              
                 if (horari.Count ==0)
                 {
                     MessageBox.Show("No hi ha cap horari introduït en aquesta instal·lació", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -47,6 +45,8 @@ namespace Desktop
                     bindingSourceHorarioInsta.DataSource = horari;
                     MessageBox.Show("S'ha introduït horaris", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                
                 buttonModificar.Text = "Modificar";
                 buttonAnyadirEspai.Text = "Modificar";
                 buttonAnyadirHoraInsta.Enabled = true;

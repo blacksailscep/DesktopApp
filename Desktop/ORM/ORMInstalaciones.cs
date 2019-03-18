@@ -31,17 +31,17 @@ namespace Desktop.ORM
         }
 
         /*Método creado para el buscador: buscarinstalaciones*/
-        public static List<Instalacion> SelectInstalacionBynombre(String nombre, ref String mensaje)
+        public static Instalacion SelectInstalacionBynombre(String nombre, ref String mensaje)
         {
 
-            List<Instalacion> _Instalaciones = null;
+            Instalacion _Instalaciones = null;
             try
             {
                 _Instalaciones = (from insta in ORM.bd.Instalacion
                                   orderby insta.nombre
                                   where insta.nombre.Contains(nombre)
-                                  select insta).ToList();
-                               
+                                  select insta).FirstOrDefault();
+
             }
             catch (DbUpdateException ex)
             {

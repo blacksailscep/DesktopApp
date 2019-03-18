@@ -73,15 +73,12 @@ namespace Desktop
                 }
                 
             }
-            else
-            {
-                MessageBox.Show("Error al cargar la instalación", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
             if (hInsta != null)
             {
                 dateTimePickerHInicio.Text = hInsta.hora_inicio+"";
                 dateTimePickerHFinal.Text = hInsta.hora_inicio + "";
-                comboBoxDiasSemana.SelectedIndex = hInsta.id_dia_semana;
+                comboBoxDiasSemana.SelectedItem = hInsta.id_dia_semana;
             }
             else
             {

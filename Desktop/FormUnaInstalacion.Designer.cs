@@ -57,6 +57,7 @@
             this.buttonEliminarHoraInsta = new System.Windows.Forms.Button();
             this.buttonAnyadirHoraInsta = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
+            this.bindingSourceEspacios = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInstalacion)).BeginInit();
             this.groupBoxDatosInstalacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHorarioInsta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorariosInsta)).BeginInit();
             this.groupBoxHorario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEspacios)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxInstalacion
@@ -191,12 +193,15 @@
             // 
             // listBoxEspacios
             // 
+            this.listBoxEspacios.DataSource = this.bindingSourceEspacios;
+            this.listBoxEspacios.DisplayMember = "nombre";
             this.listBoxEspacios.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBoxEspacios.FormattingEnabled = true;
             this.listBoxEspacios.Location = new System.Drawing.Point(3, 16);
             this.listBoxEspacios.Name = "listBoxEspacios";
             this.listBoxEspacios.Size = new System.Drawing.Size(399, 111);
             this.listBoxEspacios.TabIndex = 0;
+            this.listBoxEspacios.ValueMember = "id";
             // 
             // bindingSourceDiasSemana
             // 
@@ -329,6 +334,10 @@
             this.buttonModificar.UseVisualStyleBackColor = true;
             this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
+            // bindingSourceEspacios
+            // 
+            this.bindingSourceEspacios.DataSource = typeof(Desktop.Espacio);
+            // 
             // FormUnaInstalacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHorarioInsta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorariosInsta)).EndInit();
             this.groupBoxHorario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEspacios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,5 +401,6 @@
         private System.Windows.Forms.Button buttonEliminarHoraInsta;
         private System.Windows.Forms.Button buttonAnyadirHoraInsta;
         private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.BindingSource bindingSourceEspacios;
     }
 }
