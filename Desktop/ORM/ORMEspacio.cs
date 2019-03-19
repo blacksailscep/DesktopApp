@@ -11,13 +11,14 @@ namespace Desktop.ORM
     public static class ORMEspacio
     {
         /*Método para seleccionar todas las instalaciones para la grid Instalaciones*/
-        public static List<Espacio> SelectAllEspacios(ref String mensaje)
+        public static List<Espacio> SelectAllEspacios(int id_instalacion, ref String mensaje)
         {
             List<Espacio> espacios = null;
             try
             {
                 espacios = (from espai in ORM.bd.Espacio
                                  orderby espai.nombre
+                                 where espai.id_instalacion == id_instalacion
                                  select espai).ToList();
 
             }

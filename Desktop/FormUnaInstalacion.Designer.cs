@@ -40,9 +40,17 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelDatosInstalacion = new System.Windows.Forms.Label();
             this.groupBoxEspacios = new System.Windows.Forms.GroupBox();
-            this.buttonEliminarEspai = new System.Windows.Forms.Button();
-            this.buttonAnyadirEspai = new System.Windows.Forms.Button();
-            this.listBoxEspacios = new System.Windows.Forms.ListBox();
+            this.dataGridViewEspacios = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exteriorDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idinstalacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actconcedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actdemandadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instalacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceEspacios = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceDiasSemana = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceHorarioInsta = new System.Windows.Forms.BindingSource(this.components);
             this.labelHorario = new System.Windows.Forms.Label();
@@ -57,16 +65,20 @@
             this.buttonEliminarHoraInsta = new System.Windows.Forms.Button();
             this.buttonAnyadirHoraInsta = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
-            this.bindingSourceEspacios = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonEliminarEspai = new System.Windows.Forms.Button();
+            this.buttonAnyadirEspai = new System.Windows.Forms.Button();
+            this.buttonModificarEspai = new System.Windows.Forms.Button();
+            this.buttonModificarHorariInsa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInstalacion)).BeginInit();
             this.groupBoxDatosInstalacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).BeginInit();
             this.groupBoxEspacios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspacios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEspacios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiasSemana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHorarioInsta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorariosInsta)).BeginInit();
             this.groupBoxHorario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEspacios)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxInstalacion
@@ -160,48 +172,119 @@
             // 
             // groupBoxEspacios
             // 
+            this.groupBoxEspacios.Controls.Add(this.buttonModificarEspai);
             this.groupBoxEspacios.Controls.Add(this.buttonEliminarEspai);
             this.groupBoxEspacios.Controls.Add(this.buttonAnyadirEspai);
-            this.groupBoxEspacios.Controls.Add(this.listBoxEspacios);
+            this.groupBoxEspacios.Controls.Add(this.dataGridViewEspacios);
             this.groupBoxEspacios.Location = new System.Drawing.Point(12, 153);
             this.groupBoxEspacios.Name = "groupBoxEspacios";
             this.groupBoxEspacios.Size = new System.Drawing.Size(523, 130);
             this.groupBoxEspacios.TabIndex = 3;
             this.groupBoxEspacios.TabStop = false;
             // 
-            // buttonEliminarEspai
+            // dataGridViewEspacios
             // 
-            this.buttonEliminarEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarEspai.Location = new System.Drawing.Point(407, 69);
-            this.buttonEliminarEspai.Name = "buttonEliminarEspai";
-            this.buttonEliminarEspai.Size = new System.Drawing.Size(114, 27);
-            this.buttonEliminarEspai.TabIndex = 2;
-            this.buttonEliminarEspai.Text = "Eliminar";
-            this.buttonEliminarEspai.UseVisualStyleBackColor = true;
-            this.buttonEliminarEspai.Click += new System.EventHandler(this.buttonEliminar_Click);
+            this.dataGridViewEspacios.AllowUserToAddRows = false;
+            this.dataGridViewEspacios.AutoGenerateColumns = false;
+            this.dataGridViewEspacios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEspacios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.nombreDataGridViewTextBoxColumn,
+            this.precioDataGridViewTextBoxColumn,
+            this.exteriorDataGridViewCheckBoxColumn,
+            this.idinstalacionDataGridViewTextBoxColumn1,
+            this.actconcedidaDataGridViewTextBoxColumn,
+            this.actdemandadasDataGridViewTextBoxColumn,
+            this.instalacionDataGridViewTextBoxColumn1,
+            this.equipoDataGridViewTextBoxColumn});
+            this.dataGridViewEspacios.DataSource = this.bindingSourceEspacios;
+            this.dataGridViewEspacios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewEspacios.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewEspacios.Name = "dataGridViewEspacios";
+            this.dataGridViewEspacios.ReadOnly = true;
+            this.dataGridViewEspacios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEspacios.Size = new System.Drawing.Size(397, 111);
+            this.dataGridViewEspacios.TabIndex = 3;
+            this.dataGridViewEspacios.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewEspacios_UserDeletingRow);
             // 
-            // buttonAnyadirEspai
+            // dataGridViewTextBoxColumn1
             // 
-            this.buttonAnyadirEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAnyadirEspai.Location = new System.Drawing.Point(407, 34);
-            this.buttonAnyadirEspai.Name = "buttonAnyadirEspai";
-            this.buttonAnyadirEspai.Size = new System.Drawing.Size(114, 29);
-            this.buttonAnyadirEspai.TabIndex = 1;
-            this.buttonAnyadirEspai.Text = "Añadir";
-            this.buttonAnyadirEspai.UseVisualStyleBackColor = true;
-            this.buttonAnyadirEspai.Click += new System.EventHandler(this.buttonAnyadir_Click);
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
-            // listBoxEspacios
+            // nombreDataGridViewTextBoxColumn
             // 
-            this.listBoxEspacios.DataSource = this.bindingSourceEspacios;
-            this.listBoxEspacios.DisplayMember = "nombre";
-            this.listBoxEspacios.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listBoxEspacios.FormattingEnabled = true;
-            this.listBoxEspacios.Location = new System.Drawing.Point(3, 16);
-            this.listBoxEspacios.Name = "listBoxEspacios";
-            this.listBoxEspacios.Size = new System.Drawing.Size(399, 111);
-            this.listBoxEspacios.TabIndex = 0;
-            this.listBoxEspacios.ValueMember = "id";
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // exteriorDataGridViewCheckBoxColumn
+            // 
+            this.exteriorDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.exteriorDataGridViewCheckBoxColumn.DataPropertyName = "exterior";
+            this.exteriorDataGridViewCheckBoxColumn.HeaderText = "Exterior";
+            this.exteriorDataGridViewCheckBoxColumn.Name = "exteriorDataGridViewCheckBoxColumn";
+            this.exteriorDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.exteriorDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.exteriorDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // idinstalacionDataGridViewTextBoxColumn1
+            // 
+            this.idinstalacionDataGridViewTextBoxColumn1.DataPropertyName = "id_instalacion";
+            this.idinstalacionDataGridViewTextBoxColumn1.HeaderText = "id_instalacion";
+            this.idinstalacionDataGridViewTextBoxColumn1.Name = "idinstalacionDataGridViewTextBoxColumn1";
+            this.idinstalacionDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idinstalacionDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // actconcedidaDataGridViewTextBoxColumn
+            // 
+            this.actconcedidaDataGridViewTextBoxColumn.DataPropertyName = "Act_concedida";
+            this.actconcedidaDataGridViewTextBoxColumn.HeaderText = "Act_concedida";
+            this.actconcedidaDataGridViewTextBoxColumn.Name = "actconcedidaDataGridViewTextBoxColumn";
+            this.actconcedidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actconcedidaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // actdemandadasDataGridViewTextBoxColumn
+            // 
+            this.actdemandadasDataGridViewTextBoxColumn.DataPropertyName = "Act_demandadas";
+            this.actdemandadasDataGridViewTextBoxColumn.HeaderText = "Act_demandadas";
+            this.actdemandadasDataGridViewTextBoxColumn.Name = "actdemandadasDataGridViewTextBoxColumn";
+            this.actdemandadasDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actdemandadasDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // instalacionDataGridViewTextBoxColumn1
+            // 
+            this.instalacionDataGridViewTextBoxColumn1.DataPropertyName = "Instalacion";
+            this.instalacionDataGridViewTextBoxColumn1.HeaderText = "Instalacion";
+            this.instalacionDataGridViewTextBoxColumn1.Name = "instalacionDataGridViewTextBoxColumn1";
+            this.instalacionDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.instalacionDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // equipoDataGridViewTextBoxColumn
+            // 
+            this.equipoDataGridViewTextBoxColumn.DataPropertyName = "Equipo";
+            this.equipoDataGridViewTextBoxColumn.HeaderText = "Equipo";
+            this.equipoDataGridViewTextBoxColumn.Name = "equipoDataGridViewTextBoxColumn";
+            this.equipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.equipoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bindingSourceEspacios
+            // 
+            this.bindingSourceEspacios.DataSource = typeof(Desktop.Espacio);
             // 
             // bindingSourceDiasSemana
             // 
@@ -292,6 +375,7 @@
             // 
             // groupBoxHorario
             // 
+            this.groupBoxHorario.Controls.Add(this.buttonModificarHorariInsa);
             this.groupBoxHorario.Controls.Add(this.buttonEliminarHoraInsta);
             this.groupBoxHorario.Controls.Add(this.buttonAnyadirHoraInsta);
             this.groupBoxHorario.Controls.Add(this.dataGridViewHorariosInsta);
@@ -304,7 +388,7 @@
             // buttonEliminarHoraInsta
             // 
             this.buttonEliminarHoraInsta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarHoraInsta.Location = new System.Drawing.Point(408, 109);
+            this.buttonEliminarHoraInsta.Location = new System.Drawing.Point(407, 129);
             this.buttonEliminarHoraInsta.Name = "buttonEliminarHoraInsta";
             this.buttonEliminarHoraInsta.Size = new System.Drawing.Size(115, 27);
             this.buttonEliminarHoraInsta.TabIndex = 6;
@@ -315,7 +399,7 @@
             // buttonAnyadirHoraInsta
             // 
             this.buttonAnyadirHoraInsta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAnyadirHoraInsta.Location = new System.Drawing.Point(408, 74);
+            this.buttonAnyadirHoraInsta.Location = new System.Drawing.Point(407, 94);
             this.buttonAnyadirHoraInsta.Name = "buttonAnyadirHoraInsta";
             this.buttonAnyadirHoraInsta.Size = new System.Drawing.Size(115, 29);
             this.buttonAnyadirHoraInsta.TabIndex = 5;
@@ -332,11 +416,50 @@
             this.buttonModificar.TabIndex = 7;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
-            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
-            // bindingSourceEspacios
+            // buttonEliminarEspai
             // 
-            this.bindingSourceEspacios.DataSource = typeof(Desktop.Espacio);
+            this.buttonEliminarEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminarEspai.Location = new System.Drawing.Point(403, 84);
+            this.buttonEliminarEspai.Name = "buttonEliminarEspai";
+            this.buttonEliminarEspai.Size = new System.Drawing.Size(114, 27);
+            this.buttonEliminarEspai.TabIndex = 5;
+            this.buttonEliminarEspai.Text = "Eliminar";
+            this.buttonEliminarEspai.UseVisualStyleBackColor = true;
+            this.buttonEliminarEspai.Click += new System.EventHandler(this.buttonEliminarEspai_Click);
+            // 
+            // buttonAnyadirEspai
+            // 
+            this.buttonAnyadirEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnyadirEspai.Location = new System.Drawing.Point(403, 49);
+            this.buttonAnyadirEspai.Name = "buttonAnyadirEspai";
+            this.buttonAnyadirEspai.Size = new System.Drawing.Size(114, 29);
+            this.buttonAnyadirEspai.TabIndex = 4;
+            this.buttonAnyadirEspai.Text = "Añadir";
+            this.buttonAnyadirEspai.UseVisualStyleBackColor = true;
+            this.buttonAnyadirEspai.Click += new System.EventHandler(this.buttonAnyadirEspai_Click);
+            // 
+            // buttonModificarEspai
+            // 
+            this.buttonModificarEspai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModificarEspai.Location = new System.Drawing.Point(404, 13);
+            this.buttonModificarEspai.Name = "buttonModificarEspai";
+            this.buttonModificarEspai.Size = new System.Drawing.Size(114, 29);
+            this.buttonModificarEspai.TabIndex = 6;
+            this.buttonModificarEspai.Text = "Modificar";
+            this.buttonModificarEspai.UseVisualStyleBackColor = true;
+            this.buttonModificarEspai.Click += new System.EventHandler(this.buttonModificarEspai_Click);
+            // 
+            // buttonModificarHorariInsa
+            // 
+            this.buttonModificarHorariInsa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModificarHorariInsa.Location = new System.Drawing.Point(408, 59);
+            this.buttonModificarHorariInsa.Name = "buttonModificarHorariInsa";
+            this.buttonModificarHorariInsa.Size = new System.Drawing.Size(114, 29);
+            this.buttonModificarHorariInsa.TabIndex = 7;
+            this.buttonModificarHorariInsa.Text = "Modificar";
+            this.buttonModificarHorariInsa.UseVisualStyleBackColor = true;
+            this.buttonModificarHorariInsa.Click += new System.EventHandler(this.buttonModificarHorariInsa_Click);
             // 
             // FormUnaInstalacion
             // 
@@ -354,17 +477,19 @@
             this.Name = "FormUnaInstalacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Instalacion";
+            this.Activated += new System.EventHandler(this.FormUnaInstalacion_Activated);
             this.Load += new System.EventHandler(this.FormUnaInstalacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInstalacion)).EndInit();
             this.groupBoxDatosInstalacion.ResumeLayout(false);
             this.groupBoxDatosInstalacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoGestion)).EndInit();
             this.groupBoxEspacios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEspacios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEspacios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiasSemana)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHorarioInsta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorariosInsta)).EndInit();
             this.groupBoxHorario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEspacios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,9 +508,6 @@
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.BindingSource bindingSourceTipoGestion;
         private System.Windows.Forms.GroupBox groupBoxEspacios;
-        private System.Windows.Forms.Button buttonEliminarEspai;
-        private System.Windows.Forms.Button buttonAnyadirEspai;
-        private System.Windows.Forms.ListBox listBoxEspacios;
         private System.Windows.Forms.Label labelHorario;
         private System.Windows.Forms.BindingSource bindingSourceDiasSemana;
         private System.Windows.Forms.BindingSource bindingSourceHorarioInsta;
@@ -402,5 +524,19 @@
         private System.Windows.Forms.Button buttonAnyadirHoraInsta;
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.BindingSource bindingSourceEspacios;
+        private System.Windows.Forms.DataGridView dataGridViewEspacios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exteriorDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idinstalacionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actconcedidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actdemandadasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instalacionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonModificarEspai;
+        private System.Windows.Forms.Button buttonEliminarEspai;
+        private System.Windows.Forms.Button buttonAnyadirEspai;
+        private System.Windows.Forms.Button buttonModificarHorariInsa;
     }
 }

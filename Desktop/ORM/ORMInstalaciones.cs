@@ -54,6 +54,30 @@ namespace Desktop.ORM
 
         }
 
+        /*Método creado para buscar una instalacion por ID*/
+        public static Instalacion SelectInstalacionByID(int id_instalacion, ref String mensaje)
+        {
+
+            Instalacion _Instalaciones = null;
+            try
+            {
+                _Instalaciones = (from insta in ORM.bd.Instalacion
+                                  orderby insta.nombre
+                                  where insta.id == id_instalacion
+                                  select insta).FirstOrDefault();
+
+            }
+            catch (DbUpdateException ex)
+            {
+                SqlException exception = (SqlException)ex.InnerException.InnerException;
+                mensaje = ORM.MensajeError(exception);
+            }
+
+
+            return _Instalaciones;
+
+        }
+
         /*Método para seleccionar todas los tipos de gestión, ComboBox*/
         public static List<Tipo_gestion> SelectAllTipoGestion(ref String mensaje)
         {

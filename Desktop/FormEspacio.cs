@@ -13,6 +13,8 @@ namespace Desktop
     public partial class FormEspacio : Form
     {
         Espacio espacio;
+        Instalacion instalacion;
+
         public FormEspacio()
         {
             InitializeComponent();
@@ -24,26 +26,43 @@ namespace Desktop
             this.espacio = espacio;
         }
 
+        public FormEspacio(Instalacion instalacion)
+        {
+            InitializeComponent();
+            this.instalacion = instalacion;
+        }
+
         private void FormEspacio_Load(object sender, EventArgs e)
         {
             String mensaje = "";
-            Instalacion insta = ORM.ORMInstalaciones.SelectInstalacionBynombre(espacio.id_instalacion.ToString(), ref mensaje);
 
-            if (string.IsNullOrEmpty(mensaje))
+            if (espacio != null)
             {
-                MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Instalacion insta = new Instalacion();
+                
+                
+                insta = ORM.ORMInstalaciones.SelectInstalacionByID(espacio.id_instalacion, ref mensaje);
+                textBoxInstalacion.Text = insta.nombre;
+                textBoxInstalacion.Enabled = false;
+
+                if (string.IsNullOrEmpty(mensaje))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                textBoxNombre.Text = espacio.nombre;
+                textBoxPrecio.Text = espacio.precio.ToString();
+                radioButtonExterior.Checked = espacio.exterior;
+
+
             }
             else
             {
-                textBoxInstalacion.Text = insta.nombre;
+                textBoxInstalacion.Text = instalacion.nombre;
                 textBoxInstalacion.Enabled = false;
-                if (espacio != null)
-                {
-                    textBoxNombre.Text = espacio.nombre;
-                    textBoxPrecio.Text = espacio.precio.ToString();
-                    radioButtonExterior.Checked = espacio.exterior;
-                }
+               
             }
+           
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
@@ -61,11 +80,36 @@ namespace Desktop
 
             //Per assegurar-se que s'ha introduït preus
             float precio = 0;
+
+            /*System.Globalization.NumberStyles style;
+            style = System.Globalization.CultureInfo.*/
+
+
             bool result = float.TryParse(preu, out precio);
+
+            
 
             if (!result){
                 MessageBox.Show("Error en la introducción del precio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxPrecio.Focus();
+            }
+            else
+            {
+                //precio = (float)(Math.Truncate((double)precio * 100.0) / 100.0);
+                /*value = "1.345,978";
+                style = System.Globalization.NumberStyles.AllowDecimalPoint |
+                        System.Globalization.NumberStyles.AllowThousands;
+                culture = System.Globalization.CultureInfo.CreateSpecificCulture("es-ES");
+                if (Single.TryParse(value, style, culture, out number))
+                    Console.WriteLine("Converted '{0}' to {1}.", value, number);
+                else
+                    Console.WriteLine("Unable to convert '{0}'.", value);
+
+                value = "1 345,978";
+                if (Single.TryParse(value, style, culture, out number))
+                    Console.WriteLine("Converted '{0}' to {1}.", value, number);
+                else
+                    Console.WriteLine("Unable to convert '{0}'.", value);*/
             }
             if (string.IsNullOrWhiteSpace(nombre))
             {
@@ -75,26 +119,48 @@ namespace Desktop
 
             Boolean exterior = radioButtonExterior.Checked;
 
-            Espacio espai = new Espacio();
-            espai.id_instalacion = espacio.id_instalacion;
-            espai.nombre = nombre;
-            espai.precio = precio;
-            espai.exterior = exterior;
-
-            String mens = "";
             if (espacio != null)
             {
+                Espacio espai = new Espacio();
+                espai.id_instalacion = espacio.id_instalacion;
+                espai.nombre = nombre;
+                espai.precio = precio;
+                espai.exterior = exterior;
+                String mens = "";
+                
                 ORM.ORMEspacio.UpdateEspacio(espai, ref mens);
+                
+                
+                if (!string.IsNullOrEmpty(mens))
+                {
+                    MessageBox.Show(mens, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
+            else if (espacio == null) {
+                Espacio espai = new Espacio();
+                espai.id_instalacion = instalacion.id;
+                espai.nombre = nombre;
+                espai.precio = precio;
+                espai.exterior = exterior;
+
+                String mens = "";
+                
                 ORM.ORMEspacio.InsertEspacio(espai, ref mens);
+
+                if (!string.IsNullOrEmpty(mens))
+                {
+                    MessageBox.Show(mens, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
-            if (!string.IsNullOrEmpty(mens))
+                
+           
+            else
             {
-                MessageBox.Show(mens, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede guardar el espacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+           
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
