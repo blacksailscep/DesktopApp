@@ -37,7 +37,7 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.labelUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -71,7 +71,7 @@
             this.panel2.Controls.Add(this.textBoxPassword);
             this.panel2.Controls.Add(this.labelPassword);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBoxUsername);
             this.panel2.Controls.Add(this.labelUserName);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -89,6 +89,7 @@
             this.buttonSigin.TabIndex = 13;
             this.buttonSigin.Text = "ENTRAR";
             this.buttonSigin.UseVisualStyleBackColor = true;
+            this.buttonSigin.Click += new System.EventHandler(this.buttonSigin_Click);
             // 
             // textBoxPassword
             // 
@@ -117,12 +118,12 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "ENTRAR";
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 218);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 20);
-            this.textBox1.TabIndex = 9;
+            this.textBoxUsername.Location = new System.Drawing.Point(12, 218);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(222, 20);
+            this.textBoxUsername.TabIndex = 9;
             // 
             // labelUserName
             // 
@@ -146,7 +147,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1500;
+            this.timer1.Interval = 2500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormLogin
@@ -178,7 +179,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
