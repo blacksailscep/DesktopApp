@@ -51,7 +51,10 @@ namespace Desktop
                 }
 
                 textBoxNombre.Text = espacio.nombre;
-                textBoxPrecio.Text = espacio.precio.ToString();
+
+                float numero = (float)(Math.Round((double)espacio.precio, 2));
+
+                textBoxPrecio.Text = numero.ToString();
                 radioButtonExterior.Checked = espacio.exterior;
 
 
@@ -78,39 +81,10 @@ namespace Desktop
                 preu = preu.Replace('.', ',');
             }
 
-            //Per assegurar-se que s'ha introduït preus
-            float precio = 0;
-
-            /*System.Globalization.NumberStyles style;
-            style = System.Globalization.CultureInfo.*/
-
-
-            bool result = float.TryParse(preu, out precio);
+           
+            float precio = float.Parse(preu);
 
             
-
-            if (!result){
-                MessageBox.Show("Error en la introducción del precio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxPrecio.Focus();
-            }
-            else
-            {
-                //precio = (float)(Math.Truncate((double)precio * 100.0) / 100.0);
-                /*value = "1.345,978";
-                style = System.Globalization.NumberStyles.AllowDecimalPoint |
-                        System.Globalization.NumberStyles.AllowThousands;
-                culture = System.Globalization.CultureInfo.CreateSpecificCulture("es-ES");
-                if (Single.TryParse(value, style, culture, out number))
-                    Console.WriteLine("Converted '{0}' to {1}.", value, number);
-                else
-                    Console.WriteLine("Unable to convert '{0}'.", value);
-
-                value = "1 345,978";
-                if (Single.TryParse(value, style, culture, out number))
-                    Console.WriteLine("Converted '{0}' to {1}.", value, number);
-                else
-                    Console.WriteLine("Unable to convert '{0}'.", value);*/
-            }
             if (string.IsNullOrWhiteSpace(nombre))
             {
                 MessageBox.Show("Error en la introducción del nombre", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -135,6 +109,11 @@ namespace Desktop
                 {
                     MessageBox.Show(mens, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    MessageBox.Show("Espacio insertado correctamente", "Inserción espacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cerrar();
+                }
             }
             else if (espacio == null) {
                 Espacio espai = new Espacio();
@@ -151,10 +130,13 @@ namespace Desktop
                 {
                     MessageBox.Show(mens, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    MessageBox.Show("Espacio modificado correctamente", "Modificación espacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cerrar();
+                }
             }
 
-                
-           
             else
             {
                 MessageBox.Show("No se puede guardar el espacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -165,6 +147,11 @@ namespace Desktop
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
+            cerrar();
+        }
+        
+        public void cerrar()
+        {
             try
             {
                 this.Close();
@@ -172,6 +159,21 @@ namespace Desktop
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Mètode que asegura que s'ha introduït números correctament
+        private void textBoxPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // Si deseas, puedes permitir numeros decimales (o float)
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

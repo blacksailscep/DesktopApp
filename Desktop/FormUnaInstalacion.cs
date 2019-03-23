@@ -209,6 +209,23 @@ namespace Desktop
                 MessageBox.Show("El horario no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        private void dataGridViewHorariosInsta_DoubleClick(object sender, EventArgs e)
+        {
+            Instalacion_Horario instaHorario = (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
+
+            if (instaHorario == null)
+            {
+                FormHorarioInsta formHorariInsta = new FormHorarioInsta(instaHorario);
+                formHorariInsta.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se puede modificar el horario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /* ------------------------------------------------ ESPAIS ------------------------------------------------ */
         /*Mètode per AFEGIR ESPAIS a la instal·lació*/
         private void buttonAnyadirEspai_Click(object sender, EventArgs e)
@@ -282,6 +299,85 @@ namespace Desktop
                 MessageBox.Show("El espacio no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void dataGridViewEspacios_DoubleClick(object sender, EventArgs e)
+        {
+            String mensaje = "";
+
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este espacio?", "BORRAR ESPACIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Espacio espacio = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
+
+            if (resultado == DialogResult.Yes)
+            {
+                ORM.ORMEspacio.DelelteEspacio(espacio, ref mensaje);
+
+                if (!mensaje.Equals(""))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //e.Cancel = true;    //Para cancelar el evento
+                }
+            }
+            else
+            {
+                //e.Cancel = true;
+                MessageBox.Show("El espacio no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+
+            String nombre = textBoxNombre.Text;
+            String direccion = textBoxDireccion.Text;
+            int gestion = (int)comboBoxTipoGestion.SelectedValue;
+
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                MessageBox.Show("Error en la introducción de nombre", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxNombre.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(direccion))
+            {
+                MessageBox.Show("Error en la introducción de dirección", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxDireccion.Focus();
+            }
+            else
+            {
+                
+                Instalacion i = new Instalacion();
+
+                i.nombre = nombre;
+                i.direccion = direccion;
+                i.id_tipo_gestion = gestion;
+
+                String mensaje = "";
+
+                if (instalacion == null)
+                {
+                    ORM.ORMInstalaciones.InsertInstalacion(i, ref mensaje);
+                    if (!mensaje.Equals(""))
+                    {
+                        MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //e.Cancel = true;    //Para cancelar el evento
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inserción correcta", "Inserción Instalaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+
+            
+           
+
         }
     }
 }

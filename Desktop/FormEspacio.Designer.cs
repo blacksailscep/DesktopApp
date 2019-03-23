@@ -54,42 +54,48 @@
             this.groupBoxDatos.Controls.Add(this.textBoxInstalacion);
             this.groupBoxDatos.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxDatos.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxDatos.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDatos.Name = "groupBoxDatos";
-            this.groupBoxDatos.Size = new System.Drawing.Size(284, 129);
+            this.groupBoxDatos.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxDatos.Size = new System.Drawing.Size(379, 159);
             this.groupBoxDatos.TabIndex = 0;
             this.groupBoxDatos.TabStop = false;
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(12, 45);
+            this.labelNombre.Location = new System.Drawing.Point(16, 55);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.Size = new System.Drawing.Size(58, 17);
             this.labelNombre.TabIndex = 8;
             this.labelNombre.Text = "Nombre";
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(76, 42);
+            this.textBoxNombre.Location = new System.Drawing.Point(101, 52);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(205, 20);
+            this.textBoxNombre.Size = new System.Drawing.Size(272, 22);
             this.textBoxNombre.TabIndex = 7;
             // 
             // labelTipo
             // 
             this.labelTipo.AutoSize = true;
-            this.labelTipo.Location = new System.Drawing.Point(12, 103);
+            this.labelTipo.Location = new System.Drawing.Point(16, 127);
+            this.labelTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTipo.Name = "labelTipo";
-            this.labelTipo.Size = new System.Drawing.Size(28, 13);
+            this.labelTipo.Size = new System.Drawing.Size(36, 17);
             this.labelTipo.TabIndex = 6;
             this.labelTipo.Text = "Tipo";
             // 
             // radioButtonExterior
             // 
             this.radioButtonExterior.AutoSize = true;
-            this.radioButtonExterior.Location = new System.Drawing.Point(76, 101);
+            this.radioButtonExterior.Location = new System.Drawing.Point(101, 124);
+            this.radioButtonExterior.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonExterior.Name = "radioButtonExterior";
-            this.radioButtonExterior.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonExterior.Size = new System.Drawing.Size(77, 21);
             this.radioButtonExterior.TabIndex = 5;
             this.radioButtonExterior.TabStop = true;
             this.radioButtonExterior.Text = "Exterior";
@@ -98,25 +104,29 @@
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(12, 71);
+            this.labelPrecio.Location = new System.Drawing.Point(16, 87);
+            this.labelPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPrecio.Name = "labelPrecio";
-            this.labelPrecio.Size = new System.Drawing.Size(37, 13);
+            this.labelPrecio.Size = new System.Drawing.Size(48, 17);
             this.labelPrecio.TabIndex = 3;
             this.labelPrecio.Text = "Precio";
             // 
             // textBoxPrecio
             // 
-            this.textBoxPrecio.Location = new System.Drawing.Point(76, 68);
+            this.textBoxPrecio.Location = new System.Drawing.Point(101, 84);
+            this.textBoxPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPrecio.Name = "textBoxPrecio";
-            this.textBoxPrecio.Size = new System.Drawing.Size(205, 20);
+            this.textBoxPrecio.Size = new System.Drawing.Size(272, 22);
             this.textBoxPrecio.TabIndex = 2;
+            this.textBoxPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrecio_KeyPress);
             // 
             // labelInstalación
             // 
             this.labelInstalación.AutoSize = true;
-            this.labelInstalación.Location = new System.Drawing.Point(12, 19);
+            this.labelInstalación.Location = new System.Drawing.Point(16, 23);
+            this.labelInstalación.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInstalación.Name = "labelInstalación";
-            this.labelInstalación.Size = new System.Drawing.Size(58, 13);
+            this.labelInstalación.Size = new System.Drawing.Size(75, 17);
             this.labelInstalación.TabIndex = 1;
             this.labelInstalación.Text = "Instalación";
             // 
@@ -124,16 +134,18 @@
             // 
             this.textBoxInstalacion.Dock = System.Windows.Forms.DockStyle.Right;
             this.textBoxInstalacion.Enabled = false;
-            this.textBoxInstalacion.Location = new System.Drawing.Point(76, 16);
+            this.textBoxInstalacion.Location = new System.Drawing.Point(103, 19);
+            this.textBoxInstalacion.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxInstalacion.Name = "textBoxInstalacion";
-            this.textBoxInstalacion.Size = new System.Drawing.Size(205, 20);
+            this.textBoxInstalacion.Size = new System.Drawing.Size(272, 22);
             this.textBoxInstalacion.TabIndex = 0;
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(140, 143);
+            this.buttonCancelar.Location = new System.Drawing.Point(187, 176);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 35);
+            this.buttonCancelar.Size = new System.Drawing.Size(100, 43);
             this.buttonCancelar.TabIndex = 1;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -141,9 +153,10 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(59, 143);
+            this.buttonAceptar.Location = new System.Drawing.Point(79, 176);
+            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 35);
+            this.buttonAceptar.Size = new System.Drawing.Size(100, 43);
             this.buttonAceptar.TabIndex = 2;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
@@ -151,13 +164,14 @@
             // 
             // FormEspacio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(284, 190);
+            this.ClientSize = new System.Drawing.Size(379, 234);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.groupBoxDatos);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEspacio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormEspacio_Load);

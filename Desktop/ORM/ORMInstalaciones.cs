@@ -117,9 +117,52 @@ namespace Desktop.ORM
             return diasSemana;
         }
 
+        //Insert una instalación
+        public static String InsertInstalacion(Instalacion instalacion, ref String mensaje)
+        {
 
-       
+            ORM.bd.Instalacion.Add(instalacion);
 
+            mensaje = ORM.SaveChanges();
+
+            return mensaje;
+        }
+
+        //Modificar una instalación
+        public static String UpdateInstalacion(Instalacion instalacion, ref String mensaje)
+        {
+
+            String mens = "";
+
+            try
+            {
+                Instalacion insta = new Instalacion();
+
+                insta = SelectInstalacionByID(instalacion.id, ref mens);
+
+                if (string.IsNullOrEmpty(mens))
+                {
+                    mensaje = mens;
+                }
+                else
+                {
+
+                    insta.nombre = instalacion.nombre;
+                    insta.id_tipo_gestion = instalacion.id_tipo_gestion;
+                    insta.direccion = instalacion.direccion;
+
+                }
+
+                mensaje = ORM.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                SqlException exception = (SqlException)ex.InnerException.InnerException;
+                mensaje = ORM.MensajeError(exception);
+            }
+
+            return mensaje;
+        }
 
     }
 }
