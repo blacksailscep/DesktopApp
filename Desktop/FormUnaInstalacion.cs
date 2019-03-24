@@ -143,20 +143,25 @@ namespace Desktop
             
         }
 
-        /*Mètode per MODIFICAR HORARI a la instal·lació*/
-        private void buttonModificarHorariInsa_Click(object sender, EventArgs e)
+        public void modificarInstalacio()
         {
             Instalacion_Horario instaHorario = (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
 
             if (instaHorario == null)
             {
-                FormHorarioInsta formHorariInsta = new FormHorarioInsta(instaHorario);
-                formHorariInsta.ShowDialog();
+                MessageBox.Show("No se puede modificar el horario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("No se puede modificar el horario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FormHorarioInsta formHorariInsta = new FormHorarioInsta(instaHorario);
+                formHorariInsta.ShowDialog();
             }
+        }
+
+        /*Mètode per MODIFICAR HORARI a la instal·lació*/
+        private void buttonModificarHorariInsa_Click(object sender, EventArgs e)
+        {
+            modificarInstalacio();
         }
 
         /*Mètode per ELIMINAR HORARI a la instal·lació amb BOTÓ*/
@@ -178,6 +183,7 @@ namespace Desktop
 
                     //e.Cancel = true;    //Para cancelar el evento
                 }
+                bindingsGrid();
             }
             else
             {
@@ -213,17 +219,7 @@ namespace Desktop
 
         private void dataGridViewHorariosInsta_DoubleClick(object sender, EventArgs e)
         {
-            Instalacion_Horario instaHorario = (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
-
-            if (instaHorario == null)
-            {
-                FormHorarioInsta formHorariInsta = new FormHorarioInsta(instaHorario);
-                formHorariInsta.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("No se puede modificar el horario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            modificarInstalacio();
         }
 
         /* ------------------------------------------------ ESPAIS ------------------------------------------------ */
@@ -234,8 +230,7 @@ namespace Desktop
             formEspacio.ShowDialog();
         }
 
-        /*Mètode per MODIFICAR ESPAIS a la instal·lació*/
-        private void buttonModificarEspai_Click(object sender, EventArgs e)
+        public void modificarEspai()
         {
             Espacio espacio = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
             if (espacio != null)
@@ -247,6 +242,12 @@ namespace Desktop
             {
                 MessageBox.Show("No se puede modificar el espacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /*Mètode per MODIFICAR ESPAIS a la instal·lació*/
+        private void buttonModificarEspai_Click(object sender, EventArgs e)
+        {
+            modificarEspai();
         }
 
         /*Mètode per ELIMINAR ESPAIS amb BOTÓ*/
@@ -261,7 +262,7 @@ namespace Desktop
             if (resultado == DialogResult.Yes)
             {
                 ORM.ORMEspacio.DelelteEspacio(espacio, ref mensaje);
-
+                bindingsGrid();
                 if (!string.IsNullOrWhiteSpace(mensaje))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -303,29 +304,11 @@ namespace Desktop
 
         private void dataGridViewEspacios_DoubleClick(object sender, EventArgs e)
         {
-            String mensaje = "";
-
-            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este espacio?", "BORRAR ESPACIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            Espacio espacio = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
-
-            if (resultado == DialogResult.Yes)
-            {
-                ORM.ORMEspacio.DelelteEspacio(espacio, ref mensaje);
-
-                if (!mensaje.Equals(""))
-                {
-                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //e.Cancel = true;    //Para cancelar el evento
-                }
-            }
-            else
-            {
-                //e.Cancel = true;
-                MessageBox.Show("El espacio no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
+            modificarEspai();
         }
 
+
+        /*Mètode per modificar tota la instal·lació*/
         private void buttonModificar_Click(object sender, EventArgs e)
         {
 

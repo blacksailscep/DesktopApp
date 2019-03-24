@@ -33,14 +33,14 @@ namespace Desktop.ORM
 
 
         //Seleccionar un horari en concret
-        public static Instalacion_Horario SelectUnHorarioInsta(Instalacion_Horario insta, ref String mensaje)
+        public static Instalacion_Horario SelectUnHorarioInsta(int id_Insta, int diaSem, TimeSpan hIn, ref String mensaje)
         {
            Instalacion_Horario diasSemana = null;
             try
             {
                 diasSemana = (from Instalacion_Horario in ORM.bd.Instalacion_Horario
                               orderby Instalacion_Horario.id_dia_semana
-                              where Instalacion_Horario.id_instalacion == insta.id_instalacion && Instalacion_Horario.id_dia_semana == insta.id_dia_semana && Instalacion_Horario.hora_inicio == insta.hora_inicio
+                              where Instalacion_Horario.id_instalacion == id_Insta && Instalacion_Horario.id_dia_semana == diaSem && Instalacion_Horario.hora_inicio == hIn
                               select Instalacion_Horario).FirstOrDefault();
 
             }
@@ -65,7 +65,7 @@ namespace Desktop.ORM
         }
 
         //Modificar un horario de una instalación nuevo
-        public static String UpdateHorariInstalacio(Instalacion_Horario hInsta, ref String mensaje)
+        public static String UpdateHorariInstalacio(int id_Insta, int diaSem, TimeSpan hIn, Instalacion_Horario hInsta, ref String mensaje)
         {
             
             String mens = "";
@@ -74,9 +74,9 @@ namespace Desktop.ORM
             {
                 Instalacion_Horario hI = new Instalacion_Horario();
 
-                hI = SelectUnHorarioInsta(hInsta, ref mens);
+                hI = SelectUnHorarioInsta(id_Insta, diaSem, hIn, ref mens);
 
-                if (string.IsNullOrEmpty(mens))
+                if (!string.IsNullOrEmpty(mens))
                 {
                     mensaje = mens;
                 }

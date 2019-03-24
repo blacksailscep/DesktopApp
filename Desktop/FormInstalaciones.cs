@@ -40,13 +40,18 @@ namespace Desktop
             llenar();
         }
 
-        private void buttonVer_Click(object sender, EventArgs e)
+        public void modificar()
         {
             Instalacion instalacion = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
-                        
+
             FormUnaInstalacion formInstalacion = new FormUnaInstalacion(instalacion);
             formInstalacion.Text = "MODIFICACIÓN DE LA INSTALACIÓN";
             formInstalacion.ShowDialog();
+        }
+
+        private void buttonVer_Click(object sender, EventArgs e)
+        {
+            modificar();
         }
 
         private void buttonAñadir_Click(object sender, EventArgs e)
@@ -58,7 +63,30 @@ namespace Desktop
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
+            String mensaje = "";
 
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este horario?", "BORRAR HORARIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Instalacion instalacion = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
+
+            if (resultado == DialogResult.Yes)
+            {
+                ORM.ORMInstalaciones.DelelteInstalacion(instalacion, ref mensaje);
+
+                if (!mensaje.Equals(""))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    llenar();   //Para cancelar el evento
+                }
+            }
+            else
+            {
+                MessageBox.Show("El horario no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridViewInstalaciones_DoubleClick(object sender, EventArgs e)
+        {
+            modificar();
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
@@ -80,6 +108,32 @@ namespace Desktop
             }
 
            
+        }
+
+        private void dataGridViewInstalaciones_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+
+            String mensaje = "";
+
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar esta instalación?", "BORRAR INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Instalacion instalacion = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
+
+            if (resultado == DialogResult.Yes)
+            {
+                ORM.ORMInstalaciones.DelelteInstalacion(instalacion, ref mensaje);
+
+                if (!mensaje.Equals(""))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Cancel = true;    //Para cancelar el evento
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+                MessageBox.Show("La instalación no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

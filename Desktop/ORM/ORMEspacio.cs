@@ -79,7 +79,7 @@ namespace Desktop.ORM
 
                 espai = SelectEspacioBynombre(espacio.id, ref mens);
 
-                if (string.IsNullOrEmpty(mens))
+                if (!string.IsNullOrEmpty(mens))
                 {
                     mensaje = mens;
                 }

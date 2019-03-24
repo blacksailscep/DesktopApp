@@ -24,6 +24,7 @@ namespace Desktop
         {
             InitializeComponent();
             inicialitzarDataTime();
+            this.instalacion = instalacion;
         }
 
         public FormHorarioInsta(Instalacion_Horario hInsta)
@@ -48,10 +49,16 @@ namespace Desktop
         private void FormHorarioInsta_Load(object sender, EventArgs e)
         {
 
+            String mensaje = "";
+            bindingSourceDiesSetmana.DataSource = ORM.ORMInstalaciones.SelectAllDiasSemana(ref mensaje);
+
+            if (!string.IsNullOrWhiteSpace(mensaje))
+            {
+                MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             if (instalacion != null)
             {
-                String mensaje = "";
-
                 List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
 
                 if (!string.IsNullOrWhiteSpace(mensaje))
@@ -77,7 +84,7 @@ namespace Desktop
             if (hInsta != null)
             {
                 dateTimePickerHInicio.Text = hInsta.hora_inicio+"";
-                dateTimePickerHFinal.Text = hInsta.hora_inicio + "";
+                dateTimePickerHFinal.Text = hInsta.hora_final + "";
                 comboBoxDiasSemana.SelectedItem = hInsta.id_dia_semana;
             }
             else
@@ -90,18 +97,23 @@ namespace Desktop
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            int diasSemana = 0;
-
             
-            //DateTime hInicio = dateTimePickerHInicio.Value;
-            //DateTime hFin = dateTimePickerHFinal.Value;
-
             String hInicio = dateTimePickerHInicio.Text;
             String hFin = dateTimePickerHFinal.Text;
 
-            diasSemana = comboBoxDiasSemana.SelectedIndex;
+            int diasSemana = (int)comboBoxDiasSemana.SelectedValue;
 
-            if(diasSemana!=0 && string.IsNullOrEmpty(hInicio) && string.IsNullOrEmpty(hFin) )
+            if(hInicio.Equals("0:00:00"))
+            {
+                MessageBox.Show("No se ha seleccionado la hora de inicio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePickerHInicio.Focus();
+            }
+            else if (hFin.Equals("0:00:00"))
+            {
+                MessageBox.Show("No se ha seleccionado la hora de finalización", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePickerHFinal.Focus();
+            }
+            else
             {
                 String mensaje = "";
 
@@ -112,7 +124,8 @@ namespace Desktop
                     hI.id_dia_semana = diasSemana;
                     hI.hora_inicio = TimeSpan.Parse(hInicio);
                     hI.hora_final = TimeSpan.Parse(hFin);
-                    ORM.ORMHorari_Instalacion.UpdateHorariInstalacio(hI, ref mensaje);
+
+                    ORM.ORMHorari_Instalacion.UpdateHorariInstalacio(hInsta.id_instalacion, hInsta.id_dia_semana, hInsta.hora_inicio,hI, ref mensaje);
                 }
                 else
                 {

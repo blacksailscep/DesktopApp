@@ -96,6 +96,7 @@ namespace Desktop
             if (espacio != null)
             {
                 Espacio espai = new Espacio();
+                espai.id = espacio.id;
                 espai.id_instalacion = espacio.id_instalacion;
                 espai.nombre = nombre;
                 espai.precio = precio;
@@ -111,7 +112,7 @@ namespace Desktop
                 }
                 else
                 {
-                    MessageBox.Show("Espacio insertado correctamente", "Inserción espacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Espacio modificado correctamente", "Modificación espacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cerrar();
                 }
             }
@@ -132,7 +133,7 @@ namespace Desktop
                 }
                 else
                 {
-                    MessageBox.Show("Espacio modificado correctamente", "Modificación espacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Espacio insertado correctamente", "Inserción espacio", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cerrar();
                 }
             }

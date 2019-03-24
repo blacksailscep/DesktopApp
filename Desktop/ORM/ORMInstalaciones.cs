@@ -164,5 +164,16 @@ namespace Desktop.ORM
             return mensaje;
         }
 
+        //Borrar una instalación de la grid
+        public static String DelelteInstalacion(Instalacion instalacion, ref String mensaje)
+        {
+
+            ORM.bd.Instalacion.Remove(instalacion);
+
+            mensaje = ORM.SaveChanges();
+
+            return mensaje;
+        }
+
     }
 }
