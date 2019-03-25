@@ -21,7 +21,7 @@ namespace Desktop
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            pictureBox2.ImageLocation = string.Format(@"Images\1.jpg");
+            pictureBox2.ImageLocation = string.Format(@"..\Images\1.jpg");
         }
 
         private void loadNextImage()
@@ -30,7 +30,7 @@ namespace Desktop
             {
                 imageNumber = 1;
             }
-            pictureBox2.ImageLocation = string.Format(@"Images\" + imageNumber + ".jpg");
+            pictureBox2.ImageLocation = string.Format(@"..\Images\" + imageNumber + ".jpg");
             imageNumber++;
         }
 
