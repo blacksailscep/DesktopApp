@@ -80,10 +80,8 @@ namespace Desktop
             {
                 preu = preu.Replace('.', ',');
             }
-
            
             float precio = float.Parse(preu);
-
             
             if (string.IsNullOrWhiteSpace(nombre))
             {

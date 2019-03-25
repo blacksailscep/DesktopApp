@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="EntiEspaiModel.Espacio" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Horario_Act_Con" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Horario_Act_Dem" Width="1.5" PointX="13.5" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntiEspaiModel.Instalacion" Width="1.5" PointX="3.75" PointY="19" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Nivel" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Sexo" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Telefonos" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
@@ -41,12 +40,14 @@
         <AssociationConnector Association="EntiEspaiModel.FK_Telefonos_Entidad" ManuallyRouted="false" />
         <AssociationConnector Association="EntiEspaiModel.FK_Equipo_Nivel" ManuallyRouted="false" />
         <AssociationConnector Association="EntiEspaiModel.FK_Equipo_Sexo" ManuallyRouted="false" />
-        <AssociationConnector Association="EntiEspaiModel.FK_Espacio_Instalacion" ManuallyRouted="false" />
-        <AssociationConnector Association="EntiEspaiModel.FK_Instalacion_Tipo_gestion" ManuallyRouted="false" />
         <EntityTypeShape EntityType="EntiEspaiModel.Instalacion_Horario" Width="1.5" PointX="10.5" PointY="10.25" />
         <AssociationConnector Association="EntiEspaiModel.FK_Instalacion_Horario_Dia_Semana" />
         <AssociationConnector Association="EntiEspaiModel.FK_Equipo_Espacio" />
+        <EntityTypeShape EntityType="EntiEspaiModel.Instalacion" Width="1.5" PointX="3.75" PointY="19" />
+        <EntityTypeShape EntityType="EntiEspaiModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="EntiEspaiModel.FK_Espacio_Instalacion" />
         <AssociationConnector Association="EntiEspaiModel.FK_Instalacion_Horario_Instalacion" />
+        <AssociationConnector Association="EntiEspaiModel.FK_Instalacion_Tipo_gestion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

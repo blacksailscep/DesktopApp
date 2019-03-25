@@ -56,8 +56,6 @@ public partial class EntiEspaiEntities : DbContext
 
     public virtual DbSet<Horario_Act_Dem> Horario_Act_Dem { get; set; }
 
-    public virtual DbSet<Instalacion> Instalacion { get; set; }
-
     public virtual DbSet<Nivel> Nivel { get; set; }
 
     public virtual DbSet<Sexo> Sexo { get; set; }
@@ -69,6 +67,10 @@ public partial class EntiEspaiEntities : DbContext
     public virtual DbSet<Tipo_gestion> Tipo_gestion { get; set; }
 
     public virtual DbSet<Instalacion_Horario> Instalacion_Horario { get; set; }
+
+    public virtual DbSet<Instalacion> Instalacion { get; set; }
+
+    public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
 
 }
 

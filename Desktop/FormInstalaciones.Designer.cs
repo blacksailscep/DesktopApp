@@ -63,11 +63,9 @@
             this.groupBoxBuscaInsta.Controls.Add(this.pictureBoxBusca);
             this.groupBoxBuscaInsta.Controls.Add(this.textBoxBuscar);
             this.groupBoxBuscaInsta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxBuscaInsta.Location = new System.Drawing.Point(0, 54);
-            this.groupBoxBuscaInsta.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxBuscaInsta.Location = new System.Drawing.Point(0, 44);
             this.groupBoxBuscaInsta.Name = "groupBoxBuscaInsta";
-            this.groupBoxBuscaInsta.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxBuscaInsta.Size = new System.Drawing.Size(1667, 63);
+            this.groupBoxBuscaInsta.Size = new System.Drawing.Size(1016, 51);
             this.groupBoxBuscaInsta.TabIndex = 1;
             this.groupBoxBuscaInsta.TabStop = false;
             // 
@@ -75,20 +73,18 @@
             // 
             this.labelBuscar.AutoSize = true;
             this.labelBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscar.Location = new System.Drawing.Point(47, 25);
-            this.labelBuscar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBuscar.Location = new System.Drawing.Point(35, 20);
             this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(146, 17);
+            this.labelBuscar.Size = new System.Drawing.Size(116, 13);
             this.labelBuscar.TabIndex = 4;
             this.labelBuscar.Text = "Buscar Instalación:";
             // 
             // buttonBuscar
             // 
             this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(648, 21);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBuscar.Location = new System.Drawing.Point(486, 17);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(92, 28);
+            this.buttonBuscar.Size = new System.Drawing.Size(69, 23);
             this.buttonBuscar.TabIndex = 3;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
@@ -96,10 +92,9 @@
             // 
             // buttonGenerarInforme
             // 
-            this.buttonGenerarInforme.Location = new System.Drawing.Point(1400, 18);
-            this.buttonGenerarInforme.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonGenerarInforme.Location = new System.Drawing.Point(1050, 15);
             this.buttonGenerarInforme.Name = "buttonGenerarInforme";
-            this.buttonGenerarInforme.Size = new System.Drawing.Size(259, 37);
+            this.buttonGenerarInforme.Size = new System.Drawing.Size(194, 30);
             this.buttonGenerarInforme.TabIndex = 2;
             this.buttonGenerarInforme.Text = "Generar Informe";
             this.buttonGenerarInforme.UseVisualStyleBackColor = true;
@@ -109,26 +104,23 @@
             this.pictureBoxBusca.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBoxBusca.ErrorImage = global::Desktop.Properties.Resources.lupa;
             this.pictureBoxBusca.Image = global::Desktop.Properties.Resources.lupa;
-            this.pictureBoxBusca.Location = new System.Drawing.Point(4, 14);
-            this.pictureBoxBusca.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxBusca.Location = new System.Drawing.Point(3, 11);
             this.pictureBoxBusca.Name = "pictureBoxBusca";
-            this.pictureBoxBusca.Size = new System.Drawing.Size(33, 39);
+            this.pictureBoxBusca.Size = new System.Drawing.Size(25, 32);
             this.pictureBoxBusca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxBusca.TabIndex = 1;
             this.pictureBoxBusca.TabStop = false;
             // 
             // textBoxBuscar
             // 
-            this.textBoxBuscar.Location = new System.Drawing.Point(209, 23);
-            this.textBoxBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxBuscar.Location = new System.Drawing.Point(157, 19);
             this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(428, 22);
+            this.textBoxBuscar.Size = new System.Drawing.Size(322, 20);
             this.textBoxBuscar.TabIndex = 0;
             // 
             // dataGridViewInstalaciones
             // 
             this.dataGridViewInstalaciones.AllowUserToAddRows = false;
-            this.dataGridViewInstalaciones.AllowUserToDeleteRows = false;
             this.dataGridViewInstalaciones.AutoGenerateColumns = false;
             this.dataGridViewInstalaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInstalaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -141,12 +133,11 @@
             this.tipogestionDataGridViewTextBoxColumn});
             this.dataGridViewInstalaciones.DataSource = this.bindingSourceInstalaciones;
             this.dataGridViewInstalaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewInstalaciones.Location = new System.Drawing.Point(0, 117);
-            this.dataGridViewInstalaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewInstalaciones.Location = new System.Drawing.Point(0, 95);
             this.dataGridViewInstalaciones.Name = "dataGridViewInstalaciones";
             this.dataGridViewInstalaciones.ReadOnly = true;
             this.dataGridViewInstalaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInstalaciones.Size = new System.Drawing.Size(1667, 610);
+            this.dataGridViewInstalaciones.Size = new System.Drawing.Size(1016, 496);
             this.dataGridViewInstalaciones.TabIndex = 2;
             this.dataGridViewInstalaciones.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewInstalaciones_UserDeletingRow);
             this.dataGridViewInstalaciones.DoubleClick += new System.EventHandler(this.dataGridViewInstalaciones_DoubleClick);
@@ -223,10 +214,9 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(1444, 747);
-            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEliminar.Location = new System.Drawing.Point(1083, 607);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(211, 49);
+            this.buttonEliminar.Size = new System.Drawing.Size(158, 40);
             this.buttonEliminar.TabIndex = 3;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
@@ -234,10 +224,9 @@
             // 
             // buttonVer
             // 
-            this.buttonVer.Location = new System.Drawing.Point(1225, 747);
-            this.buttonVer.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonVer.Location = new System.Drawing.Point(919, 607);
             this.buttonVer.Name = "buttonVer";
-            this.buttonVer.Size = new System.Drawing.Size(211, 49);
+            this.buttonVer.Size = new System.Drawing.Size(158, 40);
             this.buttonVer.TabIndex = 4;
             this.buttonVer.Text = "Ver";
             this.buttonVer.UseVisualStyleBackColor = true;
@@ -245,10 +234,9 @@
             // 
             // buttonAñadir
             // 
-            this.buttonAñadir.Location = new System.Drawing.Point(1007, 747);
-            this.buttonAñadir.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAñadir.Location = new System.Drawing.Point(755, 607);
             this.buttonAñadir.Name = "buttonAñadir";
-            this.buttonAñadir.Size = new System.Drawing.Size(211, 49);
+            this.buttonAñadir.Size = new System.Drawing.Size(158, 40);
             this.buttonAñadir.TabIndex = 5;
             this.buttonAñadir.Text = "Añadir";
             this.buttonAñadir.UseVisualStyleBackColor = true;
@@ -256,15 +244,15 @@
             // 
             // FormInstalaciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1667, 811);
+            this.ClientSize = new System.Drawing.Size(1016, 596);
             this.Controls.Add(this.buttonAñadir);
             this.Controls.Add(this.buttonVer);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.dataGridViewInstalaciones);
             this.Controls.Add(this.groupBoxBuscaInsta);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormInstalaciones";
             this.Activated += new System.EventHandler(this.FormInstalaciones_Activated);
             this.Load += new System.EventHandler(this.FormInstalaciones_Load);

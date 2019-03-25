@@ -71,11 +71,15 @@ namespace Desktop
             if (resultado == DialogResult.Yes)
             {
                 ORM.ORMInstalaciones.DelelteInstalacion(instalacion, ref mensaje);
-
+               
                 if (!mensaje.Equals(""))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    llenar();   //Para cancelar el evento
+                     //Para cancelar el evento
+                }
+                else
+                {
+                    llenar();
                 }
             }
             else

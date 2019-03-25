@@ -43,11 +43,11 @@ public partial class Instalacion
 
     public virtual ICollection<Espacio> Espacio { get; set; }
 
-    public virtual Tipo_gestion Tipo_gestion { get; set; }
-
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Instalacion_Horario> Instalacion_Horario { get; set; }
+
+    public virtual Tipo_gestion Tipo_gestion { get; set; }
 
 }
 
