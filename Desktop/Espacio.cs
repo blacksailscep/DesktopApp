@@ -29,8 +29,8 @@ namespace Desktop
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Act_concedida> Act_concedida { get; set; }
+        public virtual Instalacion Instalacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Act_demandadas> Act_demandadas { get; set; }
-        public virtual Instalacion Instalacion { get; set; }
     }
 }

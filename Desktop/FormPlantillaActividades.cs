@@ -65,6 +65,14 @@ namespace Desktop
                 bindingSourcePendientes.DataSource =
                     ORM.ORMAcividadesPendientes.SelectVistaActvPendientes(ref mensaje);
             }
+            else
+            {
+                bindingSourceDenegdas.DataSource =
+                    ORM.ORMActividadesDenegadas.SelectActDenegadas(ref mensaje);
+                equipoBindingSource.DataSource = ORM.ORMEquipos.SelectEquipos(ref mensaje);
+                espacioBindingSource.DataSource = ORM.ORMEspacios.SelectEspacios(ref mensaje);
+                tipoActBindingSource.DataSource = ORM.ORMTipo_Act.SelectTipo_Act(ref mensaje);
+            }
 
 
             if (!mensaje.Equals(""))

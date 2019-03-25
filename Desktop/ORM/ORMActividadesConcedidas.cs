@@ -21,14 +21,14 @@ namespace Desktop.ORM
                               from a in ORM.bd.Act_concedida                              
                               join b in ORM.bd.Espacio on a.id_espacio equals b.id                              
                               join d in ORM.bd.Horario_Act_Con on a.id equals d.id_act_concedida
- 
-                              where b.id == idEspacio
+                              join c in ORM.bd.Equipo on a.id_equipo equals c.id
                               select new
                               {
                                   b.id,
                                   d.hora_inicio,
                                   d.hora_fin,
                                   d.id_dia_semana,
+                                  equipo = c.nombre
        
                               });
 

@@ -26,13 +26,11 @@ namespace Desktop
         }
     
         public virtual DbSet<Act_concedida> Act_concedida { get; set; }
-        public virtual DbSet<Act_demandadas> Act_demandadas { get; set; }
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Categoria_edad> Categoria_edad { get; set; }
         public virtual DbSet<Competicion> Competicion { get; set; }
         public virtual DbSet<Deportes> Deportes { get; set; }
         public virtual DbSet<Dias_Semana> Dias_Semana { get; set; }
-        public virtual DbSet<Entidad> Entidad { get; set; }
         public virtual DbSet<Equipo> Equipo { get; set; }
         public virtual DbSet<Espacio> Espacio { get; set; }
         public virtual DbSet<Horario_Act_Con> Horario_Act_Con { get; set; }
@@ -44,5 +42,7 @@ namespace Desktop
         public virtual DbSet<Telefonos> Telefonos { get; set; }
         public virtual DbSet<Tipo_Act> Tipo_Act { get; set; }
         public virtual DbSet<Tipo_gestion> Tipo_gestion { get; set; }
+        public virtual DbSet<Entidad> Entidad { get; set; }
+        public virtual DbSet<Act_demandadas> Act_demandadas { get; set; }
     }
 }

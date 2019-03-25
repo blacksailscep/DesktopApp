@@ -44,6 +44,17 @@ namespace Desktop
                     dataGridView.Rows.Add(hora);
                 }
 
+                
+
+            }
+            for(int c=0;c< dataGridView.RowCount; c++)
+            {
+                dataGridView.Rows[c].Cells[0].Style.BackColor = Color.CornflowerBlue;
+                //dataGridView.Rows[c].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                //dataGridView.Rows[c].Cells[0].Style.SelectionBackColor = Color.Blue;
+                //dataGridView.Rows[c].Cells[0].Style.SelectionForeColor = Color.White;
+
+
             }
 
         }

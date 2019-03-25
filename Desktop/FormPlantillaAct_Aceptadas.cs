@@ -15,7 +15,7 @@ namespace Desktop
         private IList<PropertyInfo> props;
         private int idAct;
         private int idHorario;
-        private string nombre, tipo, instalacion, espacio;
+        private string  tipo,  espacio;
         private Object m_actividad;
 
         public FormPlantillaAct_Aceptadas(Object actividad)
@@ -61,6 +61,36 @@ namespace Desktop
 
             }
         }
+
+        private void dataGridViewHorarioActividadesAceptadas_SelectionChanged(object sender, EventArgs e)
+        {
+            dataGridViewHorarioActividadesAceptadas.ClearSelection();
+        }
+
+        private void dataGridViewHorarioActividadesAceptadas_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                if (dataGridViewHorarioActividadesAceptadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.Name == Color.YellowGreen.Name)
+                {
+                    using (Pen pen = new Pen(Color.YellowGreen))
+                    {
+
+                        e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.Border);
+                        using (Pen p = new Pen(Color.YellowGreen, 5))
+                        {
+                            Rectangle rect = e.CellBounds;
+                            rect.Width -= 2;
+                            rect.Height -= 2;
+                            e.Graphics.DrawRectangle(p, rect);
+                        }
+                        e.Handled = true;
+                    }
+                }
+
+            }
+        }
+
         public void GetScheduleActivity(List<Object> lstHorario, int idAct)
         {
             foreach (Object horario in lstHorario)
@@ -118,9 +148,9 @@ namespace Desktop
 
             for (int i = inicio; i < fin + 1; i++)
             {
-                dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Style.BackColor = Color.GreenYellow;
+                dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Style.BackColor = Color.YellowGreen;
                 dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Value =
-                    textBoxTipo.Text;
+                    textBoxEquipo.Text;
             }
 
 

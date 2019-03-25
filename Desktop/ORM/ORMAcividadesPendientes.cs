@@ -24,10 +24,10 @@ namespace Desktop.ORM
             {
 
                 var result = (
-                              from a in ORM.bd.Horario_Act_Dem
-
+                              from a in ORM.bd.Horario_Act_Dem                              
                               join b in ORM.bd.Dias_Semana on a.id_dia_semana equals b.id
                               join c in ORM.bd.Act_demandadas on a.id_Act_Demandada equals c.id
+                              join e in ORM.bd.Equipo on c.id_equipo equals e.id
                               where c.id == idActCon
                               select new
                               {
@@ -35,6 +35,7 @@ namespace Desktop.ORM
                                   a.hora_inicio,
                                   a.hora_final,
                                   a.id_dia_semana,
+                                  equipo = e.nombre
                               });
 
                 IEnumerable<Object> i = result;
@@ -62,7 +63,8 @@ namespace Desktop.ORM
                               join e in ORM.bd.Espacio on a.id_espacio equals e.id
                               join eq in ORM.bd.Equipo on a.id_equipo equals eq.id
                               join c in ORM.bd.Sexo on eq.id_sexo equals c.id
-                              where a.asignada==false 
+                              join f in ORM.bd.Instalacion on e.id_instalacion equals f.id
+                              where a.asignada == "pendiente"
                               select new
                               {
                                   duracion = a.durada,
@@ -72,7 +74,8 @@ namespace Desktop.ORM
                                   id_espacio = e.id,
                                   equipo = eq.nombre,
                                   id = a.id,
-                                  sexo = c.nombre
+                                  sexo = c.nombre,
+                                  instalacion = f.nombre
                               });
 
                 IEnumerable<Object> i = result;

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonGestionar = new System.Windows.Forms.Button();
             this.buttonGenerarInforme = new System.Windows.Forms.Button();
             this.tabControlActividades = new System.Windows.Forms.TabControl();
@@ -49,7 +53,16 @@
             this.TipoActPen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourcePendientes = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageDenegadas = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewDenegadas = new System.Windows.Forms.DataGridView();
+            this.bindingSourceDenegdas = new System.Windows.Forms.BindingSource(this.components);
+            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.espacioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoActBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idtipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idespacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idequipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControlActividades.SuspendLayout();
             this.tabPageAceptadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAceptadas)).BeginInit();
@@ -58,7 +71,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).BeginInit();
             this.tabPageDenegadas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDenegadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDenegdas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.espacioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoActBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGestionar
@@ -107,6 +124,14 @@
             this.dataGridViewAceptadas.AllowUserToDeleteRows = false;
             this.dataGridViewAceptadas.AutoGenerateColumns = false;
             this.dataGridViewAceptadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAceptadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewAceptadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAceptadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
@@ -119,6 +144,9 @@
             this.dataGridViewAceptadas.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewAceptadas.Name = "dataGridViewAceptadas";
             this.dataGridViewAceptadas.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewAceptadas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAceptadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAceptadas.Size = new System.Drawing.Size(1129, 366);
             this.dataGridViewAceptadas.TabIndex = 0;
@@ -176,6 +204,14 @@
             this.dataGridViewPendientes.AllowUserToDeleteRows = false;
             this.dataGridViewPendientes.AutoGenerateColumns = false;
             this.dataGridViewPendientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPendientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPendientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreActividadPendiente,
@@ -188,6 +224,9 @@
             this.dataGridViewPendientes.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewPendientes.Name = "dataGridViewPendientes";
             this.dataGridViewPendientes.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewPendientes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewPendientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPendientes.Size = new System.Drawing.Size(1129, 366);
             this.dataGridViewPendientes.TabIndex = 0;
@@ -230,7 +269,7 @@
             // 
             // tabPageDenegadas
             // 
-            this.tabPageDenegadas.Controls.Add(this.dataGridView1);
+            this.tabPageDenegadas.Controls.Add(this.dataGridViewDenegadas);
             this.tabPageDenegadas.Location = new System.Drawing.Point(4, 22);
             this.tabPageDenegadas.Name = "tabPageDenegadas";
             this.tabPageDenegadas.Padding = new System.Windows.Forms.Padding(3);
@@ -239,17 +278,94 @@
             this.tabPageDenegadas.Text = "Denegadas";
             this.tabPageDenegadas.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewDenegadas
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1129, 366);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewDenegadas.AllowUserToDeleteRows = false;
+            this.dataGridViewDenegadas.AutoGenerateColumns = false;
+            this.dataGridViewDenegadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDenegadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDenegadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.idtipoDataGridViewTextBoxColumn,
+            this.idespacioDataGridViewTextBoxColumn,
+            this.idequipoDataGridViewTextBoxColumn});
+            this.dataGridViewDenegadas.DataSource = this.bindingSourceDenegdas;
+            this.dataGridViewDenegadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewDenegadas.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewDenegadas.Name = "dataGridViewDenegadas";
+            this.dataGridViewDenegadas.ReadOnly = true;
+            this.dataGridViewDenegadas.Size = new System.Drawing.Size(1129, 366);
+            this.dataGridViewDenegadas.TabIndex = 0;
+            // 
+            // bindingSourceDenegdas
+            // 
+            this.bindingSourceDenegdas.DataSource = typeof(Desktop.Act_demandadas);
+            // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataSource = typeof(Desktop.Equipo);
+            // 
+            // espacioBindingSource
+            // 
+            this.espacioBindingSource.DataSource = typeof(Desktop.Espacio);
+            // 
+            // tipoActBindingSource
+            // 
+            this.tipoActBindingSource.DataSource = typeof(Desktop.Tipo_Act);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idtipoDataGridViewTextBoxColumn
+            // 
+            this.idtipoDataGridViewTextBoxColumn.DataPropertyName = "id_tipo";
+            this.idtipoDataGridViewTextBoxColumn.DataSource = this.tipoActBindingSource;
+            this.idtipoDataGridViewTextBoxColumn.DisplayMember = "nombre";
+            this.idtipoDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.idtipoDataGridViewTextBoxColumn.HeaderText = "id_tipo";
+            this.idtipoDataGridViewTextBoxColumn.Name = "idtipoDataGridViewTextBoxColumn";
+            this.idtipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idtipoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idtipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idtipoDataGridViewTextBoxColumn.ValueMember = "id";
+            // 
+            // idespacioDataGridViewTextBoxColumn
+            // 
+            this.idespacioDataGridViewTextBoxColumn.DataPropertyName = "id_espacio";
+            this.idespacioDataGridViewTextBoxColumn.DataSource = this.espacioBindingSource;
+            this.idespacioDataGridViewTextBoxColumn.DisplayMember = "nombre";
+            this.idespacioDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.idespacioDataGridViewTextBoxColumn.HeaderText = "id_espacio";
+            this.idespacioDataGridViewTextBoxColumn.Name = "idespacioDataGridViewTextBoxColumn";
+            this.idespacioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idespacioDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idespacioDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idespacioDataGridViewTextBoxColumn.ValueMember = "id";
+            // 
+            // idequipoDataGridViewTextBoxColumn
+            // 
+            this.idequipoDataGridViewTextBoxColumn.DataPropertyName = "id_equipo";
+            this.idequipoDataGridViewTextBoxColumn.DataSource = this.equipoBindingSource;
+            this.idequipoDataGridViewTextBoxColumn.DisplayMember = "nombre";
+            this.idequipoDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.idequipoDataGridViewTextBoxColumn.HeaderText = "id_equipo";
+            this.idequipoDataGridViewTextBoxColumn.Name = "idequipoDataGridViewTextBoxColumn";
+            this.idequipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idequipoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idequipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idequipoDataGridViewTextBoxColumn.ValueMember = "id";
             // 
             // FormPlantillaActividades
             // 
@@ -273,7 +389,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).EndInit();
             this.tabPageDenegadas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDenegadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDenegdas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.espacioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoActBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,6 +420,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoActividadPendiente;
         private System.Windows.Forms.DataGridViewTextBoxColumn EspacioActPen;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoActPen;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewDenegadas;
+        private System.Windows.Forms.BindingSource bindingSourceDenegdas;
+        private System.Windows.Forms.BindingSource equipoBindingSource;
+        private System.Windows.Forms.BindingSource espacioBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idtipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource tipoActBindingSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idespacioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idequipoDataGridViewTextBoxColumn;
     }
 }

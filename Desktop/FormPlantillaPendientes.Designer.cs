@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewHorarioActividadesPedidas = new System.Windows.Forms.DataGridView();
             this.Horas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,13 +55,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxTipo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxInstalacion = new System.Windows.Forms.TextBox();
+            this.textBoxEquipo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxEspacio = new System.Windows.Forms.TextBox();
             this.buttonConceder = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxDuracion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxAsignadas = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxInstalacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesPedidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActAsignadas)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +74,15 @@
             // 
             this.dataGridViewHorarioActividadesPedidas.AllowUserToAddRows = false;
             this.dataGridViewHorarioActividadesPedidas.AllowUserToDeleteRows = false;
+            this.dataGridViewHorarioActividadesPedidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHorarioActividadesPedidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewHorarioActividadesPedidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHorarioActividadesPedidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Horas,
@@ -76,13 +93,22 @@
             this.Viernes,
             this.Sabado,
             this.Domingo});
-            this.dataGridViewHorarioActividadesPedidas.Location = new System.Drawing.Point(24, 156);
+            this.dataGridViewHorarioActividadesPedidas.Location = new System.Drawing.Point(24, 144);
             this.dataGridViewHorarioActividadesPedidas.Name = "dataGridViewHorarioActividadesPedidas";
             this.dataGridViewHorarioActividadesPedidas.ReadOnly = true;
+            this.dataGridViewHorarioActividadesPedidas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewHorarioActividadesPedidas.RowHeadersWidth = 10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewHorarioActividadesPedidas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewHorarioActividadesPedidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewHorarioActividadesPedidas.Size = new System.Drawing.Size(1214, 229);
             this.dataGridViewHorarioActividadesPedidas.TabIndex = 19;
+            this.dataGridViewHorarioActividadesPedidas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewHorarioActividadesPedidas_CellPainting);
+            this.dataGridViewHorarioActividadesPedidas.SelectionChanged += new System.EventHandler(this.dataGridViewHorarioActividadesPedidas_SelectionChanged);
             // 
             // Horas
             // 
@@ -157,11 +183,28 @@
             this.dataGridViewHorarioActAsignadas.Location = new System.Drawing.Point(24, 393);
             this.dataGridViewHorarioActAsignadas.Name = "dataGridViewHorarioActAsignadas";
             this.dataGridViewHorarioActAsignadas.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHorarioActAsignadas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewHorarioActAsignadas.RowHeadersWidth = 10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewHorarioActAsignadas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewHorarioActAsignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewHorarioActAsignadas.Size = new System.Drawing.Size(1214, 250);
             this.dataGridViewHorarioActAsignadas.TabIndex = 20;
-            this.dataGridViewHorarioActAsignadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHorarioActAsignadas_CellDoubleClick);
+            this.dataGridViewHorarioActAsignadas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewHorarioActAsignadas_CellPainting);
+            this.dataGridViewHorarioActAsignadas.SelectionChanged += new System.EventHandler(this.dataGridViewHorarioActAsignadas_SelectionChanged);
+            this.dataGridViewHorarioActAsignadas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dataGridViewHorarioActAsignadas_MouseUp);
             // 
             // Hora
             // 
@@ -222,7 +265,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 64);
+            this.label1.Location = new System.Drawing.Point(21, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 21;
@@ -233,13 +276,13 @@
             this.textBoxNombreActividad.Enabled = false;
             this.textBoxNombreActividad.Location = new System.Drawing.Point(24, 92);
             this.textBoxNombreActividad.Name = "textBoxNombreActividad";
-            this.textBoxNombreActividad.Size = new System.Drawing.Size(140, 20);
+            this.textBoxNombreActividad.Size = new System.Drawing.Size(134, 20);
             this.textBoxNombreActividad.TabIndex = 22;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(243, 64);
+            this.label3.Location = new System.Drawing.Point(177, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 23;
@@ -250,25 +293,25 @@
             this.textBoxTipo.Enabled = false;
             this.textBoxTipo.Location = new System.Drawing.Point(180, 92);
             this.textBoxTipo.Name = "textBoxTipo";
-            this.textBoxTipo.Size = new System.Drawing.Size(155, 20);
+            this.textBoxTipo.Size = new System.Drawing.Size(116, 20);
             this.textBoxTipo.TabIndex = 24;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(396, 64);
+            this.label4.Location = new System.Drawing.Point(319, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Instalacion";
+            this.label4.Text = "Equipo";
             // 
-            // textBoxInstalacion
+            // textBoxEquipo
             // 
-            this.textBoxInstalacion.Enabled = false;
-            this.textBoxInstalacion.Location = new System.Drawing.Point(341, 92);
-            this.textBoxInstalacion.Name = "textBoxInstalacion";
-            this.textBoxInstalacion.Size = new System.Drawing.Size(186, 20);
-            this.textBoxInstalacion.TabIndex = 26;
+            this.textBoxEquipo.Enabled = false;
+            this.textBoxEquipo.Location = new System.Drawing.Point(322, 92);
+            this.textBoxEquipo.Name = "textBoxEquipo";
+            this.textBoxEquipo.Size = new System.Drawing.Size(115, 20);
+            this.textBoxEquipo.TabIndex = 26;
             // 
             // label5
             // 
@@ -282,9 +325,9 @@
             // textBoxEspacio
             // 
             this.textBoxEspacio.Enabled = false;
-            this.textBoxEspacio.Location = new System.Drawing.Point(544, 92);
+            this.textBoxEspacio.Location = new System.Drawing.Point(615, 92);
             this.textBoxEspacio.Name = "textBoxEspacio";
-            this.textBoxEspacio.Size = new System.Drawing.Size(186, 20);
+            this.textBoxEspacio.Size = new System.Drawing.Size(115, 20);
             this.textBoxEspacio.TabIndex = 28;
             // 
             // buttonConceder
@@ -310,7 +353,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(758, 64);
+            this.label6.Location = new System.Drawing.Point(758, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 31;
@@ -318,22 +361,63 @@
             // 
             // textBoxDuracion
             // 
-            this.textBoxDuracion.Location = new System.Drawing.Point(761, 92);
+            this.textBoxDuracion.Enabled = false;
+            this.textBoxDuracion.Location = new System.Drawing.Point(761, 64);
             this.textBoxDuracion.Name = "textBoxDuracion";
             this.textBoxDuracion.Size = new System.Drawing.Size(72, 20);
             this.textBoxDuracion.TabIndex = 32;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(758, 95);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Asignadas";
+            // 
+            // textBoxAsignadas
+            // 
+            this.textBoxAsignadas.BackColor = System.Drawing.Color.Red;
+            this.textBoxAsignadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAsignadas.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxAsignadas.Location = new System.Drawing.Point(761, 118);
+            this.textBoxAsignadas.Name = "textBoxAsignadas";
+            this.textBoxAsignadas.Size = new System.Drawing.Size(72, 20);
+            this.textBoxAsignadas.TabIndex = 34;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(473, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Instalación";
+            // 
+            // textBoxInstalacion
+            // 
+            this.textBoxInstalacion.Enabled = false;
+            this.textBoxInstalacion.Location = new System.Drawing.Point(476, 92);
+            this.textBoxInstalacion.Name = "textBoxInstalacion";
+            this.textBoxInstalacion.Size = new System.Drawing.Size(115, 20);
+            this.textBoxInstalacion.TabIndex = 36;
             // 
             // FormPlantillaPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1250, 659);
+            this.Controls.Add(this.textBoxInstalacion);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBoxAsignadas);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxDuracion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonConceder);
             this.Controls.Add(this.textBoxEspacio);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBoxInstalacion);
+            this.Controls.Add(this.textBoxEquipo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxTipo);
             this.Controls.Add(this.label3);
@@ -350,13 +434,17 @@
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.textBoxTipo, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.textBoxInstalacion, 0);
+            this.Controls.SetChildIndex(this.textBoxEquipo, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.textBoxEspacio, 0);
             this.Controls.SetChildIndex(this.buttonConceder, 0);
             this.Controls.SetChildIndex(this.buttonCancelar, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.textBoxDuracion, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.textBoxAsignadas, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.textBoxInstalacion, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActividadesPedidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarioActAsignadas)).EndInit();
             this.ResumeLayout(false);
@@ -389,12 +477,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxTipo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxInstalacion;
+        private System.Windows.Forms.TextBox textBoxEquipo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxEspacio;
         private System.Windows.Forms.Button buttonConceder;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxDuracion;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxAsignadas;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxInstalacion;
     }
 }

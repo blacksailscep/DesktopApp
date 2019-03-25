@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewHorarioActividadesAceptadas = new System.Windows.Forms.DataGridView();
             this.Horas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,8 +67,14 @@
             this.dataGridViewHorarioActividadesAceptadas.Name = "dataGridViewHorarioActividadesAceptadas";
             this.dataGridViewHorarioActividadesAceptadas.ReadOnly = true;
             this.dataGridViewHorarioActividadesAceptadas.RowHeadersWidth = 10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewHorarioActividadesAceptadas.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewHorarioActividadesAceptadas.Size = new System.Drawing.Size(1134, 388);
             this.dataGridViewHorarioActividadesAceptadas.TabIndex = 17;
+            this.dataGridViewHorarioActividadesAceptadas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewHorarioActividadesAceptadas_CellPainting);
+            this.dataGridViewHorarioActividadesAceptadas.SelectionChanged += new System.EventHandler(this.dataGridViewHorarioActividadesAceptadas_SelectionChanged);
             // 
             // Horas
             // 

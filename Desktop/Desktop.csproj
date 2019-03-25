@@ -145,7 +145,11 @@
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="ORM\ORMAcividadesPendientes.cs" />
     <Compile Include="ORM\ORMActividadesConcedidas.cs" />
+    <Compile Include="ORM\ORMActividadesDenegadas.cs" />
+    <Compile Include="ORM\ORMEquipos.cs" />
+    <Compile Include="ORM\ORMEspacios.cs" />
     <Compile Include="ORM\ORMHorarioActConcedida.cs" />
+    <Compile Include="ORM\ORMTipo_Act.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs">
@@ -190,6 +194,26 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Act_concedida.datasource" />
+    <None Include="Properties\DataSources\Act_demandadas.datasource" />
+    <None Include="Properties\DataSources\Admin.datasource" />
+    <None Include="Properties\DataSources\Categoria_edad.datasource" />
+    <None Include="Properties\DataSources\Competicion.datasource" />
+    <None Include="Properties\DataSources\Deportes.datasource" />
+    <None Include="Properties\DataSources\Dias_Semana.datasource" />
+    <None Include="Properties\DataSources\Entidad.datasource" />
+    <None Include="Properties\DataSources\EntiEspaiEntities.datasource" />
+    <None Include="Properties\DataSources\Equipo.datasource" />
+    <None Include="Properties\DataSources\Espacio.datasource" />
+    <None Include="Properties\DataSources\Horario_Act_Con.datasource" />
+    <None Include="Properties\DataSources\Horario_Act_Dem.datasource" />
+    <None Include="Properties\DataSources\Instalacion.datasource" />
+    <None Include="Properties\DataSources\Instalacion_Horario.datasource" />
+    <None Include="Properties\DataSources\Nivel.datasource" />
+    <None Include="Properties\DataSources\Sexo.datasource" />
+    <None Include="Properties\DataSources\Telefonos.datasource" />
+    <None Include="Properties\DataSources\Tipo_Act.datasource" />
+    <None Include="Properties\DataSources\Tipo_gestion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

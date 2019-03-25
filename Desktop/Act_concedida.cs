@@ -27,11 +27,11 @@ namespace Desktop
         public int id_act_demandadas { get; set; }
         public int id_espacio { get; set; }
     
-        public virtual Act_demandadas Act_demandadas { get; set; }
         public virtual Equipo Equipo { get; set; }
         public virtual Espacio Espacio { get; set; }
         public virtual Tipo_Act Tipo_Act { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horario_Act_Con> Horario_Act_Con { get; set; }
+        public virtual Act_demandadas Act_demandadas { get; set; }
     }
 }
