@@ -140,13 +140,13 @@ namespace Desktop.ORM
 
                 insta = SelectInstalacionByID(instalacion.id, ref mens);
 
-                if (string.IsNullOrEmpty(mens))
+                if (!string.IsNullOrEmpty(mens))
                 {
                     mensaje = mens;
                 }
                 else
                 {
-
+                    insta.id = instalacion.id;
                     insta.nombre = instalacion.nombre;
                     insta.id_tipo_gestion = instalacion.id_tipo_gestion;
                     insta.direccion = instalacion.direccion;

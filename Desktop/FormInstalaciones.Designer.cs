@@ -252,8 +252,9 @@
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.dataGridViewInstalaciones);
             this.Controls.Add(this.groupBoxBuscaInsta);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInstalaciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Activated += new System.EventHandler(this.FormInstalaciones_Activated);
             this.Load += new System.EventHandler(this.FormInstalaciones_Load);
             this.Controls.SetChildIndex(this.groupBoxBuscaInsta, 0);

@@ -20,6 +20,7 @@ namespace Desktop
             InitializeComponent();
         }
 
+        //Para ver una instalación
         public FormUnaInstalacion(Instalacion instalacion)
         {
             InitializeComponent();
@@ -37,48 +38,62 @@ namespace Desktop
               
                 if (horari.Count ==0)
                 {
-                    MessageBox.Show("No hi ha cap horari introduït en aquesta instal·lació", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No hay ningún horario introducido en esta instalación", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     bindingSourceHorarioInsta.DataSource = horari;
-                    MessageBox.Show("S'ha introduït horaris", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                //Per a que SÍ puguin modificar sino hi ha cap horari ni espai afegit
-                botones();
+                //Para que SÍ se puedan modificar si no hay ningún horario ni espacio añadidos
+                botonesEspacio();
+                botonesHorario();
             }
             else
             {
-                //Per a que no puguin modificar sino hi ha cap horari ni espai afegit
-                botones();
+                //Para que SÍ se puedan modificar si no hay ningún horario ni espacio añadidos
+                botonesEspacio();
+                botonesHorario();
             }
             
         }
 
-        public void botones()
+        public void botonesEspacio()
         {
-            if (instalacion != null)
+            if (instalacion.Espacio != null)
             {
-                //Per a que SÍ puguin modificar sino hi ha cap horari ni espai afegit
+                //Per a que SÍ puguin modificar sino hi ha cap espai afegit
                 buttonModificarEspai.Enabled = true;
-                buttonModificarHorariInsa.Enabled = true;
-                buttonAnyadirEspai.Enabled = true;
-                buttonAnyadirHoraInsta.Enabled = true;
+                buttonEliminarEspai.Enabled = true;
+                
             }
             else
             {
-                //Per a que no puguin modificar sino hi ha cap horari ni espai afegit
+                //Per a que no puguin modificar sino hi ha cap espai afegit
                 buttonModificarEspai.Enabled = false;
+                buttonEliminarEspai.Enabled = false;
+            }
+        }
+
+        public void botonesHorario()
+        {
+            if (dataGridViewHorariosInsta.RowCount != 0)
+            {
+                //Per a que SÍ puguin modificar sino hi ha cap horari afegit
+                buttonModificarHorariInsa.Enabled = true;
+                buttonEliminarHoraInsta.Enabled = true;
+            }
+            else
+            {
+                //Per a que no puguin modificar sino hi ha cap horari afegit
                 buttonModificarHorariInsa.Enabled = false;
-                buttonAnyadirEspai.Enabled = false;
-                buttonAnyadirHoraInsta.Enabled = false;
+                buttonEliminarHoraInsta.Enabled = false;
             }
         }
 
         public void bindingsGrid()
         {
-            String mensaje = "";
+            string mensaje = "";
             bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
             if (!string.IsNullOrEmpty(mensaje))
             {
@@ -110,6 +125,7 @@ namespace Desktop
 
         private void FormUnaInstalacion_Load(object sender, EventArgs e)
         {
+            bindingsGrid();
             omplir();
 
             if (instalacion != null)
@@ -119,7 +135,8 @@ namespace Desktop
                 comboBoxTipoGestion.SelectedValue = instalacion.id_tipo_gestion;
                 buttonModificar.Text = "Modificar";
             }
-            else{
+            else
+            {
                 buttonModificar.Text = "Añadir";
             }
         }
@@ -127,7 +144,8 @@ namespace Desktop
         private void FormUnaInstalacion_Activated(object sender, EventArgs e)
         {
             bindingsGrid();
-            botones();
+            botonesEspacio();
+            botonesHorario();
         }
 
 
@@ -183,7 +201,13 @@ namespace Desktop
 
                     //e.Cancel = true;    //Para cancelar el evento
                 }
-                bindingsGrid();
+                else
+                {
+                    bindingsGrid();
+                    botonesEspacio();
+                    botonesHorario();
+                }
+                
             }
             else
             {
@@ -207,6 +231,12 @@ namespace Desktop
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;    //Para cancelar el evento
+                }
+                else
+                {
+                    bindingsGrid();
+                    botonesEspacio();
+                    botonesHorario();
                 }
             }
             else
@@ -269,6 +299,12 @@ namespace Desktop
 
                     //e.Cancel = true;    //Para cancelar el evento
                 }
+                else
+                {
+                    bindingsGrid();
+                    botonesEspacio();
+                    botonesHorario();
+                }
             }
             else
             {
@@ -292,6 +328,12 @@ namespace Desktop
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;    //Para cancelar el evento
+                }
+                else
+                {
+                    bindingsGrid();
+                    botonesEspacio();
+                    botonesHorario();
                 }
             }
             else
@@ -330,13 +372,14 @@ namespace Desktop
             {
                 
                 Instalacion i = new Instalacion();
-
+                i.id = instalacion.id;
                 i.nombre = nombre;
                 i.direccion = direccion;
                 i.id_tipo_gestion = gestion;
 
                 String mensaje = "";
 
+                //Para insertar
                 if (instalacion == null)
                 {
                     ORM.ORMInstalaciones.InsertInstalacion(i, ref mensaje);
@@ -354,7 +397,19 @@ namespace Desktop
                 }
                 else
                 {
-
+                    //Para modificar
+                    ORM.ORMInstalaciones.UpdateInstalacion(i, ref mensaje);
+                    if (!mensaje.Equals(""))
+                    {
+                        MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //e.Cancel = true;    //Para cancelar el evento
+                    }
+                    else
+                    {
+                        MessageBox.Show("Actualización correcta", "Actualización Instalaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        this.Close();
+                    }
                 }
             }
 

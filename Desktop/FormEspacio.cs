@@ -20,12 +20,14 @@ namespace Desktop
             InitializeComponent();
         }
 
+        //Para modificar un espacio
         public FormEspacio(Espacio espacio)
         {
             InitializeComponent();
             this.espacio = espacio;
         }
 
+        //Para añadir un espacio --> id_instalacion
         public FormEspacio(Instalacion instalacion)
         {
             InitializeComponent();
@@ -40,9 +42,10 @@ namespace Desktop
             {
                 Instalacion insta = new Instalacion();
                 
-                
+                //Hago una búsqueda para mostrar el nombre de la instalación por pantalla
                 insta = ORM.ORMInstalaciones.SelectInstalacionByID(espacio.id_instalacion, ref mensaje);
                 textBoxInstalacion.Text = insta.nombre;
+                //Se deshabilita para no poder modificarlo
                 textBoxInstalacion.Enabled = false;
 
                 if (string.IsNullOrEmpty(mensaje))
@@ -52,6 +55,7 @@ namespace Desktop
 
                 textBoxNombre.Text = espacio.nombre;
 
+                //Redondea los decimales a 2
                 float numero = (float)(Math.Round((double)espacio.precio, 2));
 
                 textBoxPrecio.Text = numero.ToString();
@@ -71,10 +75,15 @@ namespace Desktop
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
 
-            String nombre = textBoxNombre.Text;
+            string nombre = textBoxNombre.Text;
+            string preu = textBoxPrecio.Text;
 
             /*Per a assegurar-se que s'ha introduït les comes correctament*/
-            string preu = textBoxPrecio.Text;
+            
+            if (preu.StartsWith("."))
+            {
+                preu += "0";
+            }
 
             if (preu.Contains("."))
             {
@@ -91,6 +100,7 @@ namespace Desktop
 
             Boolean exterior = radioButtonExterior.Checked;
 
+            //Actualizar un espacio
             if (espacio != null)
             {
                 Espacio espai = new Espacio();
@@ -99,7 +109,7 @@ namespace Desktop
                 espai.nombre = nombre;
                 espai.precio = precio;
                 espai.exterior = exterior;
-                String mens = "";
+                string mens = "";
                 
                 ORM.ORMEspacio.UpdateEspacio(espai, ref mens);
                 
@@ -115,13 +125,15 @@ namespace Desktop
                 }
             }
             else if (espacio == null) {
+                
+                //Insertar un espacio
                 Espacio espai = new Espacio();
                 espai.id_instalacion = instalacion.id;
                 espai.nombre = nombre;
                 espai.precio = precio;
                 espai.exterior = exterior;
 
-                String mens = "";
+                string mens = "";
                 
                 ORM.ORMEspacio.InsertEspacio(espai, ref mens);
 
@@ -161,7 +173,7 @@ namespace Desktop
             }
         }
 
-        //Mètode que asegura que s'ha introduït números correctament
+        //Método que asegura que se ha introducido números correctamente
         private void textBoxPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -169,7 +181,6 @@ namespace Desktop
                 e.Handled = true;
             }
             // Si deseas, puedes permitir numeros decimales (o float)
-            // If you want, you can allow decimal (float) numbers
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;

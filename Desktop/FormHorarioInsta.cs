@@ -14,12 +14,14 @@ namespace Desktop
     {
         Instalacion instalacion;
         Instalacion_Horario hInsta;
+
         public FormHorarioInsta()
         {
             InitializeComponent();
             inicialitzarDataTime();
         }
 
+        //Un nuevo horario de una instalación
         public FormHorarioInsta(Instalacion instalacion)
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace Desktop
             this.instalacion = instalacion;
         }
 
+        //Para modificar un horario de una instalación
         public FormHorarioInsta(Instalacion_Horario hInsta)
         {
             InitializeComponent();
@@ -37,13 +40,9 @@ namespace Desktop
         //Funció que inicialitza els dataTimePicker i treu la opció del calendari
         public void inicialitzarDataTime()
         {
-            //dateTimePickerHInicio.Format = DateTimePickerFormat.Custom;
             dateTimePickerHInicio.ShowUpDown = true;          //Quita la opción del calendario
-            //dateTimePickerHInicio.CustomFormat = "HH:mm tt";  //Formato 24 h
-
-            //dateTimePickerHFinal.Format = DateTimePickerFormat.Custom;
             dateTimePickerHFinal.ShowUpDown = true;          //Quita la opción del calendario
-            //dateTimePickerHFinal.CustomFormat = "HH:mm tt";  //Formato 24 h
+           
         }
 
         private void FormHorarioInsta_Load(object sender, EventArgs e)
@@ -55,8 +54,10 @@ namespace Desktop
             if (!string.IsNullOrWhiteSpace(mensaje))
             {
                 MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close(); 
             }
 
+            //Para añadir un horario de una instalación
             if (instalacion != null)
             {
                 List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
@@ -69,13 +70,11 @@ namespace Desktop
                 if (horari == null)
                 {
                     MessageBox.Show("No hi ha cap horari introduït en aquesta instal·lació", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dateTimePickerHInicio.Enabled = true;
+                    comboBoxDiasSemana.Enabled = true;
                 }
                 else
                 {
-                    //dateTimePickerHInicio.Value = horari
-                    //DateTime hFin = dateTimePickerHFinal.Value;
-
-                    //diasSemana = comboBoxDiasSemana.SelectedIndex;
                     MessageBox.Show("S'ha introduït horaris", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
@@ -83,9 +82,12 @@ namespace Desktop
             
             if (hInsta != null)
             {
-                dateTimePickerHInicio.Text = hInsta.hora_inicio+"";
-                dateTimePickerHFinal.Text = hInsta.hora_final + "";
+                dateTimePickerHInicio.Text = hInsta.hora_inicio.ToString();
+                dateTimePickerHFinal.Text = hInsta.hora_final.ToString();
                 comboBoxDiasSemana.SelectedItem = hInsta.id_dia_semana;
+                dateTimePickerHInicio.Enabled = false;
+                comboBoxDiasSemana.Enabled = false;
+
             }
             else
             {
@@ -98,9 +100,8 @@ namespace Desktop
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             
-            String hInicio = dateTimePickerHInicio.Text;
-            String hFin = dateTimePickerHFinal.Text;
-
+            string hInicio = dateTimePickerHInicio.Text;
+            string hFin = dateTimePickerHFinal.Text;
             int diasSemana = (int)comboBoxDiasSemana.SelectedValue;
 
             if(hInicio.Equals("0:00:00"))
@@ -117,6 +118,7 @@ namespace Desktop
             {
                 String mensaje = "";
 
+                //Actualizar un horario
                 if (hInsta != null)
                 {
                     Instalacion_Horario hI = new Instalacion_Horario();
@@ -129,6 +131,8 @@ namespace Desktop
                 }
                 else
                 {
+
+                    //Insertar un horario
                     Instalacion_Horario hI = new Instalacion_Horario();
                     hI.id_instalacion = instalacion.id;
                     hI.id_dia_semana = diasSemana;
@@ -138,8 +142,7 @@ namespace Desktop
                     ORM.ORMHorari_Instalacion.InsertHorariInstalacio(hI, ref mensaje);
                 }
 
-                
-
+                //Comprovar que no se produco errores
                 if (!string.IsNullOrWhiteSpace(mensaje))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
