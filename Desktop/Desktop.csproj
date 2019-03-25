@@ -99,6 +99,12 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLandingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLandingPage.Designer.cs">
+      <DependentUpon>FormLandingPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLandingPage.resx">
+      <DependentUpon>FormLandingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
