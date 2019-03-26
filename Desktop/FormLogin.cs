@@ -41,16 +41,21 @@ namespace Desktop
 
         private void buttonSigin_Click(object sender, EventArgs e)
         {
+            FormLoginMsg f;
+
             if (ORM.ORMUsuarios.UserExist(textBoxUsername.Text, textBoxPassword.Text))
             {
-                MessageBox.Show("Acceso aceptado");
-                //System.Threading.Thread.Sleep(10);
+                f = new FormLoginMsg(true);
+                f.ShowDialog();
+                FormLandingPage landing = new FormLandingPage();
+                landing.Show();
+                this.Close();
 
             }
             else
             {
-                MessageBox.Show("Acceso denegado");
-                //System.Threading.Thread.Sleep(10);
+                f = new FormLoginMsg(false);
+                f.ShowDialog();
             }
         }
     }      

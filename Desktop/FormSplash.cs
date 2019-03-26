@@ -15,16 +15,18 @@ namespace Desktop
     {
         public FormSplash()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(1000);
             InitializeComponent();
-            t.Abort();
+            timer1.Enabled = true;
+            timer1.Interval = 1000;    
         }
 
-        public void StartForm()
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            Application.Run(new FormLandingPage());
+            timer1.Stop();
+            this.DialogResult = DialogResult.OK;
+            FormLogin f = new FormLogin();
+            f.Show();
+            this.Hide();
         }
     }
 }
