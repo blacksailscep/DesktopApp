@@ -25,19 +25,7 @@ namespace Desktop
             labelActividades.Text   = "          Actividades";
             labelUsuarios.Text      = "            Usuarios";
         }
-    }
-}
 
-        }
-
-        private void FormPlantilla_Load(object sender, EventArgs e)
-        {
-            labelInicio.Text        = "             Inicio";
-            labelEntidades.Text     = "          Entidades";
-            labelInstalaciones.Text = "         Instalaciones";
-            labelActividades.Text   = "          Actividades";
-            labelUsuarios.Text      = "            Usuarios";
-        }
         public List<Label> GetLabels()
         {
             List<Label> lst_labels = new List<Label>();
@@ -48,5 +36,6 @@ namespace Desktop
             lst_labels.Add(labelUsuarios);
 
             return lst_labels;
-        }
-        
+        }
+    }
+}
