@@ -87,11 +87,41 @@
     <Compile Include="Espacio.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormActividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActividades.Designer.cs">
+      <DependentUpon>FormActividades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLandingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLandingPage.Designer.cs">
+      <DependentUpon>FormLandingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoginMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginMsg.Designer.cs">
+      <DependentUpon>FormLoginMsg.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlantilla.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPlantilla.Designer.cs">
       <DependentUpon>FormPlantilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPlantillaActividades.cs">
       <SubType>Form</SubType>
@@ -145,6 +175,7 @@
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="ORM\ORMAcividadesPendientes.cs" />
     <Compile Include="ORM\ORMActividadesConcedidas.cs" />
+    <Compile Include="ORM\ORMUsuarios.cs" />
     <Compile Include="ORM\ORMActividadesDenegadas.cs" />
     <Compile Include="ORM\ORMEquipos.cs" />
     <Compile Include="ORM\ORMEspacios.cs" />
@@ -164,8 +195,26 @@
     <Compile Include="Tipo_gestion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActividadesAceptadas.resx">
+      <DependentUpon>ActividadesAceptadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormActividades.resx">
+      <DependentUpon>FormActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLandingPage.resx">
+      <DependentUpon>FormLandingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginMsg.resx">
+      <DependentUpon>FormLoginMsg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPlantilla.resx">
       <DependentUpon>FormPlantilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplash.resx">
+      <DependentUpon>FormSplash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlantillaActividades.resx">
       <DependentUpon>FormPlantillaActividades.cs</DependentUpon>
@@ -230,6 +279,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Images\1.jpg" />
+    <Content Include="bin\Images\2.jpg" />
+    <Content Include="bin\Images\3.jpg" />
+    <Content Include="bin\Images\4.jpg" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
