@@ -31,19 +31,13 @@ namespace Desktop
         {
             bindingsGrid();
 
-            String mensaje = "";
+            //String mensaje = "";
             if (instalacion != null)
             {
-                List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+                //List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
               
-                if (horari.Count ==0)
-                {
-                    MessageBox.Show("No hay ningún horario introducido en esta instalación", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    bindingSourceHorarioInsta.DataSource = horari;
-                }
+                //bindingSourceHorarioInsta.DataSource = horari;
+               
 
                 //Para que SÍ se puedan modificar si no hay ningún horario ni espacio añadidos
                 botonesEspacio();
@@ -119,6 +113,10 @@ namespace Desktop
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //e.Cancel()
                 }
+
+                List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+
+                bindingSourceHorarioInsta.DataSource = horari;
             }
             
         }

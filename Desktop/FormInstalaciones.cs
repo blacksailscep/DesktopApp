@@ -66,21 +66,51 @@ namespace Desktop
             String mensaje = "";
 
             DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este horario?", "BORRAR HORARIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            Instalacion instalacion = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
+            Instalacion insta = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
 
             if (resultado == DialogResult.Yes)
             {
-                ORM.ORMInstalaciones.DelelteInstalacion(instalacion, ref mensaje);
-               
-                if (!mensaje.Equals(""))
+
+                if (insta.Espacio != null || insta.Instalacion_Horario != null)
                 {
-                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     //Para cancelar el evento
+                    DialogResult resultado2 = MessageBox.Show("Tiene registros relacionados ¿Está seguro de continar con la eliminación de esta instalación?", "BORRAR DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ORM.ORMInstalaciones.DelelteInstalacion(insta, ref mensaje);
+
+                        if (!mensaje.Equals(""))
+                        {
+                            MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //Para cancelar el evento
+                        }
+                        else
+                        {
+                            llenar();
+                        }
+                    }
+                    else
+                    {
+                        llenar();
+                    }
                 }
                 else
                 {
-                    llenar();
+                    ORM.ORMInstalaciones.DelelteInstalacion(insta, ref mensaje);
+
+                    if (!mensaje.Equals(""))
+                    {
+                        MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //Para cancelar el evento
+                    }
+                    else
+                    {
+                        llenar();
+                    }
                 }
+
+
+                              
             }
             else
             {
