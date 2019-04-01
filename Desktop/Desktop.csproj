@@ -99,6 +99,24 @@
     <Compile Include="FormActividades.Designer.cs">
       <DependentUpon>FormActividades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEntidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntidad.Designer.cs">
+      <DependentUpon>FormEntidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEntidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntidades.Designer.cs">
+      <DependentUpon>FormEntidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEquipo.Designer.cs">
+      <DependentUpon>FormEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlantilla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +175,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormActividades.resx">
       <DependentUpon>FormActividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEntidad.resx">
+      <DependentUpon>FormEntidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEntidades.resx">
+      <DependentUpon>FormEntidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEquipo.resx">
+      <DependentUpon>FormEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlantilla.resx">
       <DependentUpon>FormPlantilla.cs</DependentUpon>
