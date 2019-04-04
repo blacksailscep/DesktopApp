@@ -150,6 +150,7 @@
             this.Name = "FormPlantilla";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPlantilla";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPlantilla_FormClosing);
             this.Load += new System.EventHandler(this.FormPlantilla_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

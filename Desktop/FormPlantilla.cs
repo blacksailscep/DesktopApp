@@ -56,12 +56,23 @@ namespace Desktop
         private void labelActividades_Click(object sender, EventArgs e)
         {
             FormPlantillaActividades f = new FormPlantillaActividades();
-            this.Show();
+            f.Show();
+            this.Close();
         }
 
         private void labelUsuarios_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormPlantilla_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormCollection fc = Application.OpenForms;
+            if (fc.Count <= 2)
+            {
+                System.Windows.Forms.Application.Exit();
+                System.Environment.Exit(1);
+            }
         }
     }
 }

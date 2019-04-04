@@ -54,15 +54,15 @@
             this.bindingSourcePendientes = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageDenegadas = new System.Windows.Forms.TabPage();
             this.dataGridViewDenegadas = new System.Windows.Forms.DataGridView();
-            this.bindingSourceDenegdas = new System.Windows.Forms.BindingSource(this.components);
-            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.espacioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tipoActBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idtipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.tipoActBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idespacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.espacioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idequipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceDenegdas = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlActividades.SuspendLayout();
             this.tabPageAceptadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAceptadas)).BeginInit();
@@ -72,15 +72,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).BeginInit();
             this.tabPageDenegadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDenegadas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDenegdas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.espacioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoActBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.espacioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDenegdas)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGestionar
             // 
-            this.buttonGestionar.Location = new System.Drawing.Point(63, 598);
+            this.buttonGestionar.Location = new System.Drawing.Point(16, 613);
             this.buttonGestionar.Name = "buttonGestionar";
             this.buttonGestionar.Size = new System.Drawing.Size(182, 23);
             this.buttonGestionar.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             // buttonGenerarInforme
             // 
-            this.buttonGenerarInforme.Location = new System.Drawing.Point(990, 91);
+            this.buttonGenerarInforme.Location = new System.Drawing.Point(1053, 69);
             this.buttonGenerarInforme.Name = "buttonGenerarInforme";
             this.buttonGenerarInforme.Size = new System.Drawing.Size(178, 23);
             this.buttonGenerarInforme.TabIndex = 4;
@@ -101,10 +101,10 @@
             this.tabControlActividades.Controls.Add(this.tabPageAceptadas);
             this.tabControlActividades.Controls.Add(this.tabPagePendientes);
             this.tabControlActividades.Controls.Add(this.tabPageDenegadas);
-            this.tabControlActividades.Location = new System.Drawing.Point(56, 141);
+            this.tabControlActividades.Location = new System.Drawing.Point(12, 86);
             this.tabControlActividades.Name = "tabControlActividades";
             this.tabControlActividades.SelectedIndex = 0;
-            this.tabControlActividades.Size = new System.Drawing.Size(1143, 398);
+            this.tabControlActividades.Size = new System.Drawing.Size(1226, 508);
             this.tabControlActividades.TabIndex = 3;
             // 
             // tabPageAceptadas
@@ -113,7 +113,7 @@
             this.tabPageAceptadas.Location = new System.Drawing.Point(4, 22);
             this.tabPageAceptadas.Name = "tabPageAceptadas";
             this.tabPageAceptadas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAceptadas.Size = new System.Drawing.Size(1135, 372);
+            this.tabPageAceptadas.Size = new System.Drawing.Size(1218, 482);
             this.tabPageAceptadas.TabIndex = 0;
             this.tabPageAceptadas.Text = "Aceptadas";
             this.tabPageAceptadas.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewAceptadas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAceptadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAceptadas.Size = new System.Drawing.Size(1129, 366);
+            this.dataGridViewAceptadas.Size = new System.Drawing.Size(1212, 476);
             this.dataGridViewAceptadas.TabIndex = 0;
             this.dataGridViewAceptadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAceptadas_CellDoubleClick);
             // 
@@ -193,7 +193,7 @@
             this.tabPagePendientes.Location = new System.Drawing.Point(4, 22);
             this.tabPagePendientes.Name = "tabPagePendientes";
             this.tabPagePendientes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePendientes.Size = new System.Drawing.Size(1135, 372);
+            this.tabPagePendientes.Size = new System.Drawing.Size(1218, 482);
             this.tabPagePendientes.TabIndex = 1;
             this.tabPagePendientes.Text = "Pendientes";
             this.tabPagePendientes.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewPendientes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewPendientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPendientes.Size = new System.Drawing.Size(1129, 366);
+            this.dataGridViewPendientes.Size = new System.Drawing.Size(1212, 476);
             this.dataGridViewPendientes.TabIndex = 0;
             this.dataGridViewPendientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPendientes_CellDoubleClick);
             // 
@@ -273,7 +273,7 @@
             this.tabPageDenegadas.Location = new System.Drawing.Point(4, 22);
             this.tabPageDenegadas.Name = "tabPageDenegadas";
             this.tabPageDenegadas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDenegadas.Size = new System.Drawing.Size(1135, 372);
+            this.tabPageDenegadas.Size = new System.Drawing.Size(1218, 482);
             this.tabPageDenegadas.TabIndex = 2;
             this.tabPageDenegadas.Text = "Denegadas";
             this.tabPageDenegadas.UseVisualStyleBackColor = true;
@@ -295,24 +295,8 @@
             this.dataGridViewDenegadas.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewDenegadas.Name = "dataGridViewDenegadas";
             this.dataGridViewDenegadas.ReadOnly = true;
-            this.dataGridViewDenegadas.Size = new System.Drawing.Size(1129, 366);
+            this.dataGridViewDenegadas.Size = new System.Drawing.Size(1212, 476);
             this.dataGridViewDenegadas.TabIndex = 0;
-            // 
-            // bindingSourceDenegdas
-            // 
-            this.bindingSourceDenegdas.DataSource = typeof(Desktop.Act_demandadas);
-            // 
-            // equipoBindingSource
-            // 
-            this.equipoBindingSource.DataSource = typeof(Desktop.Equipo);
-            // 
-            // espacioBindingSource
-            // 
-            this.espacioBindingSource.DataSource = typeof(Desktop.Espacio);
-            // 
-            // tipoActBindingSource
-            // 
-            this.tipoActBindingSource.DataSource = typeof(Desktop.Tipo_Act);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -341,6 +325,10 @@
             this.idtipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.idtipoDataGridViewTextBoxColumn.ValueMember = "id";
             // 
+            // tipoActBindingSource
+            // 
+            this.tipoActBindingSource.DataSource = typeof(Desktop.Tipo_Act);
+            // 
             // idespacioDataGridViewTextBoxColumn
             // 
             this.idespacioDataGridViewTextBoxColumn.DataPropertyName = "id_espacio";
@@ -354,6 +342,10 @@
             this.idespacioDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.idespacioDataGridViewTextBoxColumn.ValueMember = "id";
             // 
+            // espacioBindingSource
+            // 
+            this.espacioBindingSource.DataSource = typeof(Desktop.Espacio);
+            // 
             // idequipoDataGridViewTextBoxColumn
             // 
             this.idequipoDataGridViewTextBoxColumn.DataPropertyName = "id_equipo";
@@ -366,6 +358,14 @@
             this.idequipoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.idequipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.idequipoDataGridViewTextBoxColumn.ValueMember = "id";
+            // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataSource = typeof(Desktop.Equipo);
+            // 
+            // bindingSourceDenegdas
+            // 
+            this.bindingSourceDenegdas.DataSource = typeof(Desktop.Act_demandadas);
             // 
             // FormPlantillaActividades
             // 
@@ -390,10 +390,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePendientes)).EndInit();
             this.tabPageDenegadas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDenegadas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDenegdas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.espacioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoActBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.espacioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDenegdas)).EndInit();
             this.ResumeLayout(false);
 
         }
