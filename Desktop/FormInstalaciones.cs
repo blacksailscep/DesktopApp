@@ -47,7 +47,16 @@ namespace Desktop
             {
                 FormUnaInstalacion formInstalacion = new FormUnaInstalacion(instalaci);
                 formInstalacion.Text = "MODIFICACIÓN DE LA INSTALACIÓN";
-                formInstalacion.ShowDialog();
+                try
+                {
+                    formInstalacion.ShowDialog();
+                }catch(Exception e)
+                {
+                    MessageBox.Show(e.Message, "BORRAR DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                }
+
+
             }
             
         }

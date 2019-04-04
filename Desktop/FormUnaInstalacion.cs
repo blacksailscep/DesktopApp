@@ -12,7 +12,7 @@ namespace Desktop
 {
     public partial class FormUnaInstalacion : Form
     {
-        Instalacion instalacion;
+        Instalacion instalaci;
         
 
         public FormUnaInstalacion()
@@ -21,10 +21,10 @@ namespace Desktop
         }
 
         //Para ver una instalación
-        public FormUnaInstalacion(Instalacion instalacion)
+        public FormUnaInstalacion(Instalacion instalac)
         {
             InitializeComponent();
-            this.instalacion = instalacion;
+            this.instalaci = instalac;
         }
 
         public void omplir()
@@ -32,7 +32,7 @@ namespace Desktop
             bindingsGrid();
 
             //String mensaje = "";
-            if (instalacion != null)
+            if (instalaci != null)
             {
                 //List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
               
@@ -54,9 +54,9 @@ namespace Desktop
 
         public void botonesEspacio()
         {
-            if(instalacion!=null)
+            if(instalaci!=null)
             {
-                if (instalacion.Espacio != null)
+                if (instalaci.Espacio != null)
                 {
                     //Per a que SÍ puguin modificar sino hi ha cap espai afegit
                     buttonModificarEspai.Enabled = true;
@@ -86,7 +86,7 @@ namespace Desktop
 
         public void botonesHorario()
         {
-            if (instalacion != null)
+            if (instalaci != null)
             {
                 if (dataGridViewHorariosInsta.RowCount != 0)
                 {
@@ -130,17 +130,17 @@ namespace Desktop
             }
 
 
-            if (instalacion != null)
+            if (instalaci != null)
             {
                 mensaje = "";
-                bindingSourceEspacios.DataSource = ORM.ORMEspacio.SelectAllEspacios(instalacion.id, ref mensaje);
+                bindingSourceEspacios.DataSource = ORM.ORMEspacio.SelectAllEspacios(instalaci.id, ref mensaje);
                 if (!string.IsNullOrEmpty(mensaje))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //e.Cancel()
                 }
 
-                List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
+                List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalaci.id, ref mensaje);
 
                 bindingSourceHorarioInsta.DataSource = horari;
             }
@@ -152,11 +152,11 @@ namespace Desktop
             bindingsGrid();
             omplir();
 
-            if (instalacion != null)
+            if (instalaci != null)
             {
-                textBoxNombre.Text = instalacion.nombre;
-                textBoxDireccion.Text = instalacion.direccion;
-                comboBoxTipoGestion.SelectedValue = instalacion.id_tipo_gestion;
+                textBoxNombre.Text = instalaci.nombre;
+                textBoxDireccion.Text = instalaci.direccion;
+                comboBoxTipoGestion.SelectedValue = instalaci.id_tipo_gestion;
                 buttonModificar.Text = "Modificar";
             }
             else
@@ -179,7 +179,7 @@ namespace Desktop
         private void buttonAnyadirHoraInsta_Click(object sender, EventArgs e)
         {
 
-            FormHorarioInsta formHorariInsta = new FormHorarioInsta(instalacion);
+            FormHorarioInsta formHorariInsta = new FormHorarioInsta(instalaci);
             formHorariInsta.ShowDialog();
             
             
@@ -280,7 +280,7 @@ namespace Desktop
         /*Mètode per AFEGIR ESPAIS a la instal·lació*/
         private void buttonAnyadirEspai_Click(object sender, EventArgs e)
         {
-            FormEspacio formEspacio = new FormEspacio(instalacion);
+            FormEspacio formEspacio = new FormEspacio(instalaci);
             formEspacio.ShowDialog();
         }
 
@@ -398,7 +398,7 @@ namespace Desktop
                 String mensaje = "";
 
                 //Para insertar
-                if (instalacion == null)
+                if (instalaci == null)
                 {
                     Instalacion i = new Instalacion();
                     i.nombre = nombre;
@@ -420,11 +420,11 @@ namespace Desktop
                 }
                 else
                 {
-                    instalacion.nombre = nombre;
-                    instalacion.direccion = direccion;
-                    instalacion.id_tipo_gestion = gestion;
+                    instalaci.nombre = nombre;
+                    instalaci.direccion = direccion;
+                    instalaci.id_tipo_gestion = gestion;
                     //Para modificar
-                    mensaje=ORM.ORMInstalaciones.UpdateInstalacion(instalacion);
+                    mensaje=ORM.ORMInstalaciones.UpdateInstalacion(instalaci);
                     if (!mensaje.Equals(""))
                     {
                         MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
