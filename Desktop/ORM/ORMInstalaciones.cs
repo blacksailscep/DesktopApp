@@ -118,9 +118,9 @@ namespace Desktop.ORM
         }
 
         //Insert una instalación
-        public static String InsertInstalacion(Instalacion instalacion, ref String mensaje)
+        public static String InsertInstalacion(Instalacion instalacion)
         {
-
+            String mensaje = "";
             ORM.bd.Instalacion.Add(instalacion);
 
             mensaje = ORM.SaveChanges();
@@ -129,9 +129,9 @@ namespace Desktop.ORM
         }
 
         //Modificar una instalación
-        public static String UpdateInstalacion(Instalacion instalacion, ref String mensaje)
+        public static String UpdateInstalacion(Instalacion instalacion)
         {
-
+            String mensaje = "";
             String mens = "";
 
             try
@@ -165,8 +165,9 @@ namespace Desktop.ORM
         }
 
         //Borrar una instalación de la grid
-        public static String DelelteInstalacion(Instalacion instalacion, ref String mensaje)
+        public static String DelelteInstalacion(Instalacion instalacion)
         {
+            String mensaje = "";
 
             ORM.bd.Instalacion.Remove(instalacion);
 

@@ -54,12 +54,21 @@ namespace Desktop
 
         public void botonesEspacio()
         {
-            if (instalacion.Espacio != null)
+            if(instalacion!=null)
             {
-                //Per a que SÍ puguin modificar sino hi ha cap espai afegit
-                buttonModificarEspai.Enabled = true;
-                buttonEliminarEspai.Enabled = true;
-                
+                if (instalacion.Espacio != null)
+                {
+                    //Per a que SÍ puguin modificar sino hi ha cap espai afegit
+                    buttonModificarEspai.Enabled = true;
+                    buttonEliminarEspai.Enabled = true;
+
+                }
+                else
+                {
+                    //Per a que no puguin modificar sino hi ha cap espai afegit
+                    buttonModificarEspai.Enabled = false;
+                    buttonEliminarEspai.Enabled = false;
+                }
             }
             else
             {
@@ -67,6 +76,7 @@ namespace Desktop
                 buttonModificarEspai.Enabled = false;
                 buttonEliminarEspai.Enabled = false;
             }
+            
         }
 
         public void botonesHorario()
@@ -191,7 +201,7 @@ namespace Desktop
 
             if (resultado == DialogResult.Yes)
             {
-                ORM.ORMHorari_Instalacion.DelelteHorariInsta(instaHorario, ref mensaje);
+                mensaje=ORM.ORMHorari_Instalacion.DelelteHorariInsta(instaHorario);
 
                 if (!string.IsNullOrWhiteSpace(mensaje))
                 {
@@ -223,7 +233,7 @@ namespace Desktop
 
             if (resultado == DialogResult.Yes)
             {
-                ORM.ORMHorari_Instalacion.DelelteHorariInsta(instaHorario, ref mensaje);
+                mensaje=ORM.ORMHorari_Instalacion.DelelteHorariInsta(instaHorario);
 
                 if (!mensaje.Equals(""))
                 {
@@ -289,7 +299,7 @@ namespace Desktop
 
             if (resultado == DialogResult.Yes)
             {
-                ORM.ORMEspacio.DelelteEspacio(espacio, ref mensaje);
+                mensaje = ORM.ORMEspacio.DelelteEspacio(espacio);
                 bindingsGrid();
                 if (!string.IsNullOrWhiteSpace(mensaje))
                 {
@@ -320,7 +330,7 @@ namespace Desktop
 
             if (resultado == DialogResult.Yes)
             {
-                ORM.ORMEspacio.DelelteEspacio(espacio, ref mensaje);
+                mensaje = ORM.ORMEspacio.DelelteEspacio(espacio);
 
                 if (!mensaje.Equals(""))
                 {
@@ -369,18 +379,23 @@ namespace Desktop
             else
             {
                 
-                Instalacion i = new Instalacion();
-                i.id = instalacion.id;
-                i.nombre = nombre;
-                i.direccion = direccion;
-                i.id_tipo_gestion = gestion;
+                //Instalacion i = new Instalacion();
+                
+                //i.nombre = nombre;
+                //i.direccion = direccion;
+                //i.id_tipo_gestion = gestion;
 
                 String mensaje = "";
 
                 //Para insertar
                 if (instalacion == null)
                 {
-                    ORM.ORMInstalaciones.InsertInstalacion(i, ref mensaje);
+                    instalacion = new Instalacion();
+                    instalacion.nombre = nombre;
+                    instalacion.direccion = direccion;
+                    instalacion.id_tipo_gestion = gestion;
+
+                    mensaje=ORM.ORMInstalaciones.InsertInstalacion(instalacion);
                     if (!mensaje.Equals(""))
                     {
                         MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -395,8 +410,11 @@ namespace Desktop
                 }
                 else
                 {
+                    instalacion.nombre = nombre;
+                    instalacion.direccion = direccion;
+                    instalacion.id_tipo_gestion = gestion;
                     //Para modificar
-                    ORM.ORMInstalaciones.UpdateInstalacion(i, ref mensaje);
+                    mensaje=ORM.ORMInstalaciones.UpdateInstalacion(instalacion);
                     if (!mensaje.Equals(""))
                     {
                         MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);

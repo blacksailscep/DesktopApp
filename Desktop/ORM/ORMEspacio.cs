@@ -57,8 +57,9 @@ namespace Desktop.ORM
         }
 
         //Insert un horario de una instalación nuevo
-        public static String InsertEspacio(Espacio espacio, ref String mensaje)
+        public static String InsertEspacio(Espacio espacio)
         {
+            String mensaje = "";
 
             ORM.bd.Espacio.Add(espacio);
 
@@ -68,13 +69,14 @@ namespace Desktop.ORM
         }
 
         //Modificar un horario de una instalación nuevo
-        public static String UpdateEspacio(Espacio espacio, ref String mensaje)
+        public static String UpdateEspacio(Espacio espacio)
         {
-
+            String mensaje = "";
             String mens = "";
 
             try
             {
+                ORM.bd.Espacio.Find(espacio.id);
                 Espacio espai = new Espacio();
 
                 espai = SelectEspacioBynombre(espacio.id, ref mens);
@@ -105,9 +107,9 @@ namespace Desktop.ORM
         }
 
         //Borrar horario de una instalación de la grid
-        public static String DelelteEspacio(Espacio espacio, ref String mensaje)
+        public static String DelelteEspacio(Espacio espacio)
         {
-
+            String mensaje = "";
             ORM.bd.Espacio.Remove(espacio);
 
             mensaje = ORM.SaveChanges();

@@ -111,7 +111,7 @@ namespace Desktop
                 espai.exterior = exterior;
                 string mens = "";
                 
-                ORM.ORMEspacio.UpdateEspacio(espai, ref mens);
+                mens= ORM.ORMEspacio.UpdateEspacio(espai);
                 
                 
                 if (!string.IsNullOrEmpty(mens))
@@ -135,7 +135,7 @@ namespace Desktop
 
                 string mens = "";
                 
-                ORM.ORMEspacio.InsertEspacio(espai, ref mens);
+                mens = ORM.ORMEspacio.InsertEspacio(espai);
 
                 if (!string.IsNullOrEmpty(mens))
                 {
@@ -180,7 +180,7 @@ namespace Desktop
             {
                 e.Handled = true;
             }
-            // Si deseas, puedes permitir numeros decimales (o float)
+            // Para permitir números decimales (o float)
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;

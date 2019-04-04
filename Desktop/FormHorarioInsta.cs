@@ -120,7 +120,7 @@ namespace Desktop
                     hI.hora_inicio = TimeSpan.Parse(hInicio);
                     hI.hora_final = TimeSpan.Parse(hFin);
 
-                    ORM.ORMHorari_Instalacion.UpdateHorariInstalacio(hInsta.id_instalacion, hInsta.id_dia_semana, hInsta.hora_inicio,hI, ref mensaje);
+                    mensaje= ORM.ORMHorari_Instalacion.UpdateHorariInstalacio(hInsta.id_instalacion, hInsta.id_dia_semana, hInsta.hora_inicio,hI);
                 }
                 else
                 {
@@ -132,7 +132,7 @@ namespace Desktop
                     hI.hora_inicio = TimeSpan.Parse(hInicio);
                     hI.hora_final = TimeSpan.Parse(hFin);
 
-                    ORM.ORMHorari_Instalacion.InsertHorariInstalacio(hI, ref mensaje);
+                    mensaje=ORM.ORMHorari_Instalacion.InsertHorariInstalacio(hI);
                 }
 
                 //Comprovar que no se produco errores

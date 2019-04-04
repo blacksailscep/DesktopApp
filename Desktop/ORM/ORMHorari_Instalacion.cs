@@ -54,8 +54,9 @@ namespace Desktop.ORM
         }
 
         //Insert un horario de una instalación nuevo
-        public static String InsertHorariInstalacio(Instalacion_Horario hInsta, ref String mensaje)
+        public static String InsertHorariInstalacio(Instalacion_Horario hInsta)
         {
+            String mensaje = "";
 
             ORM.bd.Instalacion_Horario.Add(hInsta);
 
@@ -65,9 +66,9 @@ namespace Desktop.ORM
         }
 
         //Modificar un horario de una instalación nuevo
-        public static String UpdateHorariInstalacio(int id_Insta, int diaSem, TimeSpan hIn, Instalacion_Horario hInsta, ref String mensaje)
+        public static String UpdateHorariInstalacio(int id_Insta, int diaSem, TimeSpan hIn, Instalacion_Horario hInsta)
         {
-            
+            String mensaje = "";
             String mens = "";
 
             try
@@ -102,9 +103,9 @@ namespace Desktop.ORM
         }
 
         //Borrar horario de una instalación de la grid
-        public static String DelelteHorariInsta(Instalacion_Horario hI, ref String mensaje)
+        public static String DelelteHorariInsta(Instalacion_Horario hI)
         {
-
+            String mensaje = "";
             ORM.bd.Instalacion_Horario.Remove(hI);
 
             mensaje = ORM.SaveChanges();
