@@ -74,6 +74,7 @@
             this.labelInicio.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.labelInicio.Size = new System.Drawing.Size(216, 44);
             this.labelInicio.TabIndex = 0;
+            this.labelInicio.Click += new System.EventHandler(this.labelInicio_Click);
             // 
             // labelEntidades
             // 
@@ -86,6 +87,7 @@
             this.labelEntidades.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.labelEntidades.Size = new System.Drawing.Size(216, 44);
             this.labelEntidades.TabIndex = 1;
+            this.labelEntidades.Click += new System.EventHandler(this.labelEntidades_Click);
             // 
             // labelInstalaciones
             // 
@@ -98,6 +100,7 @@
             this.labelInstalaciones.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.labelInstalaciones.Size = new System.Drawing.Size(216, 44);
             this.labelInstalaciones.TabIndex = 3;
+            this.labelInstalaciones.Click += new System.EventHandler(this.labelInstalaciones_Click);
             // 
             // labelActividades
             // 
@@ -110,6 +113,7 @@
             this.labelActividades.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.labelActividades.Size = new System.Drawing.Size(216, 44);
             this.labelActividades.TabIndex = 4;
+            this.labelActividades.Click += new System.EventHandler(this.labelActividades_Click);
             // 
             // labelUsuarios
             // 
@@ -122,6 +126,7 @@
             this.labelUsuarios.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.labelUsuarios.Size = new System.Drawing.Size(219, 44);
             this.labelUsuarios.TabIndex = 5;
+            this.labelUsuarios.Click += new System.EventHandler(this.labelUsuarios_Click);
             // 
             // label2
             // 

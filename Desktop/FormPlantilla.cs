@@ -37,5 +37,31 @@ namespace Desktop
 
             return lst_labels;
         }
+
+        private void labelInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelEntidades_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelInstalaciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelActividades_Click(object sender, EventArgs e)
+        {
+            FormPlantillaActividades f = new FormPlantillaActividades();
+            this.Show();
+        }
+
+        private void labelUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
