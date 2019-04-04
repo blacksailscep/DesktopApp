@@ -40,7 +40,9 @@ namespace Desktop
 
         private void labelInicio_Click(object sender, EventArgs e)
         {
-
+            FormLandingPage f = new FormLandingPage();
+            f.Show();
+            this.Close();
         }
 
         private void labelEntidades_Click(object sender, EventArgs e)
