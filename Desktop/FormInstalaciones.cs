@@ -42,11 +42,14 @@ namespace Desktop
 
         public void modificar()
         {
-            Instalacion instalacion = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
-
-            FormUnaInstalacion formInstalacion = new FormUnaInstalacion(instalacion);
-            formInstalacion.Text = "MODIFICACIÓN DE LA INSTALACIÓN";
-            formInstalacion.ShowDialog();
+            Instalacion instalaci = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
+            if (instalaci != null)
+            {
+                FormUnaInstalacion formInstalacion = new FormUnaInstalacion(instalaci);
+                formInstalacion.Text = "MODIFICACIÓN DE LA INSTALACIÓN";
+                formInstalacion.ShowDialog();
+            }
+            
         }
 
         private void buttonVer_Click(object sender, EventArgs e)

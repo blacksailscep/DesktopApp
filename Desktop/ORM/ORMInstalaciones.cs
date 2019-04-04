@@ -118,10 +118,10 @@ namespace Desktop.ORM
         }
 
         //Insert una instalación
-        public static String InsertInstalacion(Instalacion instalacion)
+        public static String InsertInstalacion(Instalacion instalacio)
         {
             String mensaje = "";
-            ORM.bd.Instalacion.Add(instalacion);
+            ORM.bd.Instalacion.Add(instalacio);
 
             mensaje = ORM.SaveChanges();
 
@@ -129,7 +129,7 @@ namespace Desktop.ORM
         }
 
         //Modificar una instalación
-        public static String UpdateInstalacion(Instalacion instalacion)
+        public static String UpdateInstalacion(Instalacion instalaci)
         {
             String mensaje = "";
             String mens = "";
@@ -138,20 +138,11 @@ namespace Desktop.ORM
             {
                 Instalacion insta = new Instalacion();
 
-                insta = SelectInstalacionByID(instalacion.id, ref mens);
+                insta = ORM.bd.Instalacion.Find(instalaci.id);
 
-                if (!string.IsNullOrEmpty(mens))
-                {
-                    mensaje = mens;
-                }
-                else
-                {
-                    insta.id = instalacion.id;
-                    insta.nombre = instalacion.nombre;
-                    insta.id_tipo_gestion = instalacion.id_tipo_gestion;
-                    insta.direccion = instalacion.direccion;
-
-                }
+                insta.nombre = instalaci.nombre;
+                insta.id_tipo_gestion = instalaci.id_tipo_gestion;
+                insta.direccion = instalaci.direccion;
 
                 mensaje = ORM.SaveChanges();
             }
@@ -165,11 +156,11 @@ namespace Desktop.ORM
         }
 
         //Borrar una instalación de la grid
-        public static String DelelteInstalacion(Instalacion instalacion)
+        public static String DelelteInstalacion(Instalacion instalacio)
         {
             String mensaje = "";
 
-            ORM.bd.Instalacion.Remove(instalacion);
+            ORM.bd.Instalacion.Remove(instalacio);
 
             mensaje = ORM.SaveChanges();
 

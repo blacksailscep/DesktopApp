@@ -35,11 +35,11 @@ namespace Desktop.ORM
         public static Espacio SelectEspacioBynombre(int id_espacio, ref String mensaje)
         {
 
-            Espacio Espacio = null;
+            Espacio Espaci = null;
 
             try
             {
-                Espacio = (from espai in ORM.bd.Espacio
+                Espaci = (from espai in ORM.bd.Espacio
                            orderby espai.nombre
                             where espai.id==id_espacio
                             select espai).FirstOrDefault();
@@ -52,16 +52,16 @@ namespace Desktop.ORM
             }
 
 
-            return Espacio;
+            return Espaci;
 
         }
 
         //Insert un horario de una instalación nuevo
-        public static String InsertEspacio(Espacio espacio)
+        public static String InsertEspacio(Espacio espaci)
         {
             String mensaje = "";
 
-            ORM.bd.Espacio.Add(espacio);
+            ORM.bd.Espacio.Add(espaci);
 
             mensaje = ORM.SaveChanges();
 
@@ -69,36 +69,24 @@ namespace Desktop.ORM
         }
 
         //Modificar un horario de una instalación nuevo
-        public static String UpdateEspacio(Espacio espacio)
+        public static String UpdateEspacio(Espacio espaci)
         {
             String mensaje = "";
-            String mens = "";
 
             try
             {
                 
                 Espacio espai = new Espacio();
-                espai=ORM.bd.Espacio.Find(espacio.id);
-                espai = SelectEspacioBynombre(espacio.id, ref mens);
+                espai=ORM.bd.Espacio.Find(espaci.id);
 
-                if (!string.IsNullOrEmpty(mens))
-                {
-                    mensaje = mens;
-                }
-                else
-                {
-
-                    espai.id_instalacion = espacio.id_instalacion;
-                    espai.nombre = espacio.nombre;
-                    espai.precio = espacio.precio;
-                    espai.exterior = espacio.exterior;
-
-                }
+                espai.nombre = espaci.nombre;
+                espai.precio = espaci.precio;
+                espai.exterior = espaci.exterior;
 
                 mensaje = ORM.SaveChanges();
             }
             catch (DbUpdateException ex)
-            {
+            { 
                 SqlException exception = (SqlException)ex.InnerException.InnerException;
                 mensaje = ORM.MensajeError(exception);
             }
@@ -107,10 +95,10 @@ namespace Desktop.ORM
         }
 
         //Borrar horario de una instalación de la grid
-        public static String DelelteEspacio(Espacio espacio)
+        public static String DelelteEspacio(Espacio espaci)
         {
             String mensaje = "";
-            ORM.bd.Espacio.Remove(espacio);
+            ORM.bd.Espacio.Remove(espaci);
 
             mensaje = ORM.SaveChanges();
 

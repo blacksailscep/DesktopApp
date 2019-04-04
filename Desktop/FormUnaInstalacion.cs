@@ -61,13 +61,16 @@ namespace Desktop
                     //Per a que SÍ puguin modificar sino hi ha cap espai afegit
                     buttonModificarEspai.Enabled = true;
                     buttonEliminarEspai.Enabled = true;
-
+                    buttonAnyadirEspai.Enabled = true;
                 }
                 else
                 {
                     //Per a que no puguin modificar sino hi ha cap espai afegit
                     buttonModificarEspai.Enabled = false;
                     buttonEliminarEspai.Enabled = false;
+                    buttonAnyadirEspai.Enabled = true;
+                    
+
                 }
             }
             else
@@ -75,23 +78,36 @@ namespace Desktop
                 //Per a que no puguin modificar sino hi ha cap espai afegit
                 buttonModificarEspai.Enabled = false;
                 buttonEliminarEspai.Enabled = false;
+                buttonAnyadirEspai.Enabled = false;
+                
             }
             
         }
 
         public void botonesHorario()
         {
-            if (dataGridViewHorariosInsta.RowCount != 0)
+            if (instalacion != null)
             {
-                //Per a que SÍ puguin modificar sino hi ha cap horari afegit
-                buttonModificarHorariInsa.Enabled = true;
-                buttonEliminarHoraInsta.Enabled = true;
+                if (dataGridViewHorariosInsta.RowCount != 0)
+                {
+                    //Per a que SÍ puguin modificar sino hi ha cap horari afegit
+                    buttonModificarHorariInsa.Enabled = true;
+                    buttonEliminarHoraInsta.Enabled = true;
+                    buttonAnyadirHoraInsta.Enabled = true;
+                }
+                else
+                {
+                    //Per a que no puguin modificar sino hi ha cap horari afegit
+                    buttonModificarHorariInsa.Enabled = false;
+                    buttonEliminarHoraInsta.Enabled = false;
+                    buttonAnyadirHoraInsta.Enabled = true;
+                }
             }
             else
             {
-                //Per a que no puguin modificar sino hi ha cap horari afegit
                 buttonModificarHorariInsa.Enabled = false;
                 buttonEliminarHoraInsta.Enabled = false;
+                buttonAnyadirHoraInsta.Enabled = false;
             }
         }
 
@@ -379,23 +395,17 @@ namespace Desktop
             else
             {
                 
-                //Instalacion i = new Instalacion();
-                
-                //i.nombre = nombre;
-                //i.direccion = direccion;
-                //i.id_tipo_gestion = gestion;
-
                 String mensaje = "";
 
                 //Para insertar
                 if (instalacion == null)
                 {
-                    instalacion = new Instalacion();
-                    instalacion.nombre = nombre;
-                    instalacion.direccion = direccion;
-                    instalacion.id_tipo_gestion = gestion;
+                    Instalacion i = new Instalacion();
+                    i.nombre = nombre;
+                    i.direccion = direccion;
+                    i.id_tipo_gestion = gestion;
 
-                    mensaje=ORM.ORMInstalaciones.InsertInstalacion(instalacion);
+                    mensaje=ORM.ORMInstalaciones.InsertInstalacion(i);
                     if (!mensaje.Equals(""))
                     {
                         MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
