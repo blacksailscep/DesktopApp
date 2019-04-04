@@ -76,9 +76,9 @@ namespace Desktop.ORM
 
             try
             {
-                ORM.bd.Espacio.Find(espacio.id);
+                
                 Espacio espai = new Espacio();
-
+                espai=ORM.bd.Espacio.Find(espacio.id);
                 espai = SelectEspacioBynombre(espacio.id, ref mens);
 
                 if (!string.IsNullOrEmpty(mens))
