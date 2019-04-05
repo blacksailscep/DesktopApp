@@ -56,7 +56,7 @@ namespace Desktop
         {
             if(instalaci!=null)
             {
-                if (instalaci.Espacio != null)
+                if (dataGridViewEspacios.RowCount>0)
                 {
                     //Per a que SÍ puguin modificar sino hi ha cap espai afegit
                     buttonModificarEspai.Enabled = true;
@@ -88,7 +88,7 @@ namespace Desktop
         {
             if (instalaci != null)
             {
-                if (dataGridViewHorariosInsta.RowCount != 0)
+                if (dataGridViewHorariosInsta.RowCount > 0)
                 {
                     //Per a que SÍ puguin modificar sino hi ha cap horari afegit
                     buttonModificarHorariInsa.Enabled = true;
@@ -115,6 +115,7 @@ namespace Desktop
         {
             string mensaje = "";
             bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
+
             if (!string.IsNullOrEmpty(mensaje))
             {
                 MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -309,13 +310,13 @@ namespace Desktop
         {
             String mensaje = "";
 
-            Espacio espacio = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
+            Espacio espaci = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
 
             DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este espacio?", "BORRAR ESPACIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
             {
-                mensaje = ORM.ORMEspacio.DelelteEspacio(espacio);
+                mensaje = ORM.ORMEspacio.DelelteEspacio(espaci);
                 bindingsGrid();
                 if (!string.IsNullOrWhiteSpace(mensaje))
                 {
@@ -335,20 +336,20 @@ namespace Desktop
                 MessageBox.Show("El espacio no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         /*Mètode per ELIMINAR ESPAIS sense BOTÓ*/
         private void dataGridViewEspacios_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             String mensaje = "";
 
+            Espacio espaci = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
             DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este espacio?", "BORRAR ESPACIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            Espacio espacio = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
 
             if (resultado == DialogResult.Yes)
             {
-                mensaje = ORM.ORMEspacio.DelelteEspacio(espacio);
+                mensaje = ORM.ORMEspacio.DelelteEspacio(espaci);
+                bindingsGrid();
 
-                if (!mensaje.Equals(""))
+                if (!string.IsNullOrWhiteSpace(mensaje))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;    //Para cancelar el evento

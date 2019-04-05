@@ -55,10 +55,7 @@ namespace Desktop
                     MessageBox.Show(e.Message, "BORRAR DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 }
-
-
             }
-            
         }
 
         private void buttonVer_Click(object sender, EventArgs e)
@@ -161,63 +158,62 @@ namespace Desktop
 
             String mensaje = "";
 
-            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar esta instalación?", "BORRAR INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            Instalacion instalacio = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este horario?", "BORRAR HORARIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Instalacion insta = (Instalacion)dataGridViewInstalaciones.SelectedRows[0].DataBoundItem;
 
             if (resultado == DialogResult.Yes)
             {
 
-                if (instalacio.Espacio != null || instalacio.Instalacion_Horario != null)
+                int numE = insta.Espacio.Count;         int numH = insta.Instalacion_Horario.Count;
+
+                if (numE == 0 && numH == 0)
                 {
-                    DialogResult resultado2 = MessageBox.Show("Tiene registros relacionados ¿Está seguro de continar con la eliminación de esta instalación?", "BORRAR DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    mensaje = ORM.ORMInstalaciones.DelelteInstalacion(insta);
 
-                    if (resultado == DialogResult.Yes)
-                    {
-                        mensaje=ORM.ORMInstalaciones.DelelteInstalacion(instalacio);
-
-                        if (!mensaje.Equals(""))
-                        {
-                            MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            e.Cancel = true;
-                        }
-                        else
-                        {
-                            llenar();
-                        }
-                    }
-                    else
-                    {
-                        llenar();
-                    }
-                }
-                else
-                {
-                    mensaje=ORM.ORMInstalaciones.DelelteInstalacion(instalacio);
-
-                    if (!mensaje.Equals(""))
+                    if (!string.IsNullOrWhiteSpace(mensaje))
                     {
                         MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         e.Cancel = true;
                     }
+
+                    llenar();
+                }
+                else
+                {
+                    DialogResult resultado2 = MessageBox.Show("Tiene registros relacionados ¿Está seguro de continar con la eliminación de esta instalación?", "BORRAR DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resultado2 == DialogResult.Yes)
+                    {
+                        mensaje = ORM.ORMInstalaciones.DelelteInstalacion(insta);
+
+                        if (!string.IsNullOrWhiteSpace(mensaje))
+                        {
+                            MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            e.Cancel = true;
+                        }
+                    }
                     else
                     {
+                        MessageBox.Show("El horario no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;
                         llenar();
                     }
-                }
-
-                //ORM.ORMInstalaciones.DelelteInstalacion(instalacion, ref mensaje);
-
-                //if (!mensaje.Equals(""))
-                //{
-                //    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    e.Cancel = true;    //Para cancelar el evento
-                //}
+                }   
             }
             else
             {
+                MessageBox.Show("El horario no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
-                MessageBox.Show("La instalación no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //ORM.ORMInstalaciones.DelelteInstalacion(instalacion, ref mensaje);
+
+            //if (!mensaje.Equals(""))
+            //{
+            //    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;    //Para cancelar el evento
+            //}
+       
 
         }
     }

@@ -68,20 +68,31 @@ namespace Desktop.ORM
             return mensaje;
         }
 
+
         //Modificar un horario de una instalación nuevo
         public static String UpdateEspacio(Espacio espaci)
         {
             String mensaje = "";
-
+            //String mens = "";
             try
             {
                 
                 Espacio espai = new Espacio();
                 espai=ORM.bd.Espacio.Find(espaci.id);
 
-                espai.nombre = espaci.nombre;
-                espai.precio = espaci.precio;
-                espai.exterior = espaci.exterior;
+                //espai = SelectEspacioBynombre(espaci.id, ref mens);
+
+                //if (!string.IsNullOrWhiteSpace(mens))
+                //{
+                //    mensaje = mens;
+                   
+                //}
+                //{
+                //    espai.nombre = espaci.nombre;
+                    espai.precio = espaci.precio;
+                    espai.exterior = espaci.exterior;
+                //}
+                
 
                 mensaje = ORM.SaveChanges();
             }
