@@ -105,6 +105,24 @@
     <Compile Include="FormLoginMsg.Designer.cs">
       <DependentUpon>FormLoginMsg.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEspacio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEspacio.Designer.cs">
+      <DependentUpon>FormEspacio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHorarioInsta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHorarioInsta.Designer.cs">
+      <DependentUpon>FormHorarioInsta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInstalaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInstalaciones.Designer.cs">
+      <DependentUpon>FormInstalaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlantilla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +154,12 @@
       <DependentUpon>FormPlantillaPendientes.cs</DependentUpon>
     </Compile>
     <Compile Include="GenerarHorario.cs" />
+    <Compile Include="FormUnaInstalacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnaInstalacion.Designer.cs">
+      <DependentUpon>FormUnaInstalacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Horario_Act_Con.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -169,6 +193,9 @@
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="ORM\ORMAcividadesPendientes.cs" />
     <Compile Include="ORM\ORMActividadesConcedidas.cs" />
+    <Compile Include="ORM\ORMEspacio.cs" />
+    <Compile Include="ORM\ORMHorari_Instalacion.cs" />
+    <Compile Include="ORM\ORMInstalaciones.cs" />
     <Compile Include="ORM\ORMUsuarios.cs" />
     <Compile Include="ORM\ORMActividadesDenegadas.cs" />
     <Compile Include="ORM\ORMEquipos.cs" />
@@ -178,6 +205,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Telefonos.cs">
@@ -198,6 +228,15 @@
     <EmbeddedResource Include="FormLoginMsg.resx">
       <DependentUpon>FormLoginMsg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEspacio.resx">
+      <DependentUpon>FormEspacio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHorarioInsta.resx">
+      <DependentUpon>FormHorarioInsta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInstalaciones.resx">
+      <DependentUpon>FormInstalaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPlantilla.resx">
       <DependentUpon>FormPlantilla.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlantillaPendientes.resx">
       <DependentUpon>FormPlantillaPendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnaInstalacion.resx">
+      <DependentUpon>FormUnaInstalacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -285,6 +327,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

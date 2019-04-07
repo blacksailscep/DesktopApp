@@ -56,7 +56,7 @@ namespace Desktop.ORM
 
             try
             {
-                ORM.bd.SaveChanges();
+                bd.SaveChanges();
             }
             catch (DbUpdateException e)
             {
