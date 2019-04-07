@@ -60,7 +60,7 @@ namespace Desktop
                 float numero = (float)(Math.Round((double)espacio.precio, 2));
 
                 textBoxPrecio.Text = numero.ToString();
-                radioButtonExterior.Checked = (bool) espacio.exterior;
+                radioButtonExterior.Checked = (bool) espacio.exterior; 
 
 
             }
