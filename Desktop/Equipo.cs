@@ -18,7 +18,6 @@ namespace Desktop
         public Equipo()
         {
             this.Act_concedida = new HashSet<Act_concedida>();
-            this.Act_demandadas = new HashSet<Act_demandadas>();
         }
     
         public int id { get; set; }
@@ -29,16 +28,15 @@ namespace Desktop
         public int id_nivel { get; set; }
         public int id_sexo { get; set; }
         public int id_entidad { get; set; }
+        public string foto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Act_concedida> Act_concedida { get; set; }
         public virtual Categoria_edad Categoria_edad { get; set; }
         public virtual Competicion Competicion { get; set; }
         public virtual Deportes Deportes { get; set; }
+        public virtual Entidad Entidad { get; set; }
         public virtual Nivel Nivel { get; set; }
         public virtual Sexo Sexo { get; set; }
-        public virtual Entidad Entidad { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Act_demandadas> Act_demandadas { get; set; }
     }
 }

@@ -91,9 +91,9 @@ namespace Desktop
                     act_demandada.asignada = "aceptada";
                     Act_concedida act_concedida = new Act_concedida();
                     act_concedida.nombre = act_demandada.nombre;
-                    act_concedida.id_equipo = act_demandada.id_equipo;
-                    act_concedida.id_tipo = act_demandada.id_tipo;
-                    act_concedida.id_espacio = act_demandada.id_espacio;
+                    act_concedida.id_equipo = (int)act_demandada.id_equipo;
+                    act_concedida.id_tipo = (int)act_demandada.id_tipo;
+                    act_concedida.id_espacio = (int)act_demandada.id_espacio;
                     act_concedida.id_act_demandadas = act_demandada.id;
 
                     ORM.ORMActividadesConcedidas.SaveActividadConcedida(act_concedida);
@@ -108,34 +108,17 @@ namespace Desktop
                        Fecha hora = new Fecha(value, data.ColumnIndex);
                        lstFechas.Add(hora);
                     }
-
-                    var listOfList= new List<List<String>>();
-                    for(int i=0;i<7;i++)
+                    foreach(Fecha hora in lstFechas)
                     {
-                        List<String> dias = new List<String>();
-                        listOfList.Insert(i, dias);
-                    }
-                    for(int i=0;i<lstFechas.Count;i++)
-                    {                        
-                        listOfList[lstFechas[i].dia - 1].Add(lstFechas[i].hora);
-                    }
-                    for(int i=0;i<listOfList.Count;i++)
-                    {
-                        if (listOfList[i].Count != 0)
-                        {
-                            listOfList[i].Sort();
-                            
-                            Console.WriteLine("dia " + (i + 1));
-                            TimeSpan horaInicio = TimeSpan.Parse(listOfList[i][0].ToString());
-                            TimeSpan horaFin = TimeSpan.Parse(listOfList[i][listOfList[i].Count-1].ToString());
-                            Horario_Act_Con horario_Act_concedida = new Horario_Act_Con();
-                            horario_Act_concedida.id_act_concedida = act_concedida.id;
-                            horario_Act_concedida.id_dia_semana = i + 1;
-                            horario_Act_concedida.hora_inicio = horaInicio;
-                            horario_Act_concedida.hora_fin = horaFin;
-                            ORM.ORMHorarioActConcedida.SaveHorarioActConcedida(horario_Act_concedida);
-
-                        }
+                        TimeSpan horaInicio = TimeSpan.Parse(hora.hora);
+                        TimeSpan horaFin = TimeSpan.Parse(hora.hora);
+                        horaFin += TimeSpan.FromMinutes(15);
+                        Horario_Act_Con horario_Act_concedida = new Horario_Act_Con();
+                        horario_Act_concedida.id_act_concedida = act_concedida.id;
+                        horario_Act_concedida.id_dia_semana =hora.dia;
+                        horario_Act_concedida.hora_inicio = horaInicio;
+                        horario_Act_concedida.hora_fin = horaFin;
+                        ORM.ORMHorarioActConcedida.SaveHorarioActConcedida(horario_Act_concedida);
                     }
 
                     m_flagConcedida = true;
@@ -291,17 +274,18 @@ namespace Desktop
         }
         private void dataGridViewHorarioActAsignadas_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            MakeBubble(dataGridViewHorarioActAsignadas, e, Color.YellowGreen);
+            MakeBubble(dataGridViewHorarioActAsignadas, e, Color.Orange);
 
             if (!m_flagConcedida)
             { 
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
-                    if (dataGridViewHorarioActAsignadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected == true)
+                    if (dataGridViewHorarioActAsignadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected == true &&
+                        dataGridViewHorarioActAsignadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
                     {
 
                         e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.Border);
-                        using (Pen p = new Pen(Color.YellowGreen, 1))
+                        using (Pen p = new Pen(Color.Orange, 1))
                         {
                             Rectangle rect = e.CellBounds;
                             rect.Width -= 2;
@@ -316,15 +300,24 @@ namespace Desktop
                             textBoxAsignadas.BackColor = Color.Red;
 
                     }
+                    else if(dataGridViewHorarioActAsignadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected == true &&
+                        dataGridViewHorarioActAsignadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        dataGridViewHorarioActAsignadas.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = false;
+                    }
+                    else
+                    {
+                        int num = dataGridViewHorarioActAsignadas.SelectedCells.Count;
+                        m_TimeSpan = TimeSpan.FromMinutes(num * 15);
+                        textBoxAsignadas.Text = m_TimeSpan.ToString();
+                    }
+                        
                 }
 
-                int num = dataGridViewHorarioActAsignadas.SelectedCells.Count;
-                m_TimeSpan = TimeSpan.FromMinutes(num * 15);
-                textBoxAsignadas.Text = m_TimeSpan.ToString();
             }
             else
             {
-                dataGridViewHorarioActAsignadas.ClearSelection();                
+                dataGridViewHorarioActAsignadas.ClearSelection();        
             }
               
             if(count==0)

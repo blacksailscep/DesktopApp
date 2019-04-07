@@ -196,7 +196,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewHorarioActAsignadas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewHorarioActAsignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
