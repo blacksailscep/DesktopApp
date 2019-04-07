@@ -23,9 +23,7 @@ namespace Desktop
             int i = 9;
             while (i < 21)
             {
-                string hora = "";
-
-                a += 15;
+                string hora = "";                
 
                 if (a == 60)
                 {
@@ -38,13 +36,18 @@ namespace Desktop
                 }
                 else
                 {
+
                     hora = i + ":" + a;
-                    if (i < 10)
+
+                    if (i < 10 && a!=0)
                         hora = "0" + hora;
+                    else if(i < 10 && a == 0)
+                        hora = "0" + hora+"0";
+
                     dataGridView.Rows.Add(hora);
                 }
 
-                
+                a += 15;
 
             }
             for(int c=0;c< dataGridView.RowCount; c++)

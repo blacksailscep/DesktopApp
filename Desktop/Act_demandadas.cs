@@ -23,18 +23,15 @@ namespace Desktop
     
         public int id { get; set; }
         public string nombre { get; set; }
-        public int id_tipo { get; set; }
-        public int id_espacio { get; set; }
-        public int id_equipo { get; set; }
-        public System.TimeSpan durada { get; set; }
-        public int dias { get; set; }
+        public Nullable<int> id_tipo { get; set; }
+        public Nullable<int> id_espacio { get; set; }
+        public Nullable<int> id_equipo { get; set; }
+        public Nullable<System.TimeSpan> durada { get; set; }
+        public Nullable<int> dias { get; set; }
         public string asignada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Act_concedida> Act_concedida { get; set; }
-        public virtual Equipo Equipo { get; set; }
-        public virtual Espacio Espacio { get; set; }
-        public virtual Tipo_Act Tipo_Act { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horario_Act_Dem> Horario_Act_Dem { get; set; }
     }

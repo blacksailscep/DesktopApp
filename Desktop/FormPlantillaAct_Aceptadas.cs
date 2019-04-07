@@ -146,12 +146,20 @@ namespace Desktop
                     fin = row.Index;
             }
 
-            for (int i = inicio; i < fin + 1; i++)
-            {
-                dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Style.BackColor = Color.YellowGreen;
-                dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Value =
-                    textBoxEquipo.Text;
-            }
+            //if (fin < inicio)
+            //{
+                
+            //    dataGridViewHorarioActividadesAceptadas.Rows[1].Cells[idHorario].Style.BackColor = Color.YellowGreen;
+            //    dataGridViewHorarioActividadesAceptadas.Rows[1].Cells[idHorario].Value =
+            //        textBoxEquipo.Text;
+            //}
+            //else
+                for (int i = inicio; i < fin ; i++)
+                {
+                    dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Style.BackColor = Color.YellowGreen;
+                    dataGridViewHorarioActividadesAceptadas.Rows[i].Cells[idHorario].Value =
+                        textBoxEquipo.Text;
+                }
 
 
         }

@@ -19,6 +19,7 @@ namespace Desktop
         {
             this.Horario_Act_Con = new HashSet<Horario_Act_Con>();
             this.Horario_Act_Dem = new HashSet<Horario_Act_Dem>();
+            this.Instalacion_Horario = new HashSet<Instalacion_Horario>();
         }
     
         public int id { get; set; }
@@ -28,6 +29,7 @@ namespace Desktop
         public virtual ICollection<Horario_Act_Con> Horario_Act_Con { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horario_Act_Dem> Horario_Act_Dem { get; set; }
-        public virtual Instalacion_Horario Instalacion_Horario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Instalacion_Horario> Instalacion_Horario { get; set; }
     }
 }

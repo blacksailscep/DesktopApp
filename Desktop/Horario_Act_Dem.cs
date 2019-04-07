@@ -20,7 +20,7 @@ namespace Desktop
         public System.TimeSpan hora_inicio { get; set; }
         public System.TimeSpan hora_final { get; set; }
     
-        public virtual Dias_Semana Dias_Semana { get; set; }
         public virtual Act_demandadas Act_demandadas { get; set; }
+        public virtual Dias_Semana Dias_Semana { get; set; }
     }
 }
