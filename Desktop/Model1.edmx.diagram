@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="09acce99ef2c4ea686ff32be1b59df0c" Name="Diagram1">
+      <Diagram DiagramId="12eedb4f00e845e69b610bffb9a9722c" Name="Diagram1">
         <EntityTypeShape EntityType="EntiEspaiModel.Act_concedida" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Act_demandadas" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntiEspaiModel.Admin" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntiEspaiModel.Admin" Width="1.5" PointX="8" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Categoria_edad" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Competicion" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Deportes" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
@@ -23,7 +23,7 @@
         <EntityTypeShape EntityType="EntiEspaiModel.Sexo" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Telefonos" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EntiEspaiModel.Tipo_Act" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntiEspaiModel.Tipo_gestion" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntiEspaiModel.Tipo_gestion" Width="1.5" PointX="10.125" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="EntiEspaiModel.FK_Act_concedida_Act_demandadas" ManuallyRouted="false" />
         <AssociationConnector Association="EntiEspaiModel.FK_Act_concedida_Equipo" ManuallyRouted="false" />
         <AssociationConnector Association="EntiEspaiModel.FK_Act_concedida_Espacio" ManuallyRouted="false" />
