@@ -20,7 +20,7 @@ namespace Desktop
             String mensaje = "";
 
             bindingSourceInstalaciones.DataSource = ORM.ORMInstalaciones.SelectAllInstalaciones(ref mensaje);
-            bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
+            //bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
 
             if (!string.IsNullOrEmpty(mensaje))
             {
@@ -32,7 +32,9 @@ namespace Desktop
 
         private void FormInstalaciones_Load(object sender, EventArgs e)
         {
-            llenar();  
+            //String mensaje = "";
+            llenar();
+            //bindingSourceTipoGestion.DataSource = ORM.ORMInstalaciones.SelectAllTipoGestion(ref mensaje);
         }
 
         private void FormInstalaciones_Activated(object sender, EventArgs e)

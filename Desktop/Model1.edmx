@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EntiEspaiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EntiEspaiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Act_concedida">
           <Key>
             <PropertyRef Name="id" />
@@ -21,13 +21,13 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="id_tipo" Type="int" Nullable="false" />
-          <Property Name="id_espacio" Type="int" Nullable="false" />
-          <Property Name="id_equipo" Type="int" Nullable="false" />
-          <Property Name="durada" Type="float" Nullable="false" />
-          <Property Name="dias" Type="int" Nullable="false" />
-          <Property Name="asignada" Type="bit" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo" Type="int" />
+          <Property Name="id_espacio" Type="int" />
+          <Property Name="id_equipo" Type="int" />
+          <Property Name="durada" Type="time" Precision="7" />
+          <Property Name="dias" Type="int" />
+          <Property Name="asignada" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -77,6 +77,7 @@
           <Property Name="temporada" Type="int" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nif" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="foto" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Equipo">
           <Key>
@@ -90,16 +91,17 @@
           <Property Name="id_nivel" Type="int" Nullable="false" />
           <Property Name="id_sexo" Type="int" Nullable="false" />
           <Property Name="id_entidad" Type="int" Nullable="false" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Espacio">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="precio" Type="float" Nullable="false" />
-          <Property Name="exterior" Type="bit" Nullable="false" />
-          <Property Name="id_instalacion" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="precio" Type="float" />
+          <Property Name="exterior" Type="bit" />
+          <Property Name="id_instalacion" Type="int" />
         </EntityType>
         <EntityType Name="Horario_Act_Con">
           <Key>
@@ -126,9 +128,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="id_tipo_gestion" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo_gestion" Type="int" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Instalacion_Horario">
           <Key>
@@ -154,16 +157,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
@@ -213,7 +206,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Act_concedida_Espacio">
-          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1" />
+          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Act_concedida" Type="Self.Act_concedida" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Espacio">
@@ -237,7 +232,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Act_demandadas_Equipo">
-          <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipo">
@@ -249,7 +244,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Act_demandadas_Espacio">
-          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1" />
+          <End Role="Espacio" Type="Self.Espacio" Multiplicity="0..1" />
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Espacio">
@@ -260,8 +255,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Act_demandadas_Tipo_Act">
-          <End Role="Tipo_Act" Type="Self.Tipo_Act" Multiplicity="1" />
+        <Association Name="FK_Act_demandadas_Tipo">
+          <End Role="Tipo_Act" Type="Self.Tipo_Act" Multiplicity="0..1" />
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Act">
@@ -308,11 +303,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Equipo_Espacio">
-          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1" />
+        <Association Name="FK_Equipo_Entidad">
+          <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
           <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Espacio">
+            <Principal Role="Entidad">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Equipo">
@@ -345,7 +340,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Espacio_Instalacion">
-          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="1" />
+          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Espacio" Type="Self.Espacio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Instalacion">
@@ -357,7 +354,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Horario_Act_Con_Act">
-          <End Role="Act_concedida" Type="Self.Act_concedida" Multiplicity="1" />
+          <End Role="Act_concedida" Type="Self.Act_concedida" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Horario_Act_Con" Type="Self.Horario_Act_Con" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Act_concedida">
@@ -381,7 +380,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Horario_Act_Dem_Act">
-          <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="1" />
+          <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Horario_Act_Dem" Type="Self.Horario_Act_Dem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Act_demandadas">
@@ -417,7 +418,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Instalacion_Horario_Instalacion">
-          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="1" />
+          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Instalacion_Horario" Type="Self.Instalacion_Horario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Instalacion">
@@ -428,8 +431,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Instalacion_Tipo_gestion">
-          <End Role="Tipo_gestion" Type="Self.Tipo_gestion" Multiplicity="1" />
+        <Association Name="FK_Instalacion_TipoGestion">
+          <End Role="Tipo_gestion" Type="Self.Tipo_gestion" Multiplicity="0..1" />
           <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_gestion">
@@ -469,7 +472,6 @@
           <EntitySet Name="Instalacion_Horario" EntityType="Self.Instalacion_Horario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nivel" EntityType="Self.Nivel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Act" EntityType="Self.Tipo_Act" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_gestion" EntityType="Self.Tipo_gestion" Schema="dbo" store:Type="Tables" />
@@ -497,7 +499,7 @@
             <End Role="Espacio" EntitySet="Espacio" />
             <End Role="Act_demandadas" EntitySet="Act_demandadas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Act_demandadas_Tipo_Act" Association="Self.FK_Act_demandadas_Tipo_Act">
+          <AssociationSet Name="FK_Act_demandadas_Tipo" Association="Self.FK_Act_demandadas_Tipo">
             <End Role="Tipo_Act" EntitySet="Tipo_Act" />
             <End Role="Act_demandadas" EntitySet="Act_demandadas" />
           </AssociationSet>
@@ -513,8 +515,8 @@
             <End Role="Deportes" EntitySet="Deportes" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
-          <AssociationSet Name="FK_Equipo_Espacio" Association="Self.FK_Equipo_Espacio">
-            <End Role="Espacio" EntitySet="Espacio" />
+          <AssociationSet Name="FK_Equipo_Entidad" Association="Self.FK_Equipo_Entidad">
+            <End Role="Entidad" EntitySet="Entidad" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
           <AssociationSet Name="FK_Equipo_Nivel" Association="Self.FK_Equipo_Nivel">
@@ -553,7 +555,7 @@
             <End Role="Instalacion" EntitySet="Instalacion" />
             <End Role="Instalacion_Horario" EntitySet="Instalacion_Horario" />
           </AssociationSet>
-          <AssociationSet Name="FK_Instalacion_Tipo_gestion" Association="Self.FK_Instalacion_Tipo_gestion">
+          <AssociationSet Name="FK_Instalacion_TipoGestion" Association="Self.FK_Instalacion_TipoGestion">
             <End Role="Tipo_gestion" EntitySet="Tipo_gestion" />
             <End Role="Instalacion" EntitySet="Instalacion" />
           </AssociationSet>
@@ -562,7 +564,8 @@
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EntiEspaiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -587,17 +590,17 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id_tipo" Type="Int32" Nullable="false" />
-          <Property Name="id_espacio" Type="Int32" Nullable="false" />
-          <Property Name="id_equipo" Type="Int32" Nullable="false" />
-          <Property Name="durada" Type="Double" Nullable="false" />
-          <Property Name="dias" Type="Int32" Nullable="false" />
-          <Property Name="asignada" Type="Boolean" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo" Type="Int32" />
+          <Property Name="id_espacio" Type="Int32" />
+          <Property Name="id_equipo" Type="Int32" />
+          <Property Name="durada" Type="Time" Precision="7" />
+          <Property Name="dias" Type="Int32" />
+          <Property Name="asignada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Act_concedida" Relationship="Self.FK_Act_concedida_Act_demandadas" FromRole="Act_demandadas" ToRole="Act_concedida" />
           <NavigationProperty Name="Equipo" Relationship="Self.FK_Act_demandadas_Equipo" FromRole="Act_demandadas" ToRole="Equipo" />
           <NavigationProperty Name="Espacio" Relationship="Self.FK_Act_demandadas_Espacio" FromRole="Act_demandadas" ToRole="Espacio" />
-          <NavigationProperty Name="Tipo_Act" Relationship="Self.FK_Act_demandadas_Tipo_Act" FromRole="Act_demandadas" ToRole="Tipo_Act" />
+          <NavigationProperty Name="Tipo_Act" Relationship="Self.FK_Act_demandadas_Tipo" FromRole="Act_demandadas" ToRole="Tipo_Act" />
           <NavigationProperty Name="Horario_Act_Dem" Relationship="Self.FK_Horario_Act_Dem_Act" FromRole="Act_demandadas" ToRole="Horario_Act_Dem" />
         </EntityType>
         <EntityType Name="Admin">
@@ -641,7 +644,7 @@
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Horario_Act_Con" Relationship="Self.FK_Horario_Act_Con_Dia_Semana" FromRole="Dias_Semana" ToRole="Horario_Act_Con" />
           <NavigationProperty Name="Horario_Act_Dem" Relationship="Self.FK_Horario_Act_Dem_Dia_Sem" FromRole="Dias_Semana" ToRole="Horario_Act_Dem" />
-          <NavigationProperty Name="Instalacion_Horario" Relationship="EntiEspaiModel.FK_Instalacion_Horario_Dia_Semana" FromRole="Dias_Semana" ToRole="Instalacion_Horario" />
+          <NavigationProperty Name="Instalacion_Horario" Relationship="Self.FK_Instalacion_Horario_Dia_Semana" FromRole="Dias_Semana" ToRole="Instalacion_Horario" />
         </EntityType>
         <EntityType Name="Entidad">
           <Key>
@@ -654,6 +657,7 @@
           <Property Name="temporada" Type="Int32" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nif" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Equipo" Relationship="Self.FK_Equipo_Entidad" FromRole="Entidad" ToRole="Equipo" />
           <NavigationProperty Name="Telefonos" Relationship="Self.FK_Telefonos_Entidad" FromRole="Entidad" ToRole="Telefonos" />
         </EntityType>
@@ -669,6 +673,7 @@
           <Property Name="id_nivel" Type="Int32" Nullable="false" />
           <Property Name="id_sexo" Type="Int32" Nullable="false" />
           <Property Name="id_entidad" Type="Int32" Nullable="false" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Act_concedida" Relationship="Self.FK_Act_concedida_Equipo" FromRole="Equipo" ToRole="Act_concedida" />
           <NavigationProperty Name="Act_demandadas" Relationship="Self.FK_Act_demandadas_Equipo" FromRole="Equipo" ToRole="Act_demandadas" />
           <NavigationProperty Name="Categoria_edad" Relationship="Self.FK_Equipo_Categoria_edad" FromRole="Equipo" ToRole="Categoria_edad" />
@@ -677,21 +682,19 @@
           <NavigationProperty Name="Entidad" Relationship="Self.FK_Equipo_Entidad" FromRole="Equipo" ToRole="Entidad" />
           <NavigationProperty Name="Nivel" Relationship="Self.FK_Equipo_Nivel" FromRole="Equipo" ToRole="Nivel" />
           <NavigationProperty Name="Sexo" Relationship="Self.FK_Equipo_Sexo" FromRole="Equipo" ToRole="Sexo" />
-          <NavigationProperty Name="Espacio" Relationship="EntiEspaiModel.FK_Equipo_Espacio" FromRole="Equipo" ToRole="Espacio" />
         </EntityType>
         <EntityType Name="Espacio">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="precio" Type="Double" Nullable="false" />
-          <Property Name="exterior" Type="Boolean" Nullable="false" />
-          <Property Name="id_instalacion" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Double" />
+          <Property Name="exterior" Type="Boolean" />
+          <Property Name="id_instalacion" Type="Int32" />
           <NavigationProperty Name="Act_concedida" Relationship="Self.FK_Act_concedida_Espacio" FromRole="Espacio" ToRole="Act_concedida" />
           <NavigationProperty Name="Act_demandadas" Relationship="Self.FK_Act_demandadas_Espacio" FromRole="Espacio" ToRole="Act_demandadas" />
-          <NavigationProperty Name="Equipo" Relationship="EntiEspaiModel.FK_Equipo_Espacio" FromRole="Espacio" ToRole="Equipo" />
-          <NavigationProperty Name="Instalacion" Relationship="EntiEspaiModel.FK_Espacio_Instalacion" FromRole="Espacio" ToRole="Instalacion" />
+          <NavigationProperty Name="Instalacion" Relationship="Self.FK_Espacio_Instalacion" FromRole="Espacio" ToRole="Instalacion" />
         </EntityType>
         <EntityType Name="Horario_Act_Con">
           <Key>
@@ -716,6 +719,32 @@
           <Property Name="hora_final" Type="Time" Nullable="false" Precision="7" />
           <NavigationProperty Name="Act_demandadas" Relationship="Self.FK_Horario_Act_Dem_Act" FromRole="Horario_Act_Dem" ToRole="Act_demandadas" />
           <NavigationProperty Name="Dias_Semana" Relationship="Self.FK_Horario_Act_Dem_Dia_Sem" FromRole="Horario_Act_Dem" ToRole="Dias_Semana" />
+        </EntityType>
+        <EntityType Name="Instalacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_gestion" Type="Int32" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Espacio" Relationship="Self.FK_Espacio_Instalacion" FromRole="Instalacion" ToRole="Espacio" />
+          <NavigationProperty Name="Instalacion_Horario" Relationship="Self.FK_Instalacion_Horario_Instalacion" FromRole="Instalacion" ToRole="Instalacion_Horario" />
+          <NavigationProperty Name="Tipo_gestion" Relationship="Self.FK_Instalacion_TipoGestion" FromRole="Instalacion" ToRole="Tipo_gestion" />
+        </EntityType>
+        <EntityType Name="Instalacion_Horario">
+          <Key>
+            <PropertyRef Name="id_instalacion" />
+            <PropertyRef Name="id_dia_semana" />
+            <PropertyRef Name="hora_inicio" />
+          </Key>
+          <Property Name="id_instalacion" Type="Int32" Nullable="false" />
+          <Property Name="id_dia_semana" Type="Int32" Nullable="false" />
+          <Property Name="hora_inicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="hora_final" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Dias_Semana" Relationship="Self.FK_Instalacion_Horario_Dia_Semana" FromRole="Instalacion_Horario" ToRole="Dias_Semana" />
+          <NavigationProperty Name="Instalacion" Relationship="Self.FK_Instalacion_Horario_Instalacion" FromRole="Instalacion_Horario" ToRole="Instalacion" />
         </EntityType>
         <EntityType Name="Nivel">
           <Key>
@@ -750,7 +779,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Act_concedida" Relationship="Self.FK_Act_concedida_Tipo" FromRole="Tipo_Act" ToRole="Act_concedida" />
-          <NavigationProperty Name="Act_demandadas" Relationship="Self.FK_Act_demandadas_Tipo_Act" FromRole="Tipo_Act" ToRole="Act_demandadas" />
+          <NavigationProperty Name="Act_demandadas" Relationship="Self.FK_Act_demandadas_Tipo" FromRole="Tipo_Act" ToRole="Act_demandadas" />
         </EntityType>
         <EntityType Name="Tipo_gestion">
           <Key>
@@ -758,7 +787,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Instalacion" Relationship="EntiEspaiModel.FK_Instalacion_Tipo_gestion" FromRole="Tipo_gestion" ToRole="Instalacion" />
+          <NavigationProperty Name="Instalacion" Relationship="Self.FK_Instalacion_TipoGestion" FromRole="Tipo_gestion" ToRole="Instalacion" />
         </EntityType>
         <Association Name="FK_Act_concedida_Act_demandadas">
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="1" />
@@ -785,7 +814,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Act_concedida_Espacio">
-          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1" />
+          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Act_concedida" Type="Self.Act_concedida" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Espacio">
@@ -809,7 +840,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Horario_Act_Con_Act">
-          <End Role="Act_concedida" Type="Self.Act_concedida" Multiplicity="1" />
+          <End Role="Act_concedida" Type="Self.Act_concedida" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Horario_Act_Con" Type="Self.Horario_Act_Con" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Act_concedida">
@@ -821,7 +854,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Act_demandadas_Equipo">
-          <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipo">
@@ -833,7 +866,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Act_demandadas_Espacio">
-          <End Role="Espacio" Type="Self.Espacio" Multiplicity="1" />
+          <End Role="Espacio" Type="Self.Espacio" Multiplicity="0..1" />
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Espacio">
@@ -844,8 +877,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Act_demandadas_Tipo_Act">
-          <End Role="Tipo_Act" Type="Self.Tipo_Act" Multiplicity="1" />
+        <Association Name="FK_Act_demandadas_Tipo">
+          <End Role="Tipo_Act" Type="Self.Tipo_Act" Multiplicity="0..1" />
           <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Act">
@@ -857,7 +890,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Horario_Act_Dem_Act">
-          <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="1" />
+          <End Role="Act_demandadas" Type="Self.Act_demandadas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Horario_Act_Dem" Type="Self.Horario_Act_Dem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Act_demandadas">
@@ -924,6 +959,18 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Horario_Act_Dem">
+              <PropertyRef Name="id_dia_semana" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instalacion_Horario_Dia_Semana">
+          <End Role="Dias_Semana" Type="Self.Dias_Semana" Multiplicity="1" />
+          <End Role="Instalacion_Horario" Type="Self.Instalacion_Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_Semana">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Instalacion_Horario">
               <PropertyRef Name="id_dia_semana" />
             </Dependent>
           </ReferentialConstraint>
@@ -976,6 +1023,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Espacio_Instalacion">
+          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Espacio" Type="Self.Espacio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instalacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Espacio">
+              <PropertyRef Name="id_instalacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instalacion_Horario_Instalacion">
+          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Instalacion_Horario" Type="Self.Instalacion_Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instalacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Instalacion_Horario">
+              <PropertyRef Name="id_instalacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instalacion_TipoGestion">
+          <End Role="Tipo_gestion" Type="Self.Tipo_gestion" Multiplicity="0..1" />
+          <End Role="Instalacion" Type="Self.Instalacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_gestion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Instalacion">
+              <PropertyRef Name="id_tipo_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="EntiEspaiEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Act_concedida" EntityType="Self.Act_concedida" />
           <EntitySet Name="Act_demandadas" EntityType="Self.Act_demandadas" />
@@ -989,6 +1076,8 @@
           <EntitySet Name="Espacio" EntityType="Self.Espacio" />
           <EntitySet Name="Horario_Act_Con" EntityType="Self.Horario_Act_Con" />
           <EntitySet Name="Horario_Act_Dem" EntityType="Self.Horario_Act_Dem" />
+          <EntitySet Name="Instalacion" EntityType="Self.Instalacion" />
+          <EntitySet Name="Instalacion_Horario" EntityType="Self.Instalacion_Horario" />
           <EntitySet Name="Nivel" EntityType="Self.Nivel" />
           <EntitySet Name="Sexo" EntityType="Self.Sexo" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" />
@@ -1022,7 +1111,7 @@
             <End Role="Espacio" EntitySet="Espacio" />
             <End Role="Act_demandadas" EntitySet="Act_demandadas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Act_demandadas_Tipo_Act" Association="Self.FK_Act_demandadas_Tipo_Act">
+          <AssociationSet Name="FK_Act_demandadas_Tipo" Association="Self.FK_Act_demandadas_Tipo">
             <End Role="Tipo_Act" EntitySet="Tipo_Act" />
             <End Role="Act_demandadas" EntitySet="Act_demandadas" />
           </AssociationSet>
@@ -1050,6 +1139,10 @@
             <End Role="Dias_Semana" EntitySet="Dias_Semana" />
             <End Role="Horario_Act_Dem" EntitySet="Horario_Act_Dem" />
           </AssociationSet>
+          <AssociationSet Name="FK_Instalacion_Horario_Dia_Semana" Association="Self.FK_Instalacion_Horario_Dia_Semana">
+            <End Role="Dias_Semana" EntitySet="Dias_Semana" />
+            <End Role="Instalacion_Horario" EntitySet="Instalacion_Horario" />
+          </AssociationSet>
           <AssociationSet Name="FK_Equipo_Entidad" Association="Self.FK_Equipo_Entidad">
             <End Role="Entidad" EntitySet="Entidad" />
             <End Role="Equipo" EntitySet="Equipo" />
@@ -1066,125 +1159,19 @@
             <End Role="Sexo" EntitySet="Sexo" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
-          <EntitySet Name="Instalacion_Horario" EntityType="EntiEspaiModel.Instalacion_Horario" />
-          <AssociationSet Name="FK_Instalacion_Horario_Dia_Semana" Association="EntiEspaiModel.FK_Instalacion_Horario_Dia_Semana">
-            <End Role="Dias_Semana" EntitySet="Dias_Semana" />
-            <End Role="Instalacion_Horario" EntitySet="Instalacion_Horario" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Equipo_Espacio" Association="EntiEspaiModel.FK_Equipo_Espacio">
-            <End Role="Espacio" EntitySet="Espacio" />
-            <End Role="Equipo" EntitySet="Equipo" />
-          </AssociationSet>
-          <EntitySet Name="Instalacion" EntityType="EntiEspaiModel.Instalacion" />
-          <EntitySet Name="sysdiagrams" EntityType="EntiEspaiModel.sysdiagrams" />
-          <AssociationSet Name="FK_Espacio_Instalacion" Association="EntiEspaiModel.FK_Espacio_Instalacion">
+          <AssociationSet Name="FK_Espacio_Instalacion" Association="Self.FK_Espacio_Instalacion">
             <End Role="Instalacion" EntitySet="Instalacion" />
             <End Role="Espacio" EntitySet="Espacio" />
           </AssociationSet>
-          <AssociationSet Name="FK_Instalacion_Horario_Instalacion" Association="EntiEspaiModel.FK_Instalacion_Horario_Instalacion">
+          <AssociationSet Name="FK_Instalacion_Horario_Instalacion" Association="Self.FK_Instalacion_Horario_Instalacion">
             <End Role="Instalacion" EntitySet="Instalacion" />
             <End Role="Instalacion_Horario" EntitySet="Instalacion_Horario" />
           </AssociationSet>
-          <AssociationSet Name="FK_Instalacion_Tipo_gestion" Association="EntiEspaiModel.FK_Instalacion_Tipo_gestion">
+          <AssociationSet Name="FK_Instalacion_TipoGestion" Association="Self.FK_Instalacion_TipoGestion">
             <End Role="Tipo_gestion" EntitySet="Tipo_gestion" />
             <End Role="Instalacion" EntitySet="Instalacion" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Instalacion_Horario">
-          <Key>
-            <PropertyRef Name="id_instalacion" />
-            <PropertyRef Name="id_dia_semana" />
-            <PropertyRef Name="hora_inicio" />
-          </Key>
-          <Property Name="id_instalacion" Type="Int32" Nullable="false" />
-          <Property Name="id_dia_semana" Type="Int32" Nullable="false" />
-          <Property Name="hora_inicio" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="hora_final" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="Dias_Semana" Relationship="EntiEspaiModel.FK_Instalacion_Horario_Dia_Semana" FromRole="Instalacion_Horario" ToRole="Dias_Semana" />
-          <NavigationProperty Name="Instalacion" Relationship="EntiEspaiModel.FK_Instalacion_Horario_Instalacion" FromRole="Instalacion_Horario" ToRole="Instalacion" />
-        </EntityType>
-        <Association Name="FK_Instalacion_Horario_Dia_Semana">
-          <End Type="EntiEspaiModel.Dias_Semana" Role="Dias_Semana" Multiplicity="1" />
-          <End Type="EntiEspaiModel.Instalacion_Horario" Role="Instalacion_Horario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dias_Semana">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Instalacion_Horario">
-              <PropertyRef Name="id_dia_semana" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Equipo_Espacio">
-          <End Type="EntiEspaiModel.Espacio" Role="Espacio" Multiplicity="1" />
-          <End Type="EntiEspaiModel.Equipo" Role="Equipo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Espacio">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Equipo">
-              <PropertyRef Name="id_entidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Instalacion">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id_tipo_gestion" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Espacio" Relationship="EntiEspaiModel.FK_Espacio_Instalacion" FromRole="Instalacion" ToRole="Espacio" />
-          <NavigationProperty Name="Instalacion_Horario" Relationship="EntiEspaiModel.FK_Instalacion_Horario_Instalacion" FromRole="Instalacion" ToRole="Instalacion_Horario" />
-          <NavigationProperty Name="Tipo_gestion" Relationship="EntiEspaiModel.FK_Instalacion_Tipo_gestion" FromRole="Instalacion" ToRole="Tipo_gestion" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK_Espacio_Instalacion">
-          <End Type="EntiEspaiModel.Instalacion" Role="Instalacion" Multiplicity="1" />
-          <End Type="EntiEspaiModel.Espacio" Role="Espacio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Instalacion">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Espacio">
-              <PropertyRef Name="id_instalacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Instalacion_Horario_Instalacion">
-          <End Type="EntiEspaiModel.Instalacion" Role="Instalacion" Multiplicity="1" />
-          <End Type="EntiEspaiModel.Instalacion_Horario" Role="Instalacion_Horario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Instalacion">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Instalacion_Horario">
-              <PropertyRef Name="id_instalacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Instalacion_Tipo_gestion">
-          <End Type="EntiEspaiModel.Tipo_gestion" Role="Tipo_gestion" Multiplicity="1" />
-          <End Type="EntiEspaiModel.Instalacion" Role="Instalacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tipo_gestion">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Instalacion">
-              <PropertyRef Name="id_tipo_gestion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1269,6 +1256,7 @@
                 <ScalarProperty Name="temporada" ColumnName="temporada" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="nif" ColumnName="nif" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1283,6 +1271,7 @@
                 <ScalarProperty Name="id_nivel" ColumnName="id_nivel" />
                 <ScalarProperty Name="id_sexo" ColumnName="id_sexo" />
                 <ScalarProperty Name="id_entidad" ColumnName="id_entidad" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1313,6 +1302,27 @@
               <MappingFragment StoreEntitySet="Horario_Act_Dem">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_Act_Demandada" ColumnName="id_Act_Demandada" />
+                <ScalarProperty Name="id_dia_semana" ColumnName="id_dia_semana" />
+                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+                <ScalarProperty Name="hora_final" ColumnName="hora_final" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instalacion">
+            <EntityTypeMapping TypeName="EntiEspaiModel.Instalacion">
+              <MappingFragment StoreEntitySet="Instalacion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="id_tipo_gestion" ColumnName="id_tipo_gestion" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instalacion_Horario">
+            <EntityTypeMapping TypeName="EntiEspaiModel.Instalacion_Horario">
+              <MappingFragment StoreEntitySet="Instalacion_Horario">
+                <ScalarProperty Name="id_instalacion" ColumnName="id_instalacion" />
                 <ScalarProperty Name="id_dia_semana" ColumnName="id_dia_semana" />
                 <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
                 <ScalarProperty Name="hora_final" ColumnName="hora_final" />
@@ -1358,37 +1368,6 @@
               <MappingFragment StoreEntitySet="Tipo_gestion">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Instalacion_Horario">
-            <EntityTypeMapping TypeName="EntiEspaiModel.Instalacion_Horario">
-              <MappingFragment StoreEntitySet="Instalacion_Horario">
-                <ScalarProperty Name="hora_final" ColumnName="hora_final" />
-                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
-                <ScalarProperty Name="id_dia_semana" ColumnName="id_dia_semana" />
-                <ScalarProperty Name="id_instalacion" ColumnName="id_instalacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Instalacion">
-            <EntityTypeMapping TypeName="EntiEspaiModel.Instalacion">
-              <MappingFragment StoreEntitySet="Instalacion">
-                <ScalarProperty Name="id_tipo_gestion" ColumnName="id_tipo_gestion" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="EntiEspaiModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

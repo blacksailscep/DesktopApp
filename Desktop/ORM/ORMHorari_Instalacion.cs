@@ -69,14 +69,28 @@ namespace Desktop.ORM
         public static String UpdateHorariInstalacio(int id_Insta, int diaSem, TimeSpan hIn, Instalacion_Horario hInsta)
         {
             String mensaje = "";
+            String mens = "";
 
             try
             {
                 Instalacion_Horario hI = new Instalacion_Horario();
-                hI = ORM.bd.Instalacion_Horario.Find(id_Insta, diaSem, hIn);
-               
-                hI.hora_final = hInsta.hora_final;
-               
+
+                hI = SelectUnHorarioInsta(id_Insta, diaSem, hIn, ref mens);
+
+                if (!string.IsNullOrEmpty(mens))
+                {
+                    mensaje = mens;
+                }
+                else
+                {
+
+                    hI.id_instalacion = hInsta.id_instalacion;
+                    hI.id_dia_semana = hInsta.id_dia_semana;
+                    hI.hora_inicio = hInsta.hora_inicio;
+                    hI.hora_final = hInsta.hora_final;
+
+                }
+
                 mensaje = ORM.SaveChanges();
             }
             catch (DbUpdateException ex)

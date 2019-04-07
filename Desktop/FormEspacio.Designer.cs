@@ -32,22 +32,22 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelTipo = new System.Windows.Forms.Label();
-            this.radioButtonExterior = new System.Windows.Forms.RadioButton();
             this.labelPrecio = new System.Windows.Forms.Label();
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
             this.labelInstalación = new System.Windows.Forms.Label();
             this.textBoxInstalacion = new System.Windows.Forms.TextBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
+            this.radioButtonExterior = new System.Windows.Forms.RadioButton();
             this.groupBoxDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxDatos
             // 
+            this.groupBoxDatos.Controls.Add(this.radioButtonExterior);
             this.groupBoxDatos.Controls.Add(this.labelNombre);
             this.groupBoxDatos.Controls.Add(this.textBoxNombre);
             this.groupBoxDatos.Controls.Add(this.labelTipo);
-            this.groupBoxDatos.Controls.Add(this.radioButtonExterior);
             this.groupBoxDatos.Controls.Add(this.labelPrecio);
             this.groupBoxDatos.Controls.Add(this.textBoxPrecio);
             this.groupBoxDatos.Controls.Add(this.labelInstalación);
@@ -88,18 +88,6 @@
             this.labelTipo.Size = new System.Drawing.Size(36, 17);
             this.labelTipo.TabIndex = 6;
             this.labelTipo.Text = "Tipo";
-            // 
-            // radioButtonExterior
-            // 
-            this.radioButtonExterior.AutoSize = true;
-            this.radioButtonExterior.Location = new System.Drawing.Point(101, 124);
-            this.radioButtonExterior.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButtonExterior.Name = "radioButtonExterior";
-            this.radioButtonExterior.Size = new System.Drawing.Size(77, 21);
-            this.radioButtonExterior.TabIndex = 5;
-            this.radioButtonExterior.TabStop = true;
-            this.radioButtonExterior.Text = "Exterior";
-            this.radioButtonExterior.UseVisualStyleBackColor = true;
             // 
             // labelPrecio
             // 
@@ -162,6 +150,17 @@
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
+            // radioButtonExterior
+            // 
+            this.radioButtonExterior.AutoSize = true;
+            this.radioButtonExterior.Location = new System.Drawing.Point(101, 127);
+            this.radioButtonExterior.Name = "radioButtonExterior";
+            this.radioButtonExterior.Size = new System.Drawing.Size(77, 21);
+            this.radioButtonExterior.TabIndex = 9;
+            this.radioButtonExterior.TabStop = true;
+            this.radioButtonExterior.Text = "Exterior";
+            this.radioButtonExterior.UseVisualStyleBackColor = true;
+            // 
             // FormEspacio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -188,11 +187,11 @@
         private System.Windows.Forms.Label labelInstalación;
         private System.Windows.Forms.TextBox textBoxPrecio;
         private System.Windows.Forms.Label labelPrecio;
-        private System.Windows.Forms.RadioButton radioButtonExterior;
         private System.Windows.Forms.Label labelTipo;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.RadioButton radioButtonExterior;
     }
 }

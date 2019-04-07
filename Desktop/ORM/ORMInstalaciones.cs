@@ -138,11 +138,20 @@ namespace Desktop.ORM
             {
                 Instalacion insta = new Instalacion();
 
-                insta = ORM.bd.Instalacion.Find(instalaci.id);
+                insta = SelectInstalacionByID(instalaci.id, ref mens);
 
-                insta.nombre = instalaci.nombre;
-                insta.id_tipo_gestion = instalaci.id_tipo_gestion;
-                insta.direccion = instalaci.direccion;
+                if (!string.IsNullOrEmpty(mens))
+                {
+                    mensaje = mens;
+                }
+                else
+                {
+                    insta.id = instalaci.id;
+                    insta.nombre = instalaci.nombre;
+                    insta.id_tipo_gestion = instalaci.id_tipo_gestion;
+                    insta.direccion = instalaci.direccion;
+
+                }
 
                 mensaje = ORM.SaveChanges();
             }

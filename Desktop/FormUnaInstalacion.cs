@@ -13,6 +13,7 @@ namespace Desktop
     public partial class FormUnaInstalacion : Form
     {
         Instalacion instalaci;
+        Boolean isActivated;
         
 
         public FormUnaInstalacion()
@@ -150,7 +151,7 @@ namespace Desktop
 
         private void FormUnaInstalacion_Load(object sender, EventArgs e)
         {
-            bindingsGrid();
+            //bindingsGrid();
             omplir();
 
             if (instalaci != null)
@@ -164,13 +165,20 @@ namespace Desktop
             {
                 buttonModificar.Text = "Añadir";
             }
+            isActivated = false;
         }
 
         private void FormUnaInstalacion_Activated(object sender, EventArgs e)
         {
-            bindingsGrid();
-            botonesEspacio();
-            botonesHorario();
+            if(isActivated)
+            {
+                bindingsGrid();
+                botonesEspacio();
+                botonesHorario();
+            }
+
+            isActivated = true;
+
         }
 
 
@@ -317,7 +325,7 @@ namespace Desktop
             if (resultado == DialogResult.Yes)
             {
                 mensaje = ORM.ORMEspacio.DelelteEspacio(espaci);
-                bindingsGrid();
+                //bindingsGrid();
                 if (!string.IsNullOrWhiteSpace(mensaje))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -339,34 +347,41 @@ namespace Desktop
         /*Mètode per ELIMINAR ESPAIS sense BOTÓ*/
         private void dataGridViewEspacios_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            String mensaje = "";
+            try{
 
-            Espacio espaci = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
-            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este espacio?", "BORRAR ESPACIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                String mensaje = "";
 
-            if (resultado == DialogResult.Yes)
-            {
-                mensaje = ORM.ORMEspacio.DelelteEspacio(espaci);
-                bindingsGrid();
+                Espacio espaci = (Espacio)dataGridViewEspacios.SelectedRows[0].DataBoundItem;
+                DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este espacio?", "BORRAR ESPACIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (!string.IsNullOrWhiteSpace(mensaje))
+                if (resultado == DialogResult.Yes)
                 {
-                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    e.Cancel = true;    //Para cancelar el evento
+                    mensaje = ORM.ORMEspacio.DelelteEspacio(espaci);
+                    //bindingsGrid();
+
+                    if (!string.IsNullOrWhiteSpace(mensaje))
+                    {
+                        MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;    //Para cancelar el evento
+                    }
+                    else
+                    {
+                        bindingsGrid();
+                        botonesEspacio();
+                        botonesHorario();
+                    }
                 }
                 else
                 {
-                    bindingsGrid();
-                    botonesEspacio();
-                    botonesHorario();
-                }
-            }
-            else
-            {
-                e.Cancel = true;
-                MessageBox.Show("El espacio no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Cancel = true;
+                    MessageBox.Show("El espacio no se borrará", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+
+            } catch(Exception ee) {
+                //MessageBox.Show(ee.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
         }
 
         private void dataGridViewEspacios_DoubleClick(object sender, EventArgs e)
@@ -444,5 +459,10 @@ namespace Desktop
            
 
         }
+
+        //private void dataGridViewEspacios_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        //{
+        //    MessageBox.Show("El espacio borrado :)", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //}
     }
 }

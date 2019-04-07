@@ -73,31 +73,29 @@ namespace Desktop.ORM
         public static String UpdateEspacio(Espacio espaci)
         {
             String mensaje = "";
-            //String mens = "";
+            String mens = "";
             try
             {
-                
                 Espacio espai = new Espacio();
-                espai=ORM.bd.Espacio.Find(espaci.id);
 
-                //espai = SelectEspacioBynombre(espaci.id, ref mens);
+                espai = SelectEspacioBynombre(espaci.id, ref mens);
 
-                //if (!string.IsNullOrWhiteSpace(mens))
-                //{
-                //    mensaje = mens;
-                   
-                //}
-                //{
-                //    espai.nombre = espaci.nombre;
+                if (!string.IsNullOrEmpty(mens))
+                {
+                    mensaje = mens;
+                }
+                else
+                {
+                    espai.id_instalacion = espaci.id_instalacion;
+                    espai.nombre = espaci.nombre;
                     espai.precio = espaci.precio;
                     espai.exterior = espaci.exterior;
-                //}
-                
+                }
 
                 mensaje = ORM.SaveChanges();
             }
             catch (DbUpdateException ex)
-            { 
+            {
                 SqlException exception = (SqlException)ex.InnerException.InnerException;
                 mensaje = ORM.MensajeError(exception);
             }
