@@ -52,7 +52,8 @@ namespace Desktop
 
         private void labelInstalaciones_Click(object sender, EventArgs e)
         {
-
+            new FormInstalaciones().Show();
+            this.Close();
         }
 
         private void labelActividades_Click(object sender, EventArgs e)

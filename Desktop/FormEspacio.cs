@@ -43,7 +43,7 @@ namespace Desktop
                 Instalacion insta = new Instalacion();
                 
                 //Hago una búsqueda para mostrar el nombre de la instalación por pantalla
-                insta = ORM.ORMInstalaciones.SelectInstalacionByID(espacio.id_instalacion, ref mensaje);
+                insta = ORM.ORMInstalaciones.SelectInstalacionByID((int)espacio.id_instalacion, ref mensaje);
                 textBoxInstalacion.Text = insta.nombre;
                 //Se deshabilita para no poder modificarlo
                 textBoxInstalacion.Enabled = false;
@@ -59,7 +59,7 @@ namespace Desktop
                 float numero = (float)(Math.Round((double)espacio.precio, 2));
 
                 textBoxPrecio.Text = numero.ToString();
-                radioButtonExterior.Checked = espacio.exterior;
+                radioButtonExterior.Checked = (bool)espacio.exterior;
 
 
             }

@@ -13,7 +13,6 @@ namespace Desktop
     public partial class FormUnaInstalacion : Form
     {
         Instalacion instalaci;
-        
 
         public FormUnaInstalacion()
         {
@@ -124,6 +123,7 @@ namespace Desktop
 
             mensaje = "";
             bindingSourceDiasSemana.DataSource = ORM.ORMInstalaciones.SelectAllDiasSemana(ref mensaje);
+
             if (!string.IsNullOrEmpty(mensaje))
             {
                 MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -134,7 +134,9 @@ namespace Desktop
             if (instalaci != null)
             {
                 mensaje = "";
-                bindingSourceEspacios.DataSource = ORM.ORMEspacio.SelectAllEspacios(instalaci.id, ref mensaje);
+
+                bindingSourceEspacios.DataSource = ORM.ORMEspacio.SelectAllEspacios(instalaci.id, ref mensaje);                    
+
                 if (!string.IsNullOrEmpty(mensaje))
                 {
                     MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -142,8 +144,9 @@ namespace Desktop
                 }
 
                 List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalaci.id, ref mensaje);
-
                 bindingSourceHorarioInsta.DataSource = horari;
+
+
             }
             
         }
@@ -259,6 +262,7 @@ namespace Desktop
                 }
                 else
                 {
+                    isUserDeleting = true;
                     bindingsGrid();
                     botonesEspacio();
                     botonesHorario();
@@ -283,6 +287,7 @@ namespace Desktop
         {
             FormEspacio formEspacio = new FormEspacio(instalaci);
             formEspacio.ShowDialog();
+            
         }
 
         public void modificarEspai()
