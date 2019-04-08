@@ -38,7 +38,6 @@ namespace Desktop
                 //List<Instalacion_Horario> horari = ORM.ORMHorari_Instalacion.SelectAllHorarioInstalacion(instalacion.id, ref mensaje);
               
                 //bindingSourceHorarioInsta.DataSource = horari;
-               
 
                 //Para que SÍ se puedan modificar si no hay ningún horario ni espacio añadidos
                 botonesEspacio();
