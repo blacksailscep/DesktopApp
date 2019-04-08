@@ -152,7 +152,7 @@
             this.Controls.Add(this.labelHInicio);
             this.Controls.Add(this.labelHorario);
             this.Name = "FormHorarioInsta";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormHorarioInsta";
             this.Load += new System.EventHandler(this.FormHorarioInsta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDiesSetmana)).EndInit();

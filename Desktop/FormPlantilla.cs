@@ -26,16 +26,26 @@ namespace Desktop
             labelUsuarios.Text      = "            Usuarios";
         }
 
-        public List<Label> GetLabels()
-        {
-            List<Label> lst_labels = new List<Label>();
-            lst_labels.Add(labelInicio);
-            lst_labels.Add(labelEntidades);
-            lst_labels.Add(labelInstalaciones);
-            lst_labels.Add(labelActividades);
-            lst_labels.Add(labelUsuarios);
-
-            return lst_labels;
+        public List<Label> GetLabels()
+
+        {
+
+            List<Label> lst_labels = new List<Label>();
+
+            lst_labels.Add(labelInicio);
+
+            lst_labels.Add(labelEntidades);
+
+            lst_labels.Add(labelInstalaciones);
+
+            lst_labels.Add(labelActividades);
+
+            lst_labels.Add(labelUsuarios);
+
+
+
+            return lst_labels;
+
         }
 
         private void labelInicio_Click(object sender, EventArgs e)
@@ -52,7 +62,8 @@ namespace Desktop
 
         private void labelInstalaciones_Click(object sender, EventArgs e)
         {
-            new FormInstalaciones().Show();
+            FormInstalaciones f = new FormInstalaciones(); 
+            f.Show();
             this.Close();
         }
 

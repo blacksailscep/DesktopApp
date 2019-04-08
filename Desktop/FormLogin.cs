@@ -58,5 +58,15 @@ namespace Desktop
                 f.ShowDialog();
             }
         }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormCollection fc = Application.OpenForms;
+            if (fc.Count <= 2)
+            {
+                System.Windows.Forms.Application.Exit();
+                System.Environment.Exit(1);
+            }
+        }
     }      
 }

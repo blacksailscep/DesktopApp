@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBoxInstalacion = new System.Windows.Forms.PictureBox();
             this.groupBoxDatosInstalacion = new System.Windows.Forms.GroupBox();
             this.comboBoxTipoGestion = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,6 @@
             this.actconcedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actdemandadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instalacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceEspacios = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceDiasSemana = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceHorarioInsta = new System.Windows.Forms.BindingSource(this.components);
@@ -230,8 +229,7 @@
             this.idinstalacionDataGridViewTextBoxColumn1,
             this.actconcedidaDataGridViewTextBoxColumn,
             this.actdemandadasDataGridViewTextBoxColumn,
-            this.instalacionDataGridViewTextBoxColumn1,
-            this.equipoDataGridViewTextBoxColumn});
+            this.instalacionDataGridViewTextBoxColumn1});
             this.dataGridViewEspacios.DataSource = this.bindingSourceEspacios;
             this.dataGridViewEspacios.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewEspacios.Location = new System.Drawing.Point(3, 16);
@@ -264,9 +262,9 @@
             // 
             this.precioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.precioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.precioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
             this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
             this.precioDataGridViewTextBoxColumn.ReadOnly = true;
@@ -312,14 +310,6 @@
             this.instalacionDataGridViewTextBoxColumn1.Name = "instalacionDataGridViewTextBoxColumn1";
             this.instalacionDataGridViewTextBoxColumn1.ReadOnly = true;
             this.instalacionDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // equipoDataGridViewTextBoxColumn
-            // 
-            this.equipoDataGridViewTextBoxColumn.DataPropertyName = "Equipo";
-            this.equipoDataGridViewTextBoxColumn.HeaderText = "Equipo";
-            this.equipoDataGridViewTextBoxColumn.Name = "equipoDataGridViewTextBoxColumn";
-            this.equipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.equipoDataGridViewTextBoxColumn.Visible = false;
             // 
             // bindingSourceEspacios
             // 
@@ -501,7 +491,7 @@
             this.Controls.Add(this.labelDatosInstalacion);
             this.Controls.Add(this.groupBoxDatosInstalacion);
             this.Name = "FormUnaInstalacion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Instalacion";
             this.Activated += new System.EventHandler(this.FormUnaInstalacion_Activated);
             this.Load += new System.EventHandler(this.FormUnaInstalacion_Load);

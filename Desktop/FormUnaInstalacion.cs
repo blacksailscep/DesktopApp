@@ -247,7 +247,6 @@ namespace Desktop
         private void dataGridViewHorariosInsta_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             String mensaje = "";
-
             DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este horario?", "BORRAR HORARIO DE INSTALACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             Instalacion_Horario instaHorario = (Instalacion_Horario)dataGridViewHorariosInsta.SelectedRows[0].DataBoundItem;
 
@@ -262,7 +261,6 @@ namespace Desktop
                 }
                 else
                 {
-                    isUserDeleting = true;
                     bindingsGrid();
                     botonesEspacio();
                     botonesHorario();
