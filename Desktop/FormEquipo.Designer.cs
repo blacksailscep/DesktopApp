@@ -28,96 +28,109 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.buttonModificar = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.textBoxDeporte = new System.Windows.Forms.TextBox();
+            this.textBoxCategoria = new System.Windows.Forms.TextBox();
+            this.textBoxCompeticion = new System.Windows.Forms.TextBox();
+            this.textBoxSexo = new System.Windows.Forms.TextBox();
+            this.textBoxNivel = new System.Windows.Forms.TextBox();
+            this.listBoxActividades = new System.Windows.Forms.ListBox();
+            this.buttonAceptar = new System.Windows.Forms.Button();
+            this.actconcedidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.actconcedidaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(367, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(810, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxNombre.Location = new System.Drawing.Point(367, 92);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(810, 20);
+            this.textBoxNombre.TabIndex = 1;
             // 
-            // textBox2
+            // textBoxDeporte
             // 
-            this.textBox2.Location = new System.Drawing.Point(367, 130);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(810, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBoxDeporte.Location = new System.Drawing.Point(367, 130);
+            this.textBoxDeporte.Name = "textBoxDeporte";
+            this.textBoxDeporte.Size = new System.Drawing.Size(810, 20);
+            this.textBoxDeporte.TabIndex = 2;
             // 
-            // textBox3
+            // textBoxCategoria
             // 
-            this.textBox3.Location = new System.Drawing.Point(367, 169);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(810, 20);
-            this.textBox3.TabIndex = 3;
+            this.textBoxCategoria.Location = new System.Drawing.Point(367, 169);
+            this.textBoxCategoria.Name = "textBoxCategoria";
+            this.textBoxCategoria.Size = new System.Drawing.Size(810, 20);
+            this.textBoxCategoria.TabIndex = 3;
             // 
-            // textBox4
+            // textBoxCompeticion
             // 
-            this.textBox4.Location = new System.Drawing.Point(367, 206);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(810, 20);
-            this.textBox4.TabIndex = 4;
+            this.textBoxCompeticion.Location = new System.Drawing.Point(367, 206);
+            this.textBoxCompeticion.Name = "textBoxCompeticion";
+            this.textBoxCompeticion.Size = new System.Drawing.Size(810, 20);
+            this.textBoxCompeticion.TabIndex = 4;
             // 
-            // textBox5
+            // textBoxSexo
             // 
-            this.textBox5.Location = new System.Drawing.Point(367, 242);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(810, 20);
-            this.textBox5.TabIndex = 5;
+            this.textBoxSexo.Location = new System.Drawing.Point(367, 242);
+            this.textBoxSexo.Name = "textBoxSexo";
+            this.textBoxSexo.Size = new System.Drawing.Size(810, 20);
+            this.textBoxSexo.TabIndex = 5;
             // 
-            // textBox6
+            // textBoxNivel
             // 
-            this.textBox6.Location = new System.Drawing.Point(367, 282);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(810, 20);
-            this.textBox6.TabIndex = 6;
+            this.textBoxNivel.Location = new System.Drawing.Point(367, 282);
+            this.textBoxNivel.Name = "textBoxNivel";
+            this.textBoxNivel.Size = new System.Drawing.Size(810, 20);
+            this.textBoxNivel.TabIndex = 6;
             // 
-            // listBox1
+            // listBoxActividades
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 337);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1164, 238);
-            this.listBox1.TabIndex = 7;
+            this.listBoxActividades.DataSource = this.actconcedidaBindingSource;
+            this.listBoxActividades.DisplayMember = "nombre";
+            this.listBoxActividades.FormattingEnabled = true;
+            this.listBoxActividades.Location = new System.Drawing.Point(13, 337);
+            this.listBoxActividades.Name = "listBoxActividades";
+            this.listBoxActividades.Size = new System.Drawing.Size(1164, 238);
+            this.listBoxActividades.TabIndex = 7;
+            this.listBoxActividades.ValueMember = "nombre";
             // 
-            // buttonModificar
+            // buttonAceptar
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(518, 607);
-            this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(173, 23);
-            this.buttonModificar.TabIndex = 8;
-            this.buttonModificar.Text = "Modificar";
-            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Location = new System.Drawing.Point(518, 607);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(173, 23);
+            this.buttonAceptar.TabIndex = 8;
+            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
+            // 
+            // actconcedidaBindingSource
+            // 
+            this.actconcedidaBindingSource.DataSource = typeof(Desktop.Act_concedida);
             // 
             // FormEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1250, 659);
-            this.Controls.Add(this.buttonModificar);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonAceptar);
+            this.Controls.Add(this.listBoxActividades);
+            this.Controls.Add(this.textBoxNivel);
+            this.Controls.Add(this.textBoxSexo);
+            this.Controls.Add(this.textBoxCompeticion);
+            this.Controls.Add(this.textBoxCategoria);
+            this.Controls.Add(this.textBoxDeporte);
+            this.Controls.Add(this.textBoxNombre);
             this.Name = "FormEquipo";
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
-            this.Controls.SetChildIndex(this.textBox3, 0);
-            this.Controls.SetChildIndex(this.textBox4, 0);
-            this.Controls.SetChildIndex(this.textBox5, 0);
-            this.Controls.SetChildIndex(this.textBox6, 0);
-            this.Controls.SetChildIndex(this.listBox1, 0);
-            this.Controls.SetChildIndex(this.buttonModificar, 0);
+            this.Load += new System.EventHandler(this.FormEquipo_Load);
+            this.Controls.SetChildIndex(this.textBoxNombre, 0);
+            this.Controls.SetChildIndex(this.textBoxDeporte, 0);
+            this.Controls.SetChildIndex(this.textBoxCategoria, 0);
+            this.Controls.SetChildIndex(this.textBoxCompeticion, 0);
+            this.Controls.SetChildIndex(this.textBoxSexo, 0);
+            this.Controls.SetChildIndex(this.textBoxNivel, 0);
+            this.Controls.SetChildIndex(this.listBoxActividades, 0);
+            this.Controls.SetChildIndex(this.buttonAceptar, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.actconcedidaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,13 +138,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.TextBox textBoxDeporte;
+        private System.Windows.Forms.TextBox textBoxCategoria;
+        private System.Windows.Forms.TextBox textBoxCompeticion;
+        private System.Windows.Forms.TextBox textBoxSexo;
+        private System.Windows.Forms.TextBox textBoxNivel;
+        private System.Windows.Forms.ListBox listBoxActividades;
+        private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.BindingSource actconcedidaBindingSource;
     }
 }

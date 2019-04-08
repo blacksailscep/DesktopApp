@@ -11,10 +11,13 @@ namespace Desktop
     public partial class FormEntidades : Desktop.FormPlantilla
     {
         bool mod;
+        int Temporada = 2019;
+
         public FormEntidades()
         {
             InitializeComponent();
         }
+        
 
         private void buttonVer_Click(object sender, EventArgs e)
         {
@@ -36,6 +39,19 @@ namespace Desktop
                 FormEntidad enti = new FormEntidad(en, mod);
                 enti.ShowDialog();
             }
+        }
+
+        private void FormEntidades_Load(object sender, EventArgs e)
+        {
+            String mensaje = "";
+            bindingSourceEntidades.DataSource = ORM.ORMEntidades.SelectEntidades(ref mensaje, Temporada);
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            String buscar = textBoxBuscar.Text;
+            String mensaje = "";
+            bindingSourceEntidades.DataSource = ORM.ORMEntidades.SelectEntidadesByNombre(ref mensaje, buscar, Temporada);
         }
     }
 }

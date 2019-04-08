@@ -28,29 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridViewEntidades = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceEntidades = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.buttonInforme = new System.Windows.Forms.Button();
             this.buttonVer = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEntidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEntidades)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewEntidades
             // 
+            this.dataGridViewEntidades.AllowUserToAddRows = false;
+            this.dataGridViewEntidades.AllowUserToDeleteRows = false;
+            this.dataGridViewEntidades.AutoGenerateColumns = false;
             this.dataGridViewEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEntidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn});
+            this.dataGridViewEntidades.DataSource = this.bindingSourceEntidades;
             this.dataGridViewEntidades.Location = new System.Drawing.Point(12, 135);
             this.dataGridViewEntidades.Name = "dataGridViewEntidades";
+            this.dataGridViewEntidades.ReadOnly = true;
             this.dataGridViewEntidades.Size = new System.Drawing.Size(1226, 506);
             this.dataGridViewEntidades.TabIndex = 1;
             // 
-            // textBox1
+            // idDataGridViewTextBoxColumn
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(321, 20);
-            this.textBox1.TabIndex = 2;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceEntidades
+            // 
+            this.bindingSourceEntidades.DataSource = typeof(Desktop.Entidad);
+            // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.Location = new System.Drawing.Point(26, 74);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(321, 20);
+            this.textBoxBuscar.TabIndex = 2;
             // 
             // buttonBuscar
             // 
@@ -60,6 +92,7 @@
             this.buttonBuscar.TabIndex = 3;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // buttonInforme
             // 
@@ -98,16 +131,18 @@
             this.Controls.Add(this.buttonVer);
             this.Controls.Add(this.buttonInforme);
             this.Controls.Add(this.buttonBuscar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.dataGridViewEntidades);
             this.Name = "FormEntidades";
+            this.Load += new System.EventHandler(this.FormEntidades_Load);
             this.Controls.SetChildIndex(this.dataGridViewEntidades, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBoxBuscar, 0);
             this.Controls.SetChildIndex(this.buttonBuscar, 0);
             this.Controls.SetChildIndex(this.buttonInforme, 0);
             this.Controls.SetChildIndex(this.buttonVer, 0);
             this.Controls.SetChildIndex(this.buttonModificar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEntidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEntidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +151,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewEntidades;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Button buttonInforme;
         private System.Windows.Forms.Button buttonVer;
         private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bindingSourceEntidades;
     }
 }
