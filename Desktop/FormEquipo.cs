@@ -52,7 +52,7 @@ namespace Desktop
                 String sexo = textBoxSexo.Text;
                 String nivel = textBoxNivel.Text;
 
-                ORM.ORMEquipo.UpdateEquipo(equip.id, nombre, deportes, categoria_edad, competicion, sexo, nivel);
+                ORM.ORMEquipos.UpdateEquipo(equip.id, nombre, deportes, categoria_edad, competicion, sexo, nivel);
             }
 
             this.Close();

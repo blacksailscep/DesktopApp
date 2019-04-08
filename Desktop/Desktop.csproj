@@ -155,7 +155,7 @@
     </Compile>
     <Compile Include="ORM\ORM.cs" />
     <Compile Include="ORM\ORMEntidades.cs" />
-    <Compile Include="ORM\ORMEquipo.cs" />
+    <Compile Include="ORM\ORMEquipos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs">

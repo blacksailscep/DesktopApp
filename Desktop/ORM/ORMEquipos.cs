@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Desktop.ORM
 {
-    class ORMEquipo
+    class ORMEquipos
     {
         public static void UpdateEquipo(int id, String nombre, String deporte, String categoria, String competicion, String sexo, String nivel)
         {
